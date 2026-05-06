@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Legacy Property Holdings Rental Application — complete your premium rental application."
+    />
+    <title>Rental Application | Legacy Property Holdings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      .application-page {
+        padding: 40px 20px;
+        min-height: calc(100vh - 120px);
+      }
+
+      .application-wrap {
+        max-width: 900px;
+        width: min(900px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .page-intro {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .page-title {
+        margin: 0 0 10px;
+        font-family: "Playfair Display", ui-serif, Georgia, serif;
+        font-size: clamp(34px, 4vw, 48px);
+        line-height: 1.08;
+        letter-spacing: 0.2px;
+      }
+
+      .page-subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-size: 16px;
+      }
+
+      .application-form {
+        display: grid;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 30px;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+      }
+
+      .form-block {
+        max-width: 100%;
+        overflow: hidden;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.03);
+        padding: 24px;
+        box-shadow: none;
+      }
+
+      .form-block__title {
+        margin: 0 0 18px;
+        font-size: 18px;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        color: rgba(255, 255, 255, 0.95);
+      }
+
+      .form-block__subtitle {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .form-grid {
+        margin-top: 12px;
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .form-grid--single {
+        grid-template-columns: 1fr;
+      }
+
+      .field {
+        display: block;
+        min-width: 0;
+      }
+
+      .field__label {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-size: 12px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+      }
+
+      .required-mark {
+        color: rgba(212, 175, 55, 0.98);
+        font-weight: 700;
+      }
+
+      .field__input {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.92);
+        padding: 14px;
+        font: inherit;
+        outline: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        min-width: 0;
+      }
+
+      .field__input::placeholder {
+        color: rgba(255, 255, 255, 0.48);
+      }
+
+      .field__input:focus {
+        border-color: rgba(212, 175, 55, 0.5);
+        box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .field__input--textarea {
+        min-height: 118px;
+        resize: vertical;
+      }
+
+      .help-text {
+        margin-top: 7px;
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 12px;
+      }
+
+      .checkbox-group {
+        margin-top: 14px;
+        display: grid;
+        gap: 10px;
+        max-width: 100%;
+        overflow: hidden;
+      }
+
+      .checkbox,
+      .agreement-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        max-width: 100%;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 14px;
+        overflow-wrap: break-word;
+      }
+
+      .checkbox input[type="checkbox"],
+      .agreement-item input[type="checkbox"] {
+        width: auto;
+        max-width: none;
+        margin-top: 4px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        accent-color: #d4af37;
+      }
+
+      .agreement-item label {
+        flex: 1;
+        min-width: 0;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+
+      .payment-card {
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(15, 23, 42, 0.22);
+        padding: 18px;
+        margin-top: 14px;
+      }
+
+      .payment-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 0;
+        color: rgba(255, 255, 255, 0.88);
+      }
+
+      .payment-row + .payment-row {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .payment-note {
+        margin: 12px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .submit-wrap {
+        margin-top: 10px;
+      }
+
+      .btn--submit {
+        width: 100%;
+        height: 52px;
+        font-size: 14px;
+      }
+
+      .form-status {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 14px;
+        text-align: center;
+      }
+
+      @media (max-width: 1024px) {
+        .application-page {
+          padding: 32px 20px 40px;
+        }
+        .page-subtitle {
+          font-size: 15px;
+          line-height: 1.6;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .application-wrap {
+          width: min(900px, calc(100% - 32px));
+        }
+      }
+
+      @media (max-width: 768px) {
+        .application-page {
+          padding: 24px 16px 32px;
+        }
+
+        .application-wrap {
+          width: 100%;
+        }
+
+        .application-form {
+          padding: 22px 18px;
+          gap: 18px;
+        }
+
+        .form-grid {
+          grid-template-columns: 1fr;
+          gap: 18px;
+        }
+
+        .form-block {
+          padding: 20px 18px;
+        }
+
+        .page-intro {
+          margin-bottom: 22px;
+          padding-inline: 4px;
+        }
+
+        .page-title {
+          font-size: clamp(28px, 7vw, 38px);
+        }
+
+        .page-subtitle {
+          font-size: 15px;
+        }
+
+        .field__input {
+          min-height: 48px;
+          font-size: 16px;
+        }
+
+        .payment-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+
+        .agreement-item {
+          gap: 8px;
+        }
+
+        .agreement-item label {
+          font-size: 13px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .application-form {
+          padding: 18px 14px;
+          border-radius: 10px;
+        }
+
+        .form-block {
+          padding: 16px 14px;
+        }
+
+        .form-block__title {
+          font-size: 17px;
+        }
+
+        .btn--submit {
+          min-height: 52px;
+        }
+      }
+    </style>
+  </head>
+  <body data-en-title="Rental Application | Legacy Property Holdings" data-es-title="Solicitud de arrendamiento | Legacy Property Holdings">
+    <a class="skip-link" href="#main" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a>
+
+    <main id="main" class="application-page">
+      <button class="back-btn" id="backBtn" type="button" aria-label="Go back" data-en="← Back" data-es="← Volver">
+        ← Back
+      </button>
+
+      <div class="application-wrap">
+        <section class="page-intro" aria-labelledby="application-title">
+          <p class="section__eyebrow">Legacy Property Holdings</p>
+          <h1 id="application-title" class="page-title" data-en="Rental Application" data-es="Solicitud de arrendamiento">Rental Application</h1>
+          <p class="page-subtitle" data-en="Complete the form below to begin your application process." data-es="Complete el formulario a continuación para iniciar su proceso de solicitud.">Complete the form below to begin your application process.</p>
+        </section>
+
+        <form id="rentalForm" class="application-form" action="https://formspree.io/f/xojrdvqo" method="POST">
+          <input type="hidden" name="_subject" value="New Rental Application - Legacy Property Holdings">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="applicationID" id="appIdInput">
+          <section class="form-block" aria-labelledby="property-information">
+            <h2 id="property-information" class="form-block__title" data-en="Section 1: Property Information" data-es="Sección 1: Información de la propiedad">Section 1: Property Information</h2>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field__label"><span data-en="Property Address" data-es="Dirección de la propiedad">Property Address</span> <span class="required-mark">*</span></span>
+                <input class="field__input" type="text" name="property_address" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Bedrooms" data-es="Habitaciones">Bedrooms</span>
+                <select class="field__input" name="bedrooms">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5+</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Bathrooms" data-es="Baños">Bathrooms</span>
+                <select class="field__input" name="bathrooms">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5+</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label"><span data-en="Date of Application" data-es="Fecha de solicitud">Date of Application</span> <span class="required-mark">*</span></span>
+                <input class="field__input" type="date" name="application_date" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label"><span data-en="Preferred Move-in Date" data-es="Fecha preferida de mudanza">Preferred Move-in Date</span> <span class="required-mark">*</span></span>
+                <input class="field__input" type="date" name="move_in_date" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Lease Duration" data-es="Duración del contrato">Lease Duration</span>
+                <select class="field__input" name="lease_duration">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option data-en="6 months" data-es="6 meses">6 months</option>
+                  <option data-en="12 months" data-es="12 meses">12 months</option>
+                  <option data-en="18 months" data-es="18 meses">18 months</option>
+                  <option data-en="24 months" data-es="24 meses">24 months</option>
+                  <option data-en="Month-to-month" data-es="Mes a mes">Month-to-month</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="applicant-information">
+            <h2 id="applicant-information" class="form-block__title" data-en="Section 2: Applicant Information" data-es="Sección 2: Información del solicitante">Section 2: Applicant Information</h2>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field__label"><span data-en="Full Legal Name" data-es="Nombre legal completo">Full Legal Name</span> <span class="required-mark">*</span></span>
+                <input class="field__input" type="text" name="fullLegalName" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label"><span data-en="Date of Birth" data-es="Fecha de nacimiento">Date of Birth</span> <span class="required-mark">*</span></span>
+                <input class="field__input" type="date" name="date_of_birth" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label"><span data-en="Email" data-es="Correo electrónico">Email</span> <span class="required-mark">*</span></span>
+                <input class="field__input" type="email" name="email" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label"><span data-en="Phone" data-es="Teléfono">Phone</span> <span class="required-mark">*</span></span>
+                <input class="field__input" type="tel" name="phone" required />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Gender" data-es="Género">Gender</span>
+                <select class="field__input" name="gender">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option data-en="Male" data-es="Masculino">Male</option>
+                  <option data-en="Female" data-es="Femenino">Female</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Residency Status" data-es="Estatus de residencia">Residency Status</span>
+                <select class="field__input" name="residency_status">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option data-en="US Citizen" data-es="Ciudadano estadounidense">US Citizen</option>
+                  <option data-en="Permanent Resident" data-es="Residente permanente">Permanent Resident</option>
+                  <option data-en="Temporary Resident" data-es="Residente temporal">Temporary Resident</option>
+                  <option data-en="Other" data-es="Otro">Other</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="residency-history">
+            <h2 id="residency-history" class="form-block__title" data-en="Section 3: Residency History" data-es="Sección 3: Historial de residencia">Section 3: Residency History</h2>
+            <div class="form-grid form-grid--single">
+              <label class="field">
+                <span class="field__label" data-en="Current Address" data-es="Dirección actual">Current Address</span>
+                <textarea class="field__input field__input--textarea" name="current_address"></textarea>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Previous Address" data-es="Dirección anterior">Previous Address</span>
+                <textarea class="field__input field__input--textarea" name="previous_address"></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="employment-income">
+            <h2 id="employment-income" class="form-block__title" data-en="Section 4: Employment & Income" data-es="Sección 4: Empleo e ingresos">Section 4: Employment &amp; Income</h2>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field__label" data-en="Employer" data-es="Empleador">Employer</span>
+                <input class="field__input" type="text" name="employer" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Employer Phone" data-es="Teléfono del empleador">Employer Phone</span>
+                <input class="field__input" type="tel" name="employer_phone" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Monthly Income" data-es="Ingresos mensuales">Monthly Income</span>
+                <input class="field__input" type="number" name="monthly_income" min="0" step="1" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Other Income" data-es="Otros ingresos">Other Income</span>
+                <select class="field__input" name="other_income">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option data-en="None" data-es="Ninguno">None</option>
+                  <option data-en="Child Support / Alimony" data-es="Manutención / pensión alimenticia">Child Support / Alimony</option>
+                  <option data-en="Disability / Benefits" data-es="Discapacidad / beneficios">Disability / Benefits</option>
+                  <option data-en="Investments" data-es="Inversiones">Investments</option>
+                  <option data-en="Other" data-es="Otro">Other</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="background">
+            <h2 id="background" class="form-block__title" data-en="Section 5: Background" data-es="Sección 5: Antecedentes">Section 5: Background</h2>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field__label" data-en="Credit Score" data-es="Puntaje de crédito">Credit Score</span>
+                <input class="field__input" type="text" name="credit_score" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Evicted" data-es="Desalojado">Evicted</span>
+                <select class="field__input" name="evicted">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option data-en="Yes" data-es="Sí">Yes</option>
+                  <option data-en="No" data-es="No">No</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="If Yes, Please Provide Details" data-es="Si respondió sí, proporcione detalles">If Yes, Please Provide Details</span>
+                <input class="field__input" type="text" name="evicted_details" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Criminal Record" data-es="Antecedentes penales">Criminal Record</span>
+                <select class="field__input" name="criminal_record">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option data-en="Yes" data-es="Sí">Yes</option>
+                  <option data-en="No" data-es="No">No</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="If Yes, Please Provide Details" data-es="Si respondió sí, proporcione detalles">If Yes, Please Provide Details</span>
+                <input class="field__input" type="text" name="criminal_record_details" />
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="additional-details">
+            <h2 id="additional-details" class="form-block__title" data-en="Section 6: Additional Details" data-es="Sección 6: Detalles adicionales">Section 6: Additional Details</h2>
+            <div class="form-grid">
+              <label class="field" style="grid-column: 1 / -1;">
+                <span class="field__label" data-en="Reason for Moving" data-es="Motivo de mudanza">Reason for Moving</span>
+                <textarea class="field__input field__input--textarea" name="reason_for_moving"></textarea>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Number of Adult Applicants" data-es="Número de solicitantes adultos">Number of Adult Applicants</span>
+                <select class="field__input" name="adult_applicants">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5+</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Applicant Names" data-es="Nombres de los solicitantes">Applicant Names</span>
+                <input class="field__input" type="text" name="applicant_names" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Number of Occupants" data-es="Número de ocupantes">Number of Occupants</span>
+                <select class="field__input" name="occupants">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6+</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Pets" data-es="Mascotas">Pets</span>
+                <input class="field__input" type="text" name="pets" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Vehicles" data-es="Vehículos">Vehicles</span>
+                <input class="field__input" type="text" name="vehicles" />
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="references">
+            <h2 id="references" class="form-block__title" data-en="Section 7: References" data-es="Sección 7: Referencias">Section 7: References</h2>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field__label" data-en="Reference Type" data-es="Tipo de referencia">Reference Type</span>
+                <select class="field__input" name="reference_type">
+                  <option value="" data-en="Select" data-es="Seleccionar">Select</option>
+                  <option data-en="Landlord" data-es="Arrendador">Landlord</option>
+                  <option data-en="Employer" data-es="Empleador">Employer</option>
+                  <option data-en="Family" data-es="Familia">Family</option>
+                  <option data-en="Other" data-es="Otro">Other</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Name" data-es="Nombre">Name</span>
+                <input class="field__input" type="text" name="reference_name" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Phone" data-es="Teléfono">Phone</span>
+                <input class="field__input" type="tel" name="reference_phone" />
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="emergency-contact">
+            <h2 id="emergency-contact" class="form-block__title" data-en="Section 8: Emergency Contact" data-es="Sección 8: Contacto de emergencia">Section 8: Emergency Contact</h2>
+            <div class="form-grid">
+              <label class="field">
+                <span class="field__label" data-en="Name" data-es="Nombre">Name</span>
+                <input class="field__input" type="text" name="emergency_name" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Relationship" data-es="Relación">Relationship</span>
+                <input class="field__input" type="text" name="emergency_relationship" />
+              </label>
+
+              <label class="field">
+                <span class="field__label" data-en="Phone" data-es="Teléfono">Phone</span>
+                <input class="field__input" type="tel" name="emergency_phone" />
+              </label>
+            </div>
+          </section>
+
+          <section class="form-block" aria-labelledby="agreement">
+            <h2 id="agreement" class="form-block__title" data-en="Section 10: Agreement" data-es="Sección 10: Acuerdo">Section 10: Agreement</h2>
+            <div class="checkbox-group">
+              <div class="agreement-item">
+                <input id="certifyAccuracy" type="checkbox" name="certify_accuracy" required />
+                <label for="certifyAccuracy" data-en="I certify that all information provided is accurate and authorize verification." data-es="Certifico que toda la información proporcionada es correcta y autorizo su verificación.">I certify that all information provided is accurate and authorize verification.</label>
+              </div>
+              <div class="agreement-item">
+                <input id="understandSubmissionSteps" type="checkbox" name="understand_submission_steps" />
+                <label for="understandSubmissionSteps" data-en="I understand that additional steps may be required after submission." data-es="Entiendo que pueden requerirse pasos adicionales después del envío.">I understand that additional steps may be required after submission.</label>
+              </div>
+            </div>
+          </section>
+
+          <div class="submit-wrap">
+            <button class="btn btn--primary btn--submit" type="submit" data-en="Submit Application" data-es="Enviar solicitud">Submit Application</button>
+            <p id="formStatus" class="form-status"></p>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+      (function () {
+        const btn = document.getElementById('backBtn');
+        if (!btn) return;
+
+        btn.addEventListener('click', function () {
+          if (window.history.length > 1) {
+            window.history.back();
+          } else {
+            window.location.href = 'index.html';
+          }
+        });
+      })();
+
+      (function () {
+        const serviceID = 'service_4blzxar';
+        const templateID = 'template_701tnqh';
+        const publicKey = 'X-TTc6mZ7Y4RqKsdI';
+
+        emailjs.init({ publicKey: publicKey });
+
+        function formDataToObject(fd) {
+          const o = {};
+          fd.forEach(function (value, key) {
+            o[key] = value;
+          });
+          return o;
+        }
+
+        /**
+         * Manual check from DevTools: testEmailJS()
+         */
+        function testEmailJS() {
+          const data = {
+            fullLegalName: 'EmailJS Test',
+            email: 'test@example.com',
+            phone: '555-0100',
+          };
+          console.log('[EmailJS test] sending payload:', data);
+          return emailjs
+            .send(serviceID, templateID, data)
+            .then((res) => {
+              console.log('[EmailJS test] success:', res);
+              return res;
+            })
+            .catch((err) => {
+              console.error('[EmailJS test] failed:', formatEmailJSError(err));
+              throw err;
+            });
+        }
+
+        function formatEmailJSError(err) {
+          if (!err) return String(err);
+          const parts = [];
+          if (err.message) parts.push('message: ' + err.message);
+          if (err.text) parts.push('text: ' + err.text);
+          if (typeof err.status === 'number') parts.push('status: ' + err.status);
+          try {
+            parts.push('raw: ' + JSON.stringify(err));
+          } catch (e) {
+            parts.push('raw: [unserializable]');
+          }
+          return parts.join(' | ');
+        }
+
+        window.testEmailJS = testEmailJS;
+
+        const form = document.getElementById('rentalForm');
+        const statusText = document.getElementById('formStatus');
+        const submitButton = document.querySelector('.btn--submit');
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const activeLang = localStorage.getItem('lang') || 'en';
+          statusText.textContent = activeLang === 'es' ? 'Enviando solicitud...' : 'Submitting application...';
+          submitButton.disabled = true;
+
+          const appId =
+            'APP-' +
+            Date.now() +
+            '-' +
+            Math.random().toString(36).substring(2, 11).toUpperCase();
+          document.getElementById('appIdInput').value = appId;
+          localStorage.setItem('applicationID', appId);
+
+          const formData = new FormData(form);
+          console.log('[RentalForm] FormData (all fields):', formDataToObject(formData));
+
+          const emailPayload = {
+            fullLegalName: formData.get('fullLegalName') || '',
+            email: formData.get('email') || '',
+            phone: formData.get('phone') || '',
+            application_id: appId,
+          };
+          console.log('[RentalForm] EmailJS payload:', emailPayload);
+
+          try {
+            const emailResult = await emailjs.send(serviceID, templateID, emailPayload);
+            console.log('[RentalForm] EmailJS success:', emailResult);
+          } catch (emailError) {
+            console.error('[RentalForm] EmailJS failed (Formspree will still run):', formatEmailJSError(emailError));
+          }
+
+          try {
+            const response = await fetch(form.action, {
+              method: 'POST',
+              body: formData,
+              headers: { Accept: 'application/json' },
+            });
+
+            if (response.ok) {
+              console.log('[RentalForm] Formspree success, redirecting.');
+              window.location.href = 'application-received.html';
+              return;
+            }
+
+            let errBody = '';
+            try {
+              errBody = await response.text();
+            } catch (readErr) {
+              errBody = '(could not read body)';
+            }
+            throw new Error('Formspree submission failed: HTTP ' + response.status + ' ' + errBody);
+          } catch (submissionError) {
+            console.error('[RentalForm] Formspree error:', submissionError);
+            const errorLang = localStorage.getItem('lang') || 'en';
+            alert(errorLang === 'es' ? 'Algo salió mal. Inténtelo de nuevo.' : 'Something went wrong. Please try again.');
+            submitButton.disabled = false;
+            statusText.textContent = '';
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
