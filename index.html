@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Legacy Property Holdings — Quality rental homes with a simple and transparent application process."
+      content="Private Property Holdings — Professional and transparent rental coordination for privately managed properties."
     />
     <link rel="alternate" href="index.html" hreflang="en" />
     <link rel="alternate" href="es.html" hreflang="es" />
-    <title>Legacy Property Holdings | Premium Rental &amp; Property Solutions</title>
+    <title>Private Property Holdings | Private Rental Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,42 +18,39 @@
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="home-with-floating-apply" data-en-title="Legacy Property Holdings | Premium Rental & Property Solutions" data-es-title="Legacy Property Holdings | Soluciones premium de alquiler y propiedad">
+  <body class="home-with-floating-apply" data-en-title="Private Property Holdings | Private Rental Management" data-es-title="Private Property Holdings | Private Rental Management">
     <a class="skip-link" href="#main">Skip to content</a>
 
     <header class="header" >
       <div class="container header__inner">
-        <a class="brand" href="./index.html" aria-label="Legacy Property Holdings home">
-          <img class="brand__logo" src="images/logo.jpg" alt="Legacy Property Holdings logo" />
+        <a class="brand" href="./index.html" aria-label="Private Property Holdings home">
           <span class="brand__text">
-            <span class="brand__name">Legacy</span>
-            <span class="brand__sub">Property Holdings</span>
+            <span class="brand__name">Private Property Holdings</span>
+            <span class="brand__sub">Private Property Manager</span>
           </span>
         </a>
 
         <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="nav" id="nav-toggle">☰</button>
 
         <nav class="nav" id="nav">
-          <a href="#about" data-en="About" data-es="Acerca">About</a>
-          <a href="#services" data-en="Rental Process" data-es="Proceso de alquiler">Rental Process</a>
+          <a href="#leasing" data-en="Rental Process" data-es="Proceso de alquiler">Rental Process</a>
+          <a href="#services" data-en="Services" data-es="Servicios">Services</a>
           <a href="#process" data-en="FAQ" data-es="Preguntas frecuentes">FAQ</a>
           <div class="header__actions header__actions--mobile">
             <div class="language-toggle" aria-label="Language selector">
-              <button class="lang-option" data-lang="en" onclick="setLanguage('en')"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></button>
+              <a class="lang-option" data-lang="en" href="./index.html"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
               <span class="lang-separator">|</span>
-              <button class="lang-option" data-lang="es" onclick="setLanguage('es')"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></button>
+              <a class="lang-option" data-lang="es" href="./es.html"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></a>
             </div>
-            <a href="#contact" class="btn btn--secondary" data-en="Request Consultation" data-es="Solicitar consulta">Request Consultation</a>
           </div>
         </nav>
 
         <div class="header__actions header__actions--desktop">
           <div class="language-toggle" aria-label="Language selector">
-            <button class="lang-option" data-lang="en" onclick="setLanguage('en')"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></button>
+            <a class="lang-option" data-lang="en" href="./index.html"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
             <span class="lang-separator">|</span>
-            <button class="lang-option" data-lang="es" onclick="setLanguage('es')"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></button>
+            <a class="lang-option" data-lang="es" href="./es.html"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></a>
           </div>
-          <a href="#contact" class="btn btn--secondary" data-en="Request Consultation" data-es="Solicitar consulta">Request Consultation</a>
         </div>
 
       </div>
@@ -61,104 +58,129 @@
 
 
     <main id="main">
-      <section class="hero">
-        <div class="container hero__grid hero__grid--single">
-          <div class="hero__content hero__content--center">
-            <p class="eyebrow" data-en="Discreet service. Exceptional homes. Trusted execution." data-es="Servicio discreto. Hogares excepcionales. Ejecución confiable.">
-              Discreet service. Exceptional homes. Trusted execution.
-            </p>
-            <h1 class="hero__title" data-en="Premium Rental & Property Solutions" data-es="Soluciones premium de alquiler y propiedad">Premium Rental &amp; Property Solutions</h1>
-            <p class="hero__lead" data-en="Quality rental homes with a simple and transparent application process." data-es="Casas de alquiler de calidad con un proceso de solicitud simple y transparente.">
-              Quality rental homes with a simple and transparent application
-              process.
-            </p>
-
-          </div>
+      <section class="hero portfolio-hero">
+        <div class="portfolio-hero__media" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1800&q=82" alt="" />
         </div>
-      </section>
-
-      <section class="trust-notice" aria-label="Application trust notice">
-        <div class="container">
-          <div class="trust-notice__box">
-            <p data-en="This is a privately managed rental. All applications are reviewed directly by the property owner. No third-party agents are involved." data-es="Este alquiler es administrado de forma privada. Todas las solicitudes son revisadas directamente por el propietario. No participan agentes externos.">
-              This is a privately managed rental. All applications are reviewed
-              directly by the property owner. No third-party agents are
-              involved.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="section about">
-        <div class="container about__grid">
-          <div class="section__header">
-            <p class="section__eyebrow" data-en="About Legacy" data-es="Acerca de Legacy">About Legacy</p>
-            <h2 class="section__title" data-en="Luxury real estate, managed with discipline." data-es="Bienes raíces de lujo, administrados con disciplina.">Luxury real estate, managed with discipline.</h2>
-            <p class="section__lead" data-en="We combine high-touch client service with a data-driven operating model-protecting asset value while elevating resident experience." data-es="Combinamos servicio cercano al cliente con un modelo operativo basado en datos para proteger el valor del activo y elevar la experiencia del residente.">
-              We combine high-touch client service with a data‑driven operating
-              model—protecting asset value while elevating resident experience.
-            </p>
-
-            <div class="community-slider">
-              <img src="images/community1.jpeg" class="slide active" alt="Community image 1" loading="lazy" />
-              <img src="images/community2.png" class="slide" alt="Community image 2" loading="lazy" />
-            </div>
-          </div>
-
-          <div class="about__panel">
-            <div class="about__tile">
-              <h3 class="about__title" data-en="What we stand for" data-es="Lo que representamos">What we stand for</h3>
-              <p class="about__text">
-                Transparent communication, meticulous standards, and a commitment
-                to long-term relationships—owners, residents, and partners.
+        <div class="container portfolio-hero__inner">
+          <div class="hero__content reveal">
+            <section class="hero-overview" aria-label="Private rental management introduction">
+              <h1 class="hero-overview__title">Private rental management with direct owner oversight.</h1>
+              <p>
+                Private Property Holdings is focused on providing organized,
+                transparent, and professional rental coordination for privately
+                managed homes and prospective applicants.
               </p>
-            </div>
+              <p>
+                The platform is designed to help simplify the leasing experience
+                by offering clear communication, guided application support,
+                property information, and assistance throughout each stage of the
+                rental process.
+              </p>
+              <p>
+                With a strong emphasis on professionalism, responsiveness, and
+                reliability, Private Property Holdings aims to create a rental
+                experience that feels modern, well-structured, and respectful for
+                everyone involved.
+              </p>
+              <p>
+                The approach is centered around transparent expectations, smooth
+                communication, and making the rental process as straightforward
+                and stress-free as possible.
+              </p>
+            </section>
           </div>
         </div>
       </section>
 
-      <section id="services" class="section services">
+      <section id="leasing" class="section leasing-process">
         <div class="container">
-          <div class="section__header section__header--center">
-            <p class="section__eyebrow" data-en="Rental Process" data-es="Proceso de alquiler">Rental Process</p>
+          <div class="section__header section__header--center reveal">
             <h2 class="section__title" data-en="How the Rental Process Works" data-es="Cómo funciona el proceso de alquiler">How the Rental Process Works</h2>
-            <p class="section__lead" data-en="A simple, transparent path from reviewing the property to hearing back about next steps." data-es="Un camino simple y transparente desde revisar la propiedad hasta recibir información sobre los próximos pasos.">
-              A simple, transparent path from reviewing the property to hearing
-              back about next steps.
-            </p>
           </div>
 
-          <div class="rental-process__cards">
-            <article class="rental-process__card">
-              <h3 class="rental-process__title" data-en="1. View Property Details" data-es="1. Revise los detalles de la propiedad">1. View Property Details</h3>
+          <ol class="rental-process__cards process-grid">
+            <li class="rental-process__card reveal">
+              <span class="process-step">01</span>
+              <h3 class="rental-process__title" data-en="View Property Details" data-es="Ver detalles de la propiedad">View Property Details</h3>
               <p class="rental-process__text" data-en="Review the available property information carefully before beginning the application process." data-es="Revise cuidadosamente la información disponible de la propiedad antes de comenzar el proceso de solicitud.">
                 Review the available property information carefully before
                 beginning the application process.
               </p>
-            </article>
+            </li>
 
-            <article class="rental-process__card">
-              <h3 class="rental-process__title" data-en="2. Submit Application" data-es="2. Envíe la solicitud">2. Submit Application</h3>
+            <li class="rental-process__card reveal">
+              <span class="process-step">02</span>
+              <h3 class="rental-process__title" data-en="Submit Application" data-es="Enviar solicitud">Submit Application</h3>
               <p class="rental-process__text" data-en="Complete the rental application form with accurate information." data-es="Complete el formulario de solicitud de alquiler con información precisa.">
                 Complete the rental application form with accurate information.
               </p>
-            </article>
+            </li>
 
-            <article class="rental-process__card">
-              <h3 class="rental-process__title" data-en="3. Refundable Application Fee Payment" data-es="3. Pago reembolsable de solicitud">3. Refundable Application Fee Payment</h3>
+            <li class="rental-process__card reveal">
+              <span class="process-step">03</span>
+              <h3 class="rental-process__title" data-en="Refundable Application Fee Payment" data-es="Pago reembolsable de solicitud">Refundable Application Fee Payment</h3>
               <p class="rental-process__text" data-en="A refundable application fee is a payment that will be returned to you if your application is not approved or if you decide not to move forward after the tour." data-es="Una tarifa de solicitud reembolsable es un pago que se le devolverá si su solicitud no es aprobada o si decide no continuar después del recorrido.">
                 A refundable application fee is a payment that will be returned
                 to you if your application is not approved or if you decide not
                 to move forward after the tour.
               </p>
-            </article>
+            </li>
 
-            <article class="rental-process__card">
-              <h3 class="rental-process__title" data-en="4. Next Steps" data-es="4. Próximos pasos">4. Next Steps</h3>
+            <li class="rental-process__card reveal">
+              <span class="process-step">04</span>
+              <h3 class="rental-process__title" data-en="Next Steps" data-es="Próximos pasos">Next Steps</h3>
               <p class="rental-process__text" data-en="Qualified applicants will be contacted with updates, tour details, or further instructions." data-es="Los solicitantes calificados serán contactados con actualizaciones, detalles del recorrido o instrucciones adicionales.">
                 Qualified applicants will be contacted with updates, tour
                 details, or further instructions.
               </p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="container">
+          <div class="section__header section__header--center reveal">
+            <h2 class="section__title" data-en="Services" data-es="Servicios">
+              Services
+            </h2>
+            <p class="section__lead" data-en="Professional rental support designed to keep the leasing experience organized, modern, and efficient." data-es="Apoyo profesional de alquiler diseñado para mantener la experiencia organizada, moderna y eficiente.">
+              Professional rental support designed to keep the leasing
+              experience organized, modern, and efficient.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card reveal">
+              <span class="service-card__number">01</span>
+              <h3>Property Availability Assistance</h3>
+              <p>Clear support for understanding current availability and next steps.</p>
+            </article>
+            <article class="service-card reveal">
+              <span class="service-card__number">02</span>
+              <h3>Rental Listing Coordination</h3>
+              <p>Organized property details and rental information presented with clarity.</p>
+            </article>
+            <article class="service-card reveal">
+              <span class="service-card__number">03</span>
+              <h3>Lease Coordination</h3>
+              <p>Professional coordination around leasing steps, timing, and communication.</p>
+            </article>
+            <article class="service-card reveal">
+              <span class="service-card__number">04</span>
+              <h3>Scheduling Property Tours</h3>
+              <p>Helpful tour scheduling support for qualified applicants and available homes.</p>
+            </article>
+            <article class="service-card reveal">
+              <span class="service-card__number">05</span>
+              <h3>Resident &amp; Applicant Communication</h3>
+              <p>Responsive communication that keeps applicants informed and respected.</p>
+            </article>
+            <article class="service-card reveal">
+              <span class="service-card__number">06</span>
+              <h3>Guided Application Support</h3>
+              <p>Supportive guidance through inquiry, application, review, and follow-up.</p>
             </article>
           </div>
         </div>
@@ -166,55 +188,74 @@
 
       <section id="process" class="section rental-faq">
         <div class="container">
-          <div class="section__header section__header--center">
+          <div class="section__header section__header--center reveal">
             <h2 class="section__title" data-en="Rental Process FAQ" data-es="Preguntas frecuentes del proceso de alquiler">Rental Process FAQ</h2>
           </div>
 
           <div class="faq-list">
-            <article class="faq-item">
+            <article class="faq-item reveal">
               <button class="faq-item__question" type="button" aria-expanded="false">
                 <span data-en="How do I apply for a rental?" data-es="¿Cómo solicito un alquiler?">How do I apply for a rental?</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
               <div class="faq-item__answer">
-                <p data-en="You can apply by completing the rental application form on this website." data-es="Puede aplicar completando el formulario de solicitud de alquiler en este sitio web.">
-                  You can apply by completing the rental application form on this website.
+                <p data-en="Start by reviewing the property details, then submit an inquiry or application with accurate contact and household information." data-es="Comience revisando los detalles de la propiedad y luego envíe una consulta o solicitud con información precisa de contacto y del hogar.">
+                  Start by reviewing the property details, then submit an
+                  inquiry or application with accurate contact and household
+                  information.
                 </p>
               </div>
             </article>
 
-            <article class="faq-item">
-              <button class="faq-item__question" type="button" aria-expanded="false">
-                <span data-en="Is there an application fee?" data-es="¿Hay una tarifa de solicitud?">Is there an application fee?</span>
-                <span class="faq-item__icon" aria-hidden="true"></span>
-              </button>
-              <div class="faq-item__answer">
-                <p data-en="Yes, there is a refundable application fee of $75, which is paid through Chime after your application is submitted." data-es="Sí, hay una tarifa de solicitud reembolsable de $75, que se paga por Chime después de enviar su solicitud.">
-                  Yes, there is a refundable application fee of $75, which is paid through Chime after your application is submitted.
-                </p>
-              </div>
-            </article>
-
-            <article class="faq-item">
+            <article class="faq-item reveal">
               <button class="faq-item__question" type="button" aria-expanded="false">
                 <span data-en="Are listings always available?" data-es="¿Los anuncios siempre están disponibles?">Are listings always available?</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
               <div class="faq-item__answer">
-                <p data-en="Not always. Rental availability may change at any time." data-es="No siempre. La disponibilidad de alquiler puede cambiar en cualquier momento.">
-                  Not always. Rental availability may change at any time.
+                <p data-en="Availability can change as inquiries are reviewed. Reach out directly to confirm the latest status for a specific home." data-es="La disponibilidad puede cambiar mientras se revisan las consultas. Comuníquese directamente para confirmar el estado más reciente de una casa específica.">
+                  Availability can change as inquiries are reviewed. Reach out
+                  directly to confirm the latest status for a specific listing.
                 </p>
               </div>
             </article>
 
-            <article class="faq-item">
+            <article class="faq-item reveal">
               <button class="faq-item__question" type="button" aria-expanded="false">
-                <span data-en="How will I be contacted after applying?" data-es="¿Cómo me contactarán después de aplicar?">How will I be contacted after applying?</span>
+                <span data-en="How long does the review process take?" data-es="¿Cuánto tiempo toma el proceso de revisión?">How long does the review process take?</span>
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
               <div class="faq-item__answer">
-                <p data-en="Applicants are typically contacted using the email address or phone number provided in the application form." data-es="Por lo general, se contacta a los solicitantes usando el correo electrónico o número de teléfono proporcionado en el formulario de solicitud.">
-                  Applicants are typically contacted using the email address or phone number provided in the application form.
+                <p data-en="Review timing depends on the property and application volume, but qualified applicants are contacted as soon as next steps are available." data-es="El tiempo de revisión depende de la propiedad y el volumen de solicitudes, pero los solicitantes calificados son contactados tan pronto como haya próximos pasos disponibles.">
+                  Review timing depends on the property and application volume,
+                  but qualified applicants are contacted as soon as next steps
+                  are available.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item reveal">
+              <button class="faq-item__question" type="button" aria-expanded="false">
+                <span data-en="Can I schedule a property tour?" data-es="¿Puedo programar un recorrido de la propiedad?">Can I schedule a property tour?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__answer">
+                <p data-en="Tour availability is shared with qualified applicants or interested renters when a home is ready to show." data-es="La disponibilidad de recorridos se comparte con solicitantes calificados o inquilinos interesados cuando una casa está lista para mostrarse.">
+                  Tour availability is shared with qualified applicants or
+                  interested renters when a home is ready to show.
+                </p>
+              </div>
+            </article>
+
+            <article class="faq-item reveal">
+              <button class="faq-item__question" type="button" aria-expanded="false">
+                <span data-en="How will I be contacted?" data-es="¿Cómo me contactarán?">How will I be contacted?</span>
+                <span class="faq-item__icon" aria-hidden="true"></span>
+              </button>
+              <div class="faq-item__answer">
+                <p data-en="Private Property Holdings will use the email address or phone number provided in your inquiry or application." data-es="Private Property Holdings utilizará el correo electrónico o número de teléfono proporcionado en su consulta o solicitud.">
+                  Private Property Holdings will use the email address or phone
+                  number provided in your inquiry or application.
                 </p>
               </div>
             </article>
@@ -222,120 +263,26 @@
         </div>
       </section>
 
-      <section id="trust" class="section trust">
-        <div class="container trust__grid">
-          <div class="trust__content">
-            <p class="section__eyebrow" data-en="Trust" data-es="Confianza">Trust</p>
-            <h2 class="section__title" data-en="Private, precise, and performance-driven." data-es="Privado, preciso y orientado al rendimiento.">Private, precise, and performance-driven.</h2>
-            <p class="section__lead" data-en="From background checks to vendor accountability, we manage details so you can focus on outcomes." data-es="Desde verificaciones de antecedentes hasta responsabilidad de proveedores, gestionamos los detalles para que usted pueda enfocarse en los resultados.">
-              From background checks to vendor accountability, we manage details
-              so you can focus on outcomes.
-            </p>
-
-            <div class="trust__badges" aria-label="Trust signals">
-              <div class="pill">Owner-first reporting</div>
-              <div class="pill">Secure data handling</div>
-              <div class="pill">Vetted vendor network</div>
-              <div class="pill">24/7 escalation path</div>
-            </div>
-          </div>
-
-          <div class="trust__panel" aria-label="Client note">
-            <div class="quote">
-              <p class="quote__text">
-                “Legacy brings a rare blend of luxury-level care and operational
-                discipline. Communication is proactive, and execution is flawless.”
-              </p>
-              <div class="quote__byline">
-                <div class="quote__avatar" aria-hidden="true"></div>
-                <div>
-                  <div class="quote__name">Private Owner</div>
-                  <div class="quote__meta">Multi‑unit portfolio</div>
-                </div>
-              </div>
-            </div>
-            <div class="trust__metrics">
-              <div class="metric">
-                <div class="metric__value">4.9</div>
-                <div class="metric__label">Client satisfaction</div>
-              </div>
-              <div class="metric">
-                <div class="metric__value">30+</div>
-                <div class="metric__label">Vetted partners</div>
-              </div>
-              <div class="metric">
-                <div class="metric__value">Weekly</div>
-                <div class="metric__label">Status updates</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="section cta">
-        <div class="container cta__inner">
-          <div class="cta__copy">
-            <p class="section__eyebrow" data-en="Ready" data-es="Listo">Ready</p>
-            <h2 class="section__title" data-en="Elevate your property with Legacy." data-es="Eleve su propiedad con Legacy.">Elevate your property with Legacy.</h2>
-            <p class="section__lead" data-en="For inquiries, partnerships, or property management services, contact us directly." data-es="Para consultas, alianzas o servicios de administración de propiedades, contáctenos directamente.">
-              For inquiries, partnerships, or property management services, contact us directly.
-            </p>
-          </div>
-
-          <div class="cta__form" role="group" aria-label="Contact details">
-            <p class="field__label">Email</p>
-            <p>
-              <a class="btn btn--primary btn--block" href="mailto:Info@legacypropertyholdingsco.com">
-                Info@legacypropertyholdingsco.com
-              </a>
-            </p>
-            <p class="fineprint">
-              For inquiries, partnerships, or property management services, contact us directly.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="footer">
       <div class="container footer__grid">
         <div class="footer__brand">
-          <img src="images/logo.jpg" alt="Legacy Property Holdings logo" class="footer-logo" />
           <div class="brand brand--footer">
             <span class="brand__text">
-              <span class="brand__name">Legacy</span>
-              <span class="brand__sub">Property Holdings</span>
+              <span class="brand__name">Private Property Holdings</span>
+              <span class="brand__sub">Private Rental Management</span>
             </span>
           </div>
-          <p class="footer__text">
-            Premium rental and property solutions with a modern, discreet
-            approach.
-          </p>
-        </div>
-
-        <div class="footer__cols" aria-label="Footer">
-          <div class="footer__col">
-            <h3 class="footer__title">Company</h3>
-            <a class="footer__link" href="#about">About</a>
-            <a class="footer__link" href="#services">Rental Process</a>
-            <a class="footer__link" href="#process">FAQ</a>
-          </div>
-          <div class="footer__col">
-            <h3 class="footer__title">Trust</h3>
-            <a class="footer__link" href="#trust">Standards</a>
-            <a class="footer__link" href="#trust">Vendor network</a>
-            <a class="footer__link" href="#trust">Reporting</a>
-          </div>
-          <div class="footer__col">
-            <h3 class="footer__title">Contact</h3>
-            <a class="footer__link" href="mailto:Info@legacypropertyholdingsco.com">Request consultation</a>
-            <a class="footer__link" href="mailto:Info@legacypropertyholdingsco.com">Info@legacypropertyholdingsco.com</a>
+          <div class="footer__contact" aria-label="Footer contact phone number">
+            <span>Contact</span>
+            <a class="footer__phone" href="tel:+15042499908">+1 504-249-9908</a>
           </div>
         </div>
       </div>
 
       <div class="container footer__bottom">
-        <p>© 2026 Legacy Property Holdings. All rights reserved.</p>
+        <p>© 2026 Private Property Holdings. Privately managed rentals.</p>
         <p class="footer__legal">Privacy • Terms</p>
       </div>
     </footer>

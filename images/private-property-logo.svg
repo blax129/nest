@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 92" role="img" aria-labelledby="title desc">
+  <title id="title">Private Property Holdings</title>
+  <desc id="desc">Private rental management monogram logo</desc>
+  <rect width="220" height="92" rx="10" fill="#0b1222"/>
+  <rect x="7" y="7" width="206" height="78" rx="7" fill="none" stroke="#d4af37" stroke-opacity=".72" stroke-width="1.4"/>
+  <path d="M34 61V30h18c8 0 13 4.3 13 11.1 0 6.9-5 11.2-13 11.2H43V61h-9Zm9-16.5h8.2c3.1 0 4.9-1.3 4.9-3.4s-1.8-3.4-4.9-3.4H43v6.8Zm33 16.5V30h18c8 0 13 4.3 13 11.1 0 6.9-5 11.2-13 11.2h-9V61h-9Zm9-16.5h8.2c3.1 0 4.9-1.3 4.9-3.4s-1.8-3.4-4.9-3.4H85v6.8Zm33 16.5V30h9v11.7h15V30h9v31h-9V49.6h-15V61h-9Z" fill="#f8f2dc"/>
+  <path d="M34 70h118" stroke="#d4af37" stroke-opacity=".8" stroke-width="1.2"/>
+  <text x="34" y="80" fill="#d4af37" font-family="Arial, sans-serif" font-size="7" letter-spacing="3">PRIVATE RENTAL MANAGEMENT</text>
+</svg>

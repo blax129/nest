@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Legacy Property Holdings Rental Application — complete your premium rental application."
+      content="Private Property Holdings Rental Application — complete your premium rental application."
     />
-    <title>Rental Application | Legacy Property Holdings</title>
+    <title>Rental Application | Private Property Holdings</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -149,7 +149,7 @@
       .checkbox-group {
         margin-top: 14px;
         display: grid;
-        gap: 10px;
+        gap: 12px;
         max-width: 100%;
         overflow: hidden;
       }
@@ -158,19 +158,26 @@
       .agreement-item {
         display: flex;
         align-items: flex-start;
-        gap: 10px;
+        gap: 14px;
         width: 100%;
         max-width: 100%;
         color: rgba(255, 255, 255, 0.82);
-        font-size: 14px;
+        font-size: 15px;
+        padding: 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(212, 175, 55, 0.22);
+        background:
+          radial-gradient(340px 120px at 0% 0%, rgba(212, 175, 55, 0.1), transparent 62%),
+          rgba(255, 255, 255, 0.04);
         overflow-wrap: break-word;
       }
 
       .checkbox input[type="checkbox"],
       .agreement-item input[type="checkbox"] {
-        width: auto;
+        width: 22px;
+        height: 22px;
         max-width: none;
-        margin-top: 4px;
+        margin-top: 1px;
         margin-bottom: 0;
         flex-shrink: 0;
         accent-color: #d4af37;
@@ -179,8 +186,9 @@
       .agreement-item label {
         flex: 1;
         min-width: 0;
-        font-size: 14px;
-        line-height: 1.5;
+        font-size: 15px;
+        line-height: 1.6;
+        cursor: pointer;
         overflow-wrap: break-word;
         word-wrap: break-word;
       }
@@ -292,11 +300,12 @@
         }
 
         .agreement-item {
-          gap: 8px;
+          gap: 12px;
+          padding: 14px;
         }
 
         .agreement-item label {
-          font-size: 13px;
+          font-size: 14px;
         }
       }
 
@@ -320,7 +329,7 @@
       }
     </style>
   </head>
-  <body data-en-title="Rental Application | Legacy Property Holdings" data-es-title="Solicitud de arrendamiento | Legacy Property Holdings">
+  <body data-en-title="Rental Application | Private Property Holdings" data-es-title="Solicitud de arrendamiento | Administración Privada de Propiedades">
     <a class="skip-link" href="#main" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a>
 
     <main id="main" class="application-page">
@@ -330,13 +339,13 @@
 
       <div class="application-wrap">
         <section class="page-intro" aria-labelledby="application-title">
-          <p class="section__eyebrow">Legacy Property Holdings</p>
+          <p class="section__eyebrow" data-en="Private Property Holdings" data-es="Administración Privada de Propiedades">Private Property Holdings</p>
           <h1 id="application-title" class="page-title" data-en="Rental Application" data-es="Solicitud de arrendamiento">Rental Application</h1>
           <p class="page-subtitle" data-en="Complete the form below to begin your application process." data-es="Complete el formulario a continuación para iniciar su proceso de solicitud.">Complete the form below to begin your application process.</p>
         </section>
 
         <form id="rentalForm" class="application-form" action="https://formspree.io/f/xojrdvqo" method="POST">
-          <input type="hidden" name="_subject" value="New Rental Application - Legacy Property Holdings">
+          <input type="hidden" name="_subject" value="New Rental Application - Private Property Holdings">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="applicationID" id="appIdInput">
           <section class="form-block" aria-labelledby="property-information">
@@ -622,15 +631,16 @@
           </section>
 
           <section class="form-block" aria-labelledby="agreement">
-            <h2 id="agreement" class="form-block__title" data-en="Section 10: Agreement" data-es="Sección 10: Acuerdo">Section 10: Agreement</h2>
+            <h2 id="agreement" class="form-block__title" data-en="Final Step Important (Read Before Submitting)" data-es="Paso final importante (lea antes de enviar)">Final Step Important (Read Before Submitting)</h2>
+            <p class="help-text" data-en="After you submit this application, the next page will show the refundable application fee details via Chime. Please review that page carefully to complete the process." data-es="Después de enviar esta solicitud, la siguiente página mostrará los detalles de la tarifa de solicitud reembolsable por Chime. Revise esa página cuidadosamente para completar el proceso.">
+              After you submit this application, the next page will show the
+              refundable application fee details via Chime. Please review that
+              page carefully to complete the process.
+            </p>
             <div class="checkbox-group">
               <div class="agreement-item">
-                <input id="certifyAccuracy" type="checkbox" name="certify_accuracy" required />
-                <label for="certifyAccuracy" data-en="I certify that all information provided is accurate and authorize verification." data-es="Certifico que toda la información proporcionada es correcta y autorizo su verificación.">I certify that all information provided is accurate and authorize verification.</label>
-              </div>
-              <div class="agreement-item">
-                <input id="understandSubmissionSteps" type="checkbox" name="understand_submission_steps" />
-                <label for="understandSubmissionSteps" data-en="I understand that additional steps may be required after submission." data-es="Entiendo que pueden requerirse pasos adicionales después del envío.">I understand that additional steps may be required after submission.</label>
+                <input id="applicationAcknowledgement" type="checkbox" name="application_acknowledgement" required />
+                <label for="applicationAcknowledgement" data-en="I understand the payment details will be shown on the next page after submission." data-es="Entiendo que los detalles de pago se mostrarán en la siguiente página después de enviar la solicitud.">I understand the payment details will be shown on the next page after submission.</label>
               </div>
             </div>
           </section>
@@ -653,7 +663,7 @@
           if (window.history.length > 1) {
             window.history.back();
           } else {
-            window.location.href = 'index.html';
+            window.location.href = (localStorage.getItem('lang') === 'es') ? 'es.html' : 'index.html';
           }
         });
       })();

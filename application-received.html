@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Application Received — Legacy Property Holdings. Complete your refundable application fee payment to finalize your rental application."
+      content="Application Received — Private Property Holdings. Complete your refundable application fee payment to finalize your rental application."
     />
-    <title>Application Received | Legacy Property Holdings</title>
+    <title>Application Received | Private Property Holdings</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -198,7 +198,7 @@
         border: 1px solid rgba(212, 175, 55, 0.18);
       }
 
-      .payment-card h3 {
+      .payment-card h2 {
         margin: 0 0 16px;
         font-size: 18px;
         color: #fff;
@@ -481,14 +481,14 @@
       }
     </style>
   </head>
-  <body data-en-title="Application Received | Legacy Property Holdings" data-es-title="Solicitud recibida | Legacy Property Holdings">
+  <body data-en-title="Application Received | Private Property Holdings" data-es-title="Solicitud recibida | Administración Privada de Propiedades">
     <main class="page-shell">
       <button class="back-btn" id="backBtn" type="button" aria-label="Go back" data-en="← Back" data-es="← Volver">
         ← Back
       </button>
 
       <header class="page-header">
-        <p class="page-subtitle">Legacy Property Holdings</p>
+        <p class="page-subtitle" data-en="Private Property Holdings" data-es="Administración Privada de Propiedades">Private Property Holdings</p>
         <h1 class="page-title" data-en="Application Received" data-es="Solicitud recibida">Application Received</h1>
         <span class="status-badge" data-en="Application Received - Payment Required" data-es="Solicitud recibida - Pago requerido">Application Received – Payment Required</span>
       </header>
@@ -502,24 +502,20 @@
 
       <section class="section-block">
         <h2 class="section-title" data-en="Next Steps" data-es="Próximos pasos">Next Steps</h2>
-        <ul class="steps-list">
-          <li>
-            <strong data-en="Step 1" data-es="Paso 1">Step 1</strong>
-            <p data-en="Send the refundable application fee using the secure details below." data-es="Envíe la tarifa de solicitud reembolsable usando los datos seguros a continuación.">Send the refundable application fee using the secure details below.</p>
-          </li>
-          <li>
-            <strong data-en="Step 2" data-es="Paso 2">Step 2</strong>
-            <p data-en="Send a screenshot of your payment confirmation via email or text." data-es="Envíe una captura de pantalla de la confirmación de pago por correo electrónico o mensaje de texto.">Send a screenshot of your payment confirmation via email or text.</p>
-          </li>
-          <li>
-            <strong data-en="Step 3" data-es="Paso 3">Step 3</strong>
-            <p data-en="Once confirmed, your application will move to the review stage." data-es="Una vez confirmado, su solicitud pasará a la etapa de revisión.">Once confirmed, your application will move to the review stage.</p>
-          </li>
-        </ul>
+        <div class="steps-list">
+          <p data-en="Thank you. Your application has been successfully submitted." data-es="Gracias. Su solicitud se envió correctamente.">
+            Thank you. Your application has been successfully submitted.
+          </p>
+          <p data-en="To continue with the approval process, a refundable application fee is required. Please send the payment via Chime using the details below:" data-es="Para continuar con el proceso de aprobación, se requiere una tarifa de solicitud reembolsable. Envíe el pago por Chime usando los detalles a continuación:">
+            To continue with the approval process, a refundable application fee
+            is required. Please send the payment via Chime using the details
+            below:
+          </p>
+        </div>
       </section>
 
-      <section class="payment-card">
-        <h3 data-en="Payment Details" data-es="Detalles de pago">Payment Details</h3>
+      <section class="payment-card" aria-labelledby="payment-details-title">
+        <h2 id="payment-details-title" data-en="Payment Details" data-es="Detalles de pago">Payment Details</h2>
         <div class="payment-grid">
           <div class="payment-row">
             <span data-en="Payment Method" data-es="Método de pago">Payment Method</span>
@@ -527,35 +523,27 @@
           </div>
           <div class="payment-row">
             <span data-en="Account Name" data-es="Nombre de la cuenta">Account Name</span>
-            <strong>Sary Yen</strong>
+            <strong>Sharon Soncini</strong>
           </div>
           <div class="payment-row">
             <span data-en="Chime Information" data-es="Información de Chime">Chime Information</span>
-            <strong>$Natsume</strong>
+            <strong>$Sharon-Soncini</strong>
           </div>
           <div class="payment-row">
             <span data-en="Application Fee" data-es="Tarifa de solicitud">Application Fee</span>
             <strong>$70</strong>
           </div>
         </div>
+        <p class="payment-note" data-en="Once the payment is sent, please text or email a confirmation so I can match it with your application and begin the review process. Approval typically takes 12-24 hours." data-es="Una vez enviado el pago, envíe una confirmación por mensaje de texto o correo electrónico para poder asociarlo con su solicitud e iniciar la revisión. La aprobación normalmente toma entre 12 y 24 horas.">
+          Once the payment is sent, please text or email a confirmation so I can
+          match it with your application and begin the review process. Approval
+          typically takes 12-24 hours.
+        </p>
         <p class="fee-note" data-en="Only one application submission is required per household. Please note that the screening fee applies to each adult (18+) who will be residing in the property." data-es="Solo se requiere una solicitud por hogar. Tenga en cuenta que la tarifa de evaluación aplica a cada adulto (18+) que residirá en la propiedad.">
           Only one application submission is required per household. Please note that the screening fee applies to each adult (18+) who will be residing in the property.
         </p>
         <p class="payment-note" data-en="Send payment via Chime to the account name and $Chime-tag listed above. This fee is fully refundable if your application is not approved or if you decide not to proceed after your tour." data-es="Envíe el pago por Chime al nombre de cuenta y etiqueta $Chime indicados arriba. Esta tarifa es totalmente reembolsable si su solicitud no es aprobada o si decide no continuar después de su visita.">
           Send payment via Chime to the account name and $Chime-tag listed above. This fee is fully refundable if your application is not approved or if you decide not to proceed after your tour.
-        </p>
-      </section>
-
-      <section class="trust-panel">
-        <p>
-          <span data-en="This process is handled directly by Legacy Property Holdings. All payments are documented and verified before application review begins." data-es="Este proceso es gestionado directamente por Legacy Property Holdings. Todos los pagos se documentan y verifican antes de que comience la revisión de la solicitud.">This process is handled directly by Legacy Property Holdings. All payments are documented and verified before application review begins.</span>
-        </p>
-      </section>
-
-      <section class="contact-panel">
-        <p>
-          <span data-en="Need help? Email us at" data-es="¿Necesita ayuda? Escríbanos a">Need help? Email us at</span>
-          <a href="mailto:Info@legacypropertyholdingsco.com">Info@legacypropertyholdingsco.com</a>
         </p>
       </section>
 
@@ -576,9 +564,22 @@
         </div>
       </section>
 
+      <section class="trust-panel">
+        <p>
+          <span data-en="This process is handled directly by Private Property Holdings. All payments are documented and verified before application review begins." data-es="Este proceso es gestionado directamente por Private Property Holdings. Todos los pagos se documentan y verifican antes de que comience la revisión de la solicitud.">This process is handled directly by Private Property Holdings. All payments are documented and verified before application review begins.</span>
+        </p>
+      </section>
+
+      <section class="contact-panel">
+        <p>
+          <span data-en="Need help? Email us at" data-es="¿Necesita ayuda? Escríbanos a">Need help? Email us at</span>
+          <a href="mailto:info@privatepropertyholdings.co">info@privatepropertyholdings.co</a>
+        </p>
+      </section>
+
       <div class="actions">
-        <a class="btn-action btn-secondary" href="./index.html" data-en="Return to Home" data-es="Volver al inicio">Return to Home</a>
-        <a class="btn-action btn-primary" href="mailto:Info@legacypropertyholdingsco.com" data-en="Contact Support" data-es="Contactar soporte">Contact Support</a>
+        <a class="btn-action btn-secondary" id="returnHomeLink" href="./index.html" data-en="Return to Home" data-es="Volver al inicio">Return to Home</a>
+        <a class="btn-action btn-primary" href="mailto:info@privatepropertyholdings.co" data-en="Contact Support" data-es="Contactar soporte">Contact Support</a>
       </div>
     </main>
     <script src="./script.js"></script>
@@ -591,9 +592,16 @@
           if (window.history.length > 1) {
             window.history.back();
           } else {
-            window.location.href = 'index.html';
+            window.location.href = (localStorage.getItem('lang') === 'es') ? 'es.html' : 'index.html';
           }
         });
+      })();
+
+      (function () {
+        const returnHomeLink = document.getElementById('returnHomeLink');
+        if (returnHomeLink && localStorage.getItem('lang') === 'es') {
+          returnHomeLink.setAttribute('href', './es.html');
+        }
       })();
 
       (function () {

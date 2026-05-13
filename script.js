@@ -1,10 +1,10 @@
 (() => {
   const STORAGE_KEY = "lang";
-  const LEGACY_STORAGE_KEY = "siteLanguage";
+  const FALLBACK_STORAGE_KEY = "siteLanguage";
   const LANGS = ["en", "es"];
 
   function getInitialLang() {
-    const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY);
+    const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(FALLBACK_STORAGE_KEY);
     if (LANGS.includes(saved)) return saved;
     return "en";
   }
@@ -53,6 +53,48 @@
     window.addEventListener("resize", updateOpenFaqHeights);
   }
 
+  function setupRevealAnimations() {
+    const items = document.querySelectorAll(".reveal");
+    if (!items.length) return;
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach((item) => item.classList.add("is-visible"));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0.12 }
+    );
+
+    items.forEach((item) => observer.observe(item));
+  }
+
+  function setupGallerySlider() {
+    const slides = document.querySelectorAll(".gallery-slide");
+    if (slides.length < 2) return;
+    const prev = document.querySelector(".gallery-arrow--prev");
+    const next = document.querySelector(".gallery-arrow--next");
+
+    let current = 0;
+
+    function showSlide(index) {
+      slides[current].classList.remove("is-active");
+      current = (index + slides.length) % slides.length;
+      slides[current].classList.add("is-active");
+    }
+
+    prev?.addEventListener("click", () => showSlide(current - 1));
+    next?.addEventListener("click", () => showSlide(current + 1));
+    window.setInterval(() => showSlide(current + 1), 4200);
+  }
+
   function applyLanguage(lang) {
     const selectedLang = LANGS.includes(lang) ? lang : "en";
 
@@ -72,7 +114,7 @@
     }
 
     localStorage.setItem(STORAGE_KEY, selectedLang);
-    localStorage.setItem(LEGACY_STORAGE_KEY, selectedLang);
+    localStorage.setItem(FALLBACK_STORAGE_KEY, selectedLang);
     updateSwitcher(selectedLang);
     updateOpenFaqHeights();
 
@@ -90,6 +132,12 @@
     document.querySelectorAll(".lang-option").forEach((option) => {
       option.setAttribute("type", "button");
       option.addEventListener("click", (event) => {
+        const href = option.getAttribute("href");
+        if (option.tagName === "A" && href && href !== "#") {
+          localStorage.setItem(STORAGE_KEY, option.dataset.lang || "en");
+          localStorage.setItem(FALLBACK_STORAGE_KEY, option.dataset.lang || "en");
+          return;
+        }
         event.preventDefault();
         applyLanguage(option.dataset.lang);
       });
@@ -97,5 +145,7 @@
 
     applyLanguage(initialLang);
     setupFaqAccordion();
+    setupRevealAnimations();
+    setupGallerySlider();
   });
 })();
