@@ -9,6 +9,8 @@
     />
     <link rel="alternate" href="index.html" hreflang="en" />
     <link rel="alternate" href="es.html" hreflang="es" />
+    <link rel="alternate" href="index.html" hreflang="fr" />
+    <link rel="alternate" href="index.html" hreflang="ar" />
     <title>Administración Privada de Propiedades | Gestión Privada de Alquileres</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -38,18 +40,26 @@
           <a href="#process">Preguntas frecuentes</a>
           <div class="header__actions header__actions--mobile">
             <div class="language-toggle" aria-label="Selector de idioma">
-              <a class="lang-option" data-lang="en" href="./index.html"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
+              <a class="lang-option" data-lang="en" href="./index.html" onclick="localStorage.setItem('lang','en'); localStorage.setItem('siteLanguage','en');"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
               <span class="lang-separator">|</span>
               <a class="lang-option active" data-lang="es" href="./es.html"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></a>
+              <span class="lang-separator">|</span>
+              <a class="lang-option" data-lang="fr" href="./index.html" onclick="localStorage.setItem('lang','fr'); localStorage.setItem('siteLanguage','fr');"><span>FR</span></a>
+              <span class="lang-separator">|</span>
+              <a class="lang-option" data-lang="ar" href="./index.html" onclick="localStorage.setItem('lang','ar'); localStorage.setItem('siteLanguage','ar');"><span>AR</span></a>
             </div>
           </div>
         </nav>
 
         <div class="header__actions header__actions--desktop">
           <div class="language-toggle" aria-label="Selector de idioma">
-            <a class="lang-option" data-lang="en" href="./index.html"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
+            <a class="lang-option" data-lang="en" href="./index.html" onclick="localStorage.setItem('lang','en'); localStorage.setItem('siteLanguage','en');"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
             <span class="lang-separator">|</span>
             <a class="lang-option active" data-lang="es" href="./es.html"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></a>
+            <span class="lang-separator">|</span>
+            <a class="lang-option" data-lang="fr" href="./index.html" onclick="localStorage.setItem('lang','fr'); localStorage.setItem('siteLanguage','fr');"><span>FR</span></a>
+            <span class="lang-separator">|</span>
+            <a class="lang-option" data-lang="ar" href="./index.html" onclick="localStorage.setItem('lang','ar'); localStorage.setItem('siteLanguage','ar');"><span>AR</span></a>
           </div>
         </div>
       </div>
@@ -119,10 +129,11 @@
 
             <li class="rental-process__card reveal">
               <span class="process-step">03</span>
-              <h3 class="rental-process__title">Pago reembolsable de solicitud</h3>
+              <h3 class="rental-process__title">Revisión de solicitud y asignación de pago</h3>
               <p class="rental-process__text">
-                La página siguiente mostrará los detalles de la tarifa
-                reembolsable de solicitud por Chime para completar el proceso.
+                Después de la revisión, los solicitantes listos para
+                procesamiento reciben directamente los detalles de pago
+                específicos de la solicitud y los próximos pasos.
               </p>
             </li>
 
@@ -136,6 +147,27 @@
               </p>
             </li>
           </ol>
+
+          <section class="payment-options-card reveal" aria-labelledby="es-payment-options-title">
+            <h3 id="es-payment-options-title">Métodos de pago disponibles</h3>
+            <p>
+              Por motivos de seguridad y verificación, las instrucciones de pago
+              se asignan individualmente después de la revisión de la solicitud.
+            </p>
+            <div class="payment-method-grid">
+              <div class="payment-method"><span class="payment-icon payment-icon--chime" aria-hidden="true">Ch</span><span>Chime</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--zelle" aria-hidden="true">Z</span><span>Zelle</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--apple" aria-hidden="true">Pay</span><span>Apple Pay</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--venmo" aria-hidden="true">V</span><span>Venmo</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--paypal" aria-hidden="true">PP</span><span>PayPal</span></div>
+            </div>
+            <p>
+              Las opciones de pago disponibles pueden variar según las
+              instrucciones de procesamiento asignadas. En este sitio web no se
+              muestran nombres de usuario, etiquetas, números de cuenta ni
+              códigos QR públicos.
+            </p>
+          </section>
         </div>
       </section>
 

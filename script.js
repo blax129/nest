@@ -1,7 +1,7 @@
 (() => {
   const STORAGE_KEY = "lang";
   const FALLBACK_STORAGE_KEY = "siteLanguage";
-  const LANGS = ["en", "es"];
+  const LANGS = ["en", "es", "fr", "ar"];
 
   function getInitialLang() {
     const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(FALLBACK_STORAGE_KEY);
@@ -99,18 +99,22 @@
     const selectedLang = LANGS.includes(lang) ? lang : "en";
 
     document.documentElement.lang = selectedLang;
+    document.documentElement.dir = selectedLang === "ar" ? "rtl" : "ltr";
     document.body.classList.add("language-is-switching");
 
-    document.querySelectorAll("[data-en][data-es]").forEach((el) => {
+    document.querySelectorAll("[data-en]").forEach((el) => {
       setElementText(el, selectedLang);
     });
 
-    document.querySelectorAll("[data-en-placeholder][data-es-placeholder]").forEach((el) => {
-      el.setAttribute("placeholder", el.dataset[`${selectedLang}Placeholder`]);
+    document.querySelectorAll("[data-en-placeholder]").forEach((el) => {
+      const placeholder = el.dataset[`${selectedLang}Placeholder`] || el.dataset.enPlaceholder;
+      if (typeof placeholder === "string") {
+        el.setAttribute("placeholder", placeholder);
+      }
     });
 
-    if (document.body.dataset.enTitle && document.body.dataset.esTitle) {
-      document.title = document.body.dataset[`${selectedLang}Title`];
+    if (document.body.dataset.enTitle) {
+      document.title = document.body.dataset[`${selectedLang}Title`] || document.body.dataset.enTitle;
     }
 
     localStorage.setItem(STORAGE_KEY, selectedLang);

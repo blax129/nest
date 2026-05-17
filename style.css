@@ -1391,6 +1391,98 @@ img{
   line-height: 1.72;
 }
 
+.payment-options-card{
+  position: relative;
+  overflow: hidden;
+  max-width: 920px;
+  margin: 28px auto 0;
+  padding: 28px;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(520px 220px at 12% 0%, rgba(212,175,55,.15), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+  box-shadow: 0 22px 65px rgba(0,0,0,.32), inset 0 1px 0 rgba(255,255,255,.08);
+  backdrop-filter: blur(16px);
+}
+.payment-options-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(212,175,55,.16), transparent 34%, rgba(255,255,255,.06));
+}
+.payment-options-card > *{
+  position: relative;
+}
+.payment-options-card h3,
+.payment-options-card h2{
+  margin: 0 0 10px;
+  color: rgba(255,255,255,.95);
+  font-family: "Playfair Display", ui-serif, Georgia, serif;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.15;
+}
+.payment-options-card p{
+  margin: 0;
+  color: rgba(255,255,255,.76);
+  font-size: 15px;
+  line-height: 1.75;
+}
+.payment-method-grid{
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0;
+}
+.payment-method{
+  min-width: 0;
+  min-height: 92px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 10px;
+  border-radius: 16px;
+  background: rgba(255,255,255,.055);
+  border: 1px solid rgba(255,255,255,.10);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+  text-align: center;
+}
+.payment-icon{
+  width: 46px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255,255,255,.92);
+  color: #0b1020;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
+.payment-icon--chime{ color: #0b7f45; }
+.payment-icon--zelle{ color: #6d1fd1; }
+.payment-icon--apple{ color: #10131b; }
+.payment-icon--venmo{ color: #1677ff; }
+.payment-icon--paypal{ color: #063b88; }
+.payment-method span:last-child{
+  max-width: 100%;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+}
+html[dir="rtl"] .payment-options-card,
+html[dir="rtl"] .faq-item__question,
+html[dir="rtl"] .faq-item__answer p{
+  text-align: right;
+}
+
 .rental-faq{
   position: relative;
 }
@@ -2654,6 +2746,20 @@ img{
     line-height: 1.68;
   }
 
+  .payment-options-card{
+    width: 100%;
+    padding: 22px 18px;
+  }
+
+  .payment-method-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .payment-method{
+    min-height: 86px;
+  }
+
   .btn,
   .floating-apply-btn{
     min-height: 54px;
@@ -2693,6 +2799,10 @@ img{
 
   .gallery-slider{
     min-height: 460px;
+  }
+
+  .payment-method-grid{
+    grid-template-columns: 1fr;
   }
 }
 

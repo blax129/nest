@@ -9,6 +9,8 @@
     />
     <link rel="alternate" href="index.html" hreflang="en" />
     <link rel="alternate" href="es.html" hreflang="es" />
+    <link rel="alternate" href="index.html" hreflang="fr" />
+    <link rel="alternate" href="index.html" hreflang="ar" />
     <title>Private Property Holdings | Private Rental Management</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,8 +20,8 @@
     />
     <link rel="stylesheet" href="./style.css" />
   </head>
-  <body class="home-with-floating-apply" data-en-title="Private Property Holdings | Private Rental Management" data-es-title="Private Property Holdings | Private Rental Management">
-    <a class="skip-link" href="#main">Skip to content</a>
+  <body class="home-with-floating-apply" data-en-title="Private Property Holdings | Private Rental Management" data-es-title="Private Property Holdings | Private Rental Management" data-fr-title="Private Property Holdings | Gestion privée de locations" data-ar-title="Private Property Holdings | إدارة تأجير خاصة">
+    <a class="skip-link" href="#main" data-en="Skip to content" data-es="Saltar al contenido" data-fr="Aller au contenu" data-ar="تخطي إلى المحتوى">Skip to content</a>
 
     <header class="header" >
       <div class="container header__inner">
@@ -33,14 +35,18 @@
         <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="nav" id="nav-toggle">☰</button>
 
         <nav class="nav" id="nav">
-          <a href="#leasing" data-en="Rental Process" data-es="Proceso de alquiler">Rental Process</a>
-          <a href="#services" data-en="Services" data-es="Servicios">Services</a>
-          <a href="#process" data-en="FAQ" data-es="Preguntas frecuentes">FAQ</a>
+          <a href="#leasing" data-en="Rental Process" data-es="Proceso de alquiler" data-fr="Processus de location" data-ar="عملية الإيجار">Rental Process</a>
+          <a href="#services" data-en="Services" data-es="Servicios" data-fr="Services" data-ar="الخدمات">Services</a>
+          <a href="#process" data-en="FAQ" data-es="Preguntas frecuentes" data-fr="FAQ" data-ar="الأسئلة الشائعة">FAQ</a>
           <div class="header__actions header__actions--mobile">
             <div class="language-toggle" aria-label="Language selector">
               <a class="lang-option" data-lang="en" href="./index.html"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
               <span class="lang-separator">|</span>
               <a class="lang-option" data-lang="es" href="./es.html"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></a>
+              <span class="lang-separator">|</span>
+              <a class="lang-option" data-lang="fr" href="./index.html"><span>FR</span></a>
+              <span class="lang-separator">|</span>
+              <a class="lang-option" data-lang="ar" href="./index.html"><span>AR</span></a>
             </div>
           </div>
         </nav>
@@ -50,6 +56,10 @@
             <a class="lang-option" data-lang="en" href="./index.html"><span class="lang-flag" aria-hidden="true">🇺🇸</span><span>EN</span></a>
             <span class="lang-separator">|</span>
             <a class="lang-option" data-lang="es" href="./es.html"><span class="lang-flag" aria-hidden="true">🇪🇸</span><span>ES</span></a>
+            <span class="lang-separator">|</span>
+            <a class="lang-option" data-lang="fr" href="./index.html"><span>FR</span></a>
+            <span class="lang-separator">|</span>
+            <a class="lang-option" data-lang="ar" href="./index.html"><span>AR</span></a>
           </div>
         </div>
 
@@ -96,14 +106,14 @@
       <section id="leasing" class="section leasing-process">
         <div class="container">
           <div class="section__header section__header--center reveal">
-            <h2 class="section__title" data-en="How the Rental Process Works" data-es="Cómo funciona el proceso de alquiler">How the Rental Process Works</h2>
+            <h2 class="section__title" data-en="How the Rental Process Works" data-es="Cómo funciona el proceso de alquiler" data-fr="Fonctionnement du processus de location" data-ar="كيف تسير عملية الإيجار">How the Rental Process Works</h2>
           </div>
 
           <ol class="rental-process__cards process-grid">
             <li class="rental-process__card reveal">
               <span class="process-step">01</span>
-              <h3 class="rental-process__title" data-en="View Property Details" data-es="Ver detalles de la propiedad">View Property Details</h3>
-              <p class="rental-process__text" data-en="Review the available property information carefully before beginning the application process." data-es="Revise cuidadosamente la información disponible de la propiedad antes de comenzar el proceso de solicitud.">
+              <h3 class="rental-process__title" data-en="View Property Details" data-es="Ver detalles de la propiedad" data-fr="Consulter les détails du logement" data-ar="مراجعة تفاصيل العقار">View Property Details</h3>
+              <p class="rental-process__text" data-en="Review the available property information carefully before beginning the application process." data-es="Revise cuidadosamente la información disponible de la propiedad antes de comenzar el proceso de solicitud." data-fr="Examinez attentivement les renseignements disponibles sur le logement avant de commencer la demande." data-ar="راجع معلومات العقار المتاحة بعناية قبل بدء عملية التقديم.">
                 Review the available property information carefully before
                 beginning the application process.
               </p>
@@ -111,31 +121,47 @@
 
             <li class="rental-process__card reveal">
               <span class="process-step">02</span>
-              <h3 class="rental-process__title" data-en="Submit Application" data-es="Enviar solicitud">Submit Application</h3>
-              <p class="rental-process__text" data-en="Complete the rental application form with accurate information." data-es="Complete el formulario de solicitud de alquiler con información precisa.">
+              <h3 class="rental-process__title" data-en="Submit Application" data-es="Enviar solicitud" data-fr="Soumettre la demande" data-ar="تقديم الطلب">Submit Application</h3>
+              <p class="rental-process__text" data-en="Complete the rental application form with accurate information." data-es="Complete el formulario de solicitud de alquiler con información precisa." data-fr="Remplissez le formulaire de demande de location avec des renseignements exacts." data-ar="أكمل نموذج طلب الإيجار بمعلومات دقيقة.">
                 Complete the rental application form with accurate information.
               </p>
             </li>
 
             <li class="rental-process__card reveal">
               <span class="process-step">03</span>
-              <h3 class="rental-process__title" data-en="Refundable Application Fee Payment" data-es="Pago reembolsable de solicitud">Refundable Application Fee Payment</h3>
-              <p class="rental-process__text" data-en="A refundable application fee is a payment that will be returned to you if your application is not approved or if you decide not to move forward after the tour." data-es="Una tarifa de solicitud reembolsable es un pago que se le devolverá si su solicitud no es aprobada o si decide no continuar después del recorrido.">
-                A refundable application fee is a payment that will be returned
-                to you if your application is not approved or if you decide not
-                to move forward after the tour.
+              <h3 class="rental-process__title" data-en="Application Review & Payment Assignment" data-es="Revisión de solicitud y asignación de pago" data-fr="Examen de la demande et attribution du paiement" data-ar="مراجعة الطلب وتعيين الدفع">Application Review & Payment Assignment</h3>
+              <p class="rental-process__text" data-en="After review, applicants ready for processing receive application-specific payment details and next steps directly." data-es="Después de la revisión, los solicitantes listos para procesamiento reciben directamente los detalles de pago específicos de la solicitud y los próximos pasos." data-fr="Après examen, les candidats prêts pour le traitement reçoivent directement les détails de paiement propres à leur demande et les prochaines étapes." data-ar="بعد المراجعة، يتلقى المتقدمون الجاهزون للمعالجة تفاصيل الدفع الخاصة بطلبهم والخطوات التالية مباشرة.">
+                After review, applicants ready for processing receive
+                application-specific payment details and next steps directly.
               </p>
             </li>
 
             <li class="rental-process__card reveal">
               <span class="process-step">04</span>
-              <h3 class="rental-process__title" data-en="Next Steps" data-es="Próximos pasos">Next Steps</h3>
-              <p class="rental-process__text" data-en="Qualified applicants will be contacted with updates, tour details, or further instructions." data-es="Los solicitantes calificados serán contactados con actualizaciones, detalles del recorrido o instrucciones adicionales.">
+              <h3 class="rental-process__title" data-en="Next Steps" data-es="Próximos pasos" data-fr="Prochaines étapes" data-ar="الخطوات التالية">Next Steps</h3>
+              <p class="rental-process__text" data-en="Qualified applicants will be contacted with updates, tour details, or further instructions." data-es="Los solicitantes calificados serán contactados con actualizaciones, detalles del recorrido o instrucciones adicionales." data-fr="Les candidats admissibles seront contactés avec des mises à jour, des détails de visite ou des instructions supplémentaires." data-ar="سيتم التواصل مع المتقدمين المؤهلين لتزويدهم بالتحديثات أو تفاصيل الجولة أو التعليمات الإضافية.">
                 Qualified applicants will be contacted with updates, tour
                 details, or further instructions.
               </p>
             </li>
           </ol>
+
+          <section class="payment-options-card reveal" aria-labelledby="home-payment-options-title">
+            <h3 id="home-payment-options-title" data-en="Supported Payment Methods" data-es="Métodos de pago disponibles" data-fr="Modes de paiement pris en charge" data-ar="طرق الدفع المدعومة">Supported Payment Methods</h3>
+            <p data-en="For security and verification purposes, payment instructions are assigned individually after application review." data-es="Por motivos de seguridad y verificación, las instrucciones de pago se asignan individualmente después de la revisión de la solicitud." data-fr="Pour des raisons de sécurité et de vérification, les instructions de paiement sont attribuées individuellement après l'examen de la demande." data-ar="لأغراض الأمان والتحقق، يتم تعيين تعليمات الدفع بشكل فردي بعد مراجعة الطلب.">
+              For security and verification purposes, payment instructions are assigned individually after application review.
+            </p>
+            <div class="payment-method-grid">
+              <div class="payment-method"><span class="payment-icon payment-icon--chime" aria-hidden="true">Ch</span><span>Chime</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--zelle" aria-hidden="true">Z</span><span>Zelle</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--apple" aria-hidden="true">Pay</span><span>Apple Pay</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--venmo" aria-hidden="true">V</span><span>Venmo</span></div>
+              <div class="payment-method"><span class="payment-icon payment-icon--paypal" aria-hidden="true">PP</span><span>PayPal</span></div>
+            </div>
+            <p data-en="Available payment options may vary depending on the assigned processing instructions. No public usernames, tags, account numbers, or QR codes are displayed on this website." data-es="Las opciones de pago disponibles pueden variar según las instrucciones de procesamiento asignadas. En este sitio web no se muestran nombres de usuario, etiquetas, números de cuenta ni códigos QR públicos." data-fr="Les options de paiement disponibles peuvent varier selon les instructions de traitement attribuées. Aucun nom d'utilisateur, identifiant, numéro de compte ou code QR public n'est affiché sur ce site." data-ar="قد تختلف خيارات الدفع المتاحة حسب تعليمات المعالجة المعينة. لا يتم عرض أسماء مستخدمين أو وسوم أو أرقام حسابات أو رموز QR عامة على هذا الموقع.">
+              Available payment options may vary depending on the assigned processing instructions. No public usernames, tags, account numbers, or QR codes are displayed on this website.
+            </p>
+          </section>
         </div>
       </section>
 
@@ -286,7 +312,7 @@
         <p class="footer__legal">Privacy • Terms</p>
       </div>
     </footer>
-    <a href="/apply.html" class="floating-apply-btn" data-en="Apply Now" data-es="Aplicar ahora">Apply Now</a>
+    <a href="/apply.html" class="floating-apply-btn" data-en="Apply Now" data-es="Aplicar ahora" data-fr="Postuler" data-ar="قدّم الآن">Apply Now</a>
     <script src="./script.js"></script>
     <script>
       function toggleMenu() {
