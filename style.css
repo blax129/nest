@@ -1477,12 +1477,6 @@ img{
   font-weight: 800;
   overflow-wrap: anywhere;
 }
-html[dir="rtl"] .payment-options-card,
-html[dir="rtl"] .faq-item__question,
-html[dir="rtl"] .faq-item__answer p{
-  text-align: right;
-}
-
 .rental-faq{
   position: relative;
 }

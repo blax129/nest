@@ -74,34 +74,6 @@
         text-decoration: underline;
       }
 
-      .language-toggle {
-        width: min(800px, calc(100% - 32px));
-        margin: 0 auto 18px;
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 8px;
-        color: rgba(255, 255, 255, 0.72);
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      .lang-option {
-        padding: 6px 8px;
-        border-radius: 999px;
-        color: rgba(255, 255, 255, 0.76);
-      }
-
-      .lang-option.active {
-        color: #10131b;
-        background: var(--gold);
-      }
-
-      .lang-separator {
-        color: rgba(255, 255, 255, 0.34);
-      }
-
       .page-shell {
         width: min(800px, calc(100% - 32px));
         margin: 0 auto;
@@ -351,19 +323,6 @@
         color: #6d1fd1;
       }
 
-      .payment-icon--apple {
-        color: #10131b;
-        font-size: 18px;
-      }
-
-      .payment-icon--venmo {
-        color: #1677ff;
-      }
-
-      .payment-icon--paypal {
-        color: #063b88;
-      }
-
       .payment-method span:last-child {
         max-width: 100%;
         color: #fff;
@@ -428,20 +387,6 @@
 
       .btn-action:hover {
         transform: translateY(-1px);
-      }
-
-      html[dir="rtl"] .language-toggle {
-        justify-content: flex-start;
-      }
-
-      html[dir="rtl"] .page-header,
-      html[dir="rtl"] .content-card,
-      html[dir="rtl"] .section-block,
-      html[dir="rtl"] .review-card,
-      html[dir="rtl"] .payment-options-card,
-      html[dir="rtl"] .trust-panel,
-      html[dir="rtl"] .contact-panel {
-        text-align: right;
       }
 
       @media (max-width: 640px) {
@@ -556,79 +501,69 @@
       }
     </style>
   </head>
-  <body data-en-title="Application Received | Private Property Holdings" data-es-title="Solicitud recibida | Administración Privada de Propiedades" data-fr-title="Demande reçue | Private Property Holdings" data-ar-title="تم استلام الطلب | Private Property Holdings">
+  <body data-en-title="Application Received | Private Property Holdings" data-es-title="Solicitud recibida | Administración Privada de Propiedades">
     <main class="page-shell">
-      <button class="back-btn" id="backBtn" type="button" aria-label="Go back" data-en="← Back" data-es="← Volver" data-fr="← Retour" data-ar="← رجوع">
+      <button class="back-btn" id="backBtn" type="button" aria-label="Go back" data-en="← Back" data-es="← Volver">
         ← Back
       </button>
-      <div class="language-toggle" aria-label="Language selector">
-        <a class="lang-option" data-lang="en" href="#"><span>EN</span></a>
-        <span class="lang-separator">|</span>
-        <a class="lang-option" data-lang="es" href="#"><span>ES</span></a>
-        <span class="lang-separator">|</span>
-        <a class="lang-option" data-lang="fr" href="#"><span>FR</span></a>
-        <span class="lang-separator">|</span>
-        <a class="lang-option" data-lang="ar" href="#"><span>AR</span></a>
-      </div>
-
       <header class="page-header">
-        <p class="page-subtitle" data-en="Private Property Holdings" data-es="Administración Privada de Propiedades" data-fr="Private Property Holdings" data-ar="Private Property Holdings">Private Property Holdings</p>
-        <h1 class="page-title" data-en="Application Received Successfully" data-es="Solicitud recibida correctamente" data-fr="Demande reçue avec succès" data-ar="تم استلام الطلب بنجاح">Application Received Successfully</h1>
-        <span class="status-badge" data-en="Pending Review" data-es="Pendiente de revisión" data-fr="En attente d'examen" data-ar="بانتظار المراجعة">Pending Review</span>
+        <p class="page-subtitle" data-en="Private Property Holdings" data-es="Administración Privada de Propiedades">Private Property Holdings</p>
+        <h1 class="page-title" data-en="Application Received Successfully" data-es="Solicitud recibida correctamente">Application Received Successfully</h1>
+        <span class="status-badge" data-en="Pending Review" data-es="Pendiente de revisión">Pending Review</span>
       </header>
 
       <section class="content-card">
-        <p class="confirmation-message" data-en="Thank you for submitting your rental application." data-es="Gracias por enviar su solicitud de alquiler." data-fr="Merci d'avoir soumis votre demande de location." data-ar="شكرا لتقديم طلب الإيجار الخاص بك.">
+        <p class="confirmation-message" data-en="Thank you for submitting your rental application." data-es="Gracias por enviar su solicitud de alquiler.">
           Thank you for submitting your rental application.
         </p>
-        <p data-en="Your application is currently pending review by the property management team." data-es="Su solicitud está actualmente pendiente de revisión por parte del equipo de administración de la propiedad." data-fr="Votre demande est actuellement en attente d'examen par l'équipe de gestion immobilière." data-ar="طلبك قيد المراجعة حاليا من قبل فريق إدارة العقار.">
+        <p data-en="Your application is currently pending review by the property management team." data-es="Su solicitud está actualmente pendiente de revisión por parte del equipo de administración de la propiedad.">
           Your application is currently pending review by the property management team.
         </p>
-        <p style="margin-top: 14px;" data-en="For security and verification purposes, payment instructions are assigned individually after review and will be provided once your application is ready for processing." data-es="Por motivos de seguridad y verificación, las instrucciones de pago se asignan individualmente después de la revisión y se proporcionarán una vez que su solicitud esté lista para procesamiento." data-fr="Pour des raisons de sécurité et de vérification, les instructions de paiement sont attribuées individuellement après examen et seront fournies lorsque votre demande sera prête à être traitée." data-ar="لأغراض الأمان والتحقق، يتم تعيين تعليمات الدفع بشكل فردي بعد المراجعة وسيتم توفيرها بمجرد أن يصبح طلبك جاهزا للمعالجة.">
+        <p style="margin-top: 14px;" data-en="For security and verification purposes, payment instructions are assigned individually after review and will be provided once your application is ready for processing." data-es="Por motivos de seguridad y verificación, las instrucciones de pago se asignan individualmente después de la revisión y se proporcionarán una vez que su solicitud esté lista para procesamiento.">
           For security and verification purposes, payment instructions are assigned individually after review and will be provided once your application is ready for processing.
         </p>
-        <div class="application-id" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud..." data-fr="Chargement de l'ID de demande..." data-ar="جار تحميل رقم الطلب...">Loading application ID...</div>
+        <div class="application-id" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</div>
       </section>
 
       <section class="section-block">
-        <h2 class="section-title" data-en="Next Steps" data-es="Próximos pasos" data-fr="Prochaines étapes" data-ar="الخطوات التالية">Next Steps</h2>
+        <h2 class="section-title" data-en="Next Steps" data-es="Próximos pasos">Next Steps</h2>
         <div class="steps-list">
-          <p data-en="Estimated review timeline: most applications are reviewed within 12-24 hours, depending on verification needs and application volume." data-es="Tiempo estimado de revisión: la mayoría de las solicitudes se revisan dentro de 12 a 24 horas, según las necesidades de verificación y el volumen de solicitudes." data-fr="Délai d'examen estimé : la plupart des demandes sont examinées dans un délai de 12 à 24 heures, selon les besoins de vérification et le volume de demandes." data-ar="المدة التقديرية للمراجعة: تتم مراجعة معظم الطلبات خلال 12 إلى 24 ساعة، حسب متطلبات التحقق وحجم الطلبات.">
+          <p data-en="Estimated review timeline: most applications are reviewed within 12-24 hours, depending on verification needs and application volume." data-es="Tiempo estimado de revisión: la mayoría de las solicitudes se revisan dentro de 12 a 24 horas, según las necesidades de verificación y el volumen de solicitudes.">
             Estimated review timeline: most applications are reviewed within 12-24 hours, depending on verification needs and application volume.
           </p>
-          <p data-en="Please keep your Application ID available when contacting support. Application-specific payment details will only be provided directly after review." data-es="Tenga a mano su ID de solicitud cuando se comunique con soporte. Los detalles de pago específicos de la solicitud solo se proporcionarán directamente después de la revisión." data-fr="Veuillez garder votre ID de demande à portée de main lorsque vous contactez l'assistance. Les détails de paiement propres à la demande ne seront fournis directement qu'après examen." data-ar="يرجى الاحتفاظ برقم الطلب عند التواصل مع الدعم. لن يتم تقديم تفاصيل الدفع الخاصة بالطلب إلا مباشرة بعد المراجعة.">
+          <p data-en="Please keep your Application ID available when contacting support. Application-specific payment details will only be provided directly after review." data-es="Tenga a mano su ID de solicitud cuando se comunique con soporte. Los detalles de pago específicos de la solicitud solo se proporcionarán directamente después de la revisión.">
             Please keep your Application ID available when contacting support. Application-specific payment details will only be provided directly after review.
           </p>
         </div>
       </section>
 
       <section class="review-card" aria-labelledby="review-status-title">
-        <h2 id="review-status-title" data-en="Application Under Review" data-es="Solicitud en revisión" data-fr="Demande en cours d'examen" data-ar="الطلب قيد المراجعة">Application Under Review</h2>
+        <h2 id="review-status-title" data-en="Application Under Review" data-es="Solicitud en revisión">Application Under Review</h2>
         <div class="review-grid">
           <div class="review-row">
-            <span data-en="Current Status" data-es="Estado actual" data-fr="Statut actuel" data-ar="الحالة الحالية">Current Status</span>
-            <strong data-en="Under Review" data-es="En revisión" data-fr="En cours d'examen" data-ar="قيد المراجعة">Under Review</strong>
+            <span data-en="Current Status" data-es="Estado actual">Current Status</span>
+            <strong data-en="Under Review" data-es="En revisión">Under Review</strong>
           </div>
           <div class="review-row">
-            <span data-en="Processing Step" data-es="Paso de procesamiento" data-fr="Étape de traitement" data-ar="مرحلة المعالجة">Processing Step</span>
-            <strong data-en="Verification process" data-es="Proceso de verificación" data-fr="Processus de vérification" data-ar="عملية التحقق">Verification process</strong>
+            <span data-en="Processing Step" data-es="Paso de procesamiento">Processing Step</span>
+            <strong data-en="Verification process" data-es="Proceso de verificación">Verification process</strong>
           </div>
           <div class="review-row">
-            <span data-en="Payment Handling" data-es="Gestión de pago" data-fr="Gestion du paiement" data-ar="معالجة الدفع">Payment Handling</span>
-            <strong data-en="Assigned privately" data-es="Asignado de forma privada" data-fr="Attribué en privé" data-ar="يتم تعيينها بشكل خاص">Assigned privately</strong>
+            <span data-en="Payment Handling" data-es="Gestión de pago">Payment Handling</span>
+            <strong data-en="Assigned privately" data-es="Asignado de forma privada">Assigned privately</strong>
           </div>
         </div>
-        <p class="review-note" data-en="Our team is currently reviewing your submission. Once your application is ready for processing, assigned payment instructions and next steps will be provided directly." data-es="Nuestro equipo está revisando su solicitud. Una vez que su solicitud esté lista para procesamiento, se le proporcionarán directamente las instrucciones de pago asignadas y los próximos pasos." data-fr="Notre équipe examine actuellement votre dossier. Lorsque votre demande sera prête à être traitée, les instructions de paiement attribuées et les prochaines étapes vous seront fournies directement." data-ar="يقوم فريقنا حاليا بمراجعة طلبك. بمجرد أن يصبح طلبك جاهزا للمعالجة، سيتم تزويدك مباشرة بتعليمات الدفع المعينة والخطوات التالية.">
+        <p class="review-note" data-en="Our team is currently reviewing your submission. Once your application is ready for processing, assigned payment instructions and next steps will be provided directly." data-es="Nuestro equipo está revisando su solicitud. Una vez que su solicitud esté lista para procesamiento, se le proporcionarán directamente las instrucciones de pago asignadas y los próximos pasos.">
           Our team is currently reviewing your submission. Once your application is ready for processing, assigned payment instructions and next steps will be provided directly.
         </p>
-        <p class="fee-note" data-en="Only one application submission is required per household. Please note that screening requirements may apply to each adult (18+) who will be residing in the property." data-es="Solo se requiere una solicitud por hogar. Tenga en cuenta que los requisitos de evaluación pueden aplicar a cada adulto (18+) que residirá en la propiedad." data-fr="Une seule demande est requise par foyer. Veuillez noter que les exigences de vérification peuvent s'appliquer à chaque adulte (18 ans et plus) qui résidera dans le logement." data-ar="يلزم تقديم طلب واحد فقط لكل أسرة. يرجى ملاحظة أن متطلبات الفحص قد تنطبق على كل بالغ بعمر 18 عاما أو أكثر سيقيم في العقار.">
+        <p class="fee-note" data-en="Only one application submission is required per household. Please note that screening requirements may apply to each adult (18+) who will be residing in the property." data-es="Solo se requiere una solicitud por hogar. Tenga en cuenta que los requisitos de evaluación pueden aplicar a cada adulto (18+) que residirá en la propiedad.">
           Only one application submission is required per household. Please note that screening requirements may apply to each adult (18+) who will be residing in the property.
         </p>
       </section>
 
       <section class="payment-options-card" aria-labelledby="payment-options-title">
-        <h2 id="payment-options-title" data-en="Supported Payment Methods" data-es="Métodos de pago disponibles" data-fr="Modes de paiement pris en charge" data-ar="طرق الدفع المدعومة">Supported Payment Methods</h2>
-        <p data-en="For security and verification purposes, payment instructions are assigned individually after application review." data-es="Por motivos de seguridad y verificación, las instrucciones de pago se asignan individualmente después de la revisión de la solicitud." data-fr="Pour des raisons de sécurité et de vérification, les instructions de paiement sont attribuées individuellement après l'examen de la demande." data-ar="لأغراض الأمان والتحقق، يتم تعيين تعليمات الدفع بشكل فردي بعد مراجعة الطلب.">
+        <h2 id="payment-options-title" data-en="Supported Payment Methods" data-es="Métodos de pago disponibles">Supported Payment Methods</h2>
+        <p data-en="For security and verification purposes, payment instructions are assigned individually after application review." data-es="Por motivos de seguridad y verificación, las instrucciones de pago se asignan individualmente después de la revisión de la solicitud.">
           For security and verification purposes, payment instructions are assigned individually after application review.
         </p>
 
@@ -641,41 +576,29 @@
             <span class="payment-icon payment-icon--zelle" aria-hidden="true">Z</span>
             <span>Zelle</span>
           </div>
-          <div class="payment-method">
-            <span class="payment-icon payment-icon--apple" aria-hidden="true">Pay</span>
-            <span>Apple Pay</span>
-          </div>
-          <div class="payment-method">
-            <span class="payment-icon payment-icon--venmo" aria-hidden="true">V</span>
-            <span>Venmo</span>
-          </div>
-          <div class="payment-method">
-            <span class="payment-icon payment-icon--paypal" aria-hidden="true">PP</span>
-            <span>PayPal</span>
-          </div>
         </div>
 
-        <p data-en="Available payment options may vary depending on the assigned processing instructions. No public usernames, tags, account numbers, or QR codes are displayed on this website." data-es="Las opciones de pago disponibles pueden variar según las instrucciones de procesamiento asignadas. En este sitio web no se muestran nombres de usuario, etiquetas, números de cuenta ni códigos QR públicos." data-fr="Les options de paiement disponibles peuvent varier selon les instructions de traitement attribuées. Aucun nom d'utilisateur, identifiant, numéro de compte ou code QR public n'est affiché sur ce site." data-ar="قد تختلف خيارات الدفع المتاحة حسب تعليمات المعالجة المعينة. لا يتم عرض أسماء مستخدمين أو وسوم أو أرقام حسابات أو رموز QR عامة على هذا الموقع.">
+        <p data-en="Available payment options may vary depending on the assigned processing instructions. No public usernames, tags, account numbers, or QR codes are displayed on this website." data-es="Las opciones de pago disponibles pueden variar según las instrucciones de procesamiento asignadas. En este sitio web no se muestran nombres de usuario, etiquetas, números de cuenta ni códigos QR públicos.">
           Available payment options may vary depending on the assigned processing instructions. No public usernames, tags, account numbers, or QR codes are displayed on this website.
         </p>
       </section>
 
       <section class="trust-panel">
         <p>
-          <span data-en="This process is handled directly by Private Property Holdings. Payment processing instructions are assigned privately and documented through the verification process." data-es="Este proceso es gestionado directamente por Private Property Holdings. Las instrucciones de procesamiento de pago se asignan de forma privada y se documentan durante el proceso de verificación." data-fr="Ce processus est géré directement par Private Property Holdings. Les instructions de traitement du paiement sont attribuées en privé et documentées dans le cadre du processus de vérification." data-ar="تتم إدارة هذه العملية مباشرة من قبل Private Property Holdings. يتم تعيين تعليمات معالجة الدفع بشكل خاص وتوثيقها من خلال عملية التحقق.">This process is handled directly by Private Property Holdings. Payment processing instructions are assigned privately and documented through the verification process.</span>
+          <span data-en="This process is handled directly by Private Property Holdings. Payment processing instructions are assigned privately and documented through the verification process." data-es="Este proceso es gestionado directamente por Private Property Holdings. Las instrucciones de procesamiento de pago se asignan de forma privada y se documentan durante el proceso de verificación.">This process is handled directly by Private Property Holdings. Payment processing instructions are assigned privately and documented through the verification process.</span>
         </p>
       </section>
 
       <section class="contact-panel">
         <p>
-          <span data-en="Need help or want to reference your Application ID? Email us at" data-es="¿Necesita ayuda o desea consultar su ID de solicitud? Escríbanos a" data-fr="Besoin d'aide ou souhaitez-vous mentionner votre ID de demande ? Envoyez-nous un courriel à" data-ar="هل تحتاج إلى مساعدة أو تريد الإشارة إلى رقم طلبك؟ راسلنا على">Need help or want to reference your Application ID? Email us at</span>
+          <span data-en="Need help or want to reference your Application ID? Email us at" data-es="¿Necesita ayuda o desea consultar su ID de solicitud? Escríbanos a">Need help or want to reference your Application ID? Email us at</span>
           <a href="mailto:info@privatepropertyholdings.co">info@privatepropertyholdings.co</a>
         </p>
       </section>
 
       <div class="actions">
-        <a class="btn-action btn-secondary" id="returnHomeLink" href="./index.html" data-en="Return to Home" data-es="Volver al inicio" data-fr="Retour à l'accueil" data-ar="العودة إلى الصفحة الرئيسية">Return to Home</a>
-        <a class="btn-action btn-primary" href="mailto:info@privatepropertyholdings.co" data-en="Contact Support" data-es="Contactar soporte" data-fr="Contacter l'assistance" data-ar="الاتصال بالدعم">Contact Support</a>
+        <a class="btn-action btn-secondary" id="returnHomeLink" href="./index.html" data-en="Return to Home" data-es="Volver al inicio">Return to Home</a>
+        <a class="btn-action btn-primary" href="mailto:info@privatepropertyholdings.co" data-en="Contact Support" data-es="Contactar soporte">Contact Support</a>
       </div>
     </main>
     <script src="./script.js"></script>
@@ -725,14 +648,10 @@
         if (!applicationId) {
           display.setAttribute('data-en', 'Check your email for your application ID');
           display.setAttribute('data-es', 'Revise su correo electrónico para ver su ID de solicitud');
-          display.setAttribute('data-fr', 'Consultez votre courriel pour votre ID de demande');
-          display.setAttribute('data-ar', 'تحقق من بريدك الإلكتروني للحصول على رقم الطلب');
           display.textContent = display.dataset[activeLang] || display.dataset.en;
         } else {
           display.setAttribute('data-en', `Application ID: ${applicationId}`);
           display.setAttribute('data-es', `ID de solicitud: ${applicationId}`);
-          display.setAttribute('data-fr', `ID de demande : ${applicationId}`);
-          display.setAttribute('data-ar', `رقم الطلب: ${applicationId}`);
           display.textContent = display.dataset[activeLang] || display.dataset.en;
         }
       })();

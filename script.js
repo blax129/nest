@@ -1,7 +1,7 @@
 (() => {
   const STORAGE_KEY = "lang";
   const FALLBACK_STORAGE_KEY = "siteLanguage";
-  const LANGS = ["en", "es", "fr", "ar"];
+  const LANGS = ["en", "es"];
 
   function getInitialLang() {
     const saved = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(FALLBACK_STORAGE_KEY);
@@ -99,7 +99,7 @@
     const selectedLang = LANGS.includes(lang) ? lang : "en";
 
     document.documentElement.lang = selectedLang;
-    document.documentElement.dir = selectedLang === "ar" ? "rtl" : "ltr";
+    document.documentElement.dir = "ltr";
     document.body.classList.add("language-is-switching");
 
     document.querySelectorAll("[data-en]").forEach((el) => {
