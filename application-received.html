@@ -349,6 +349,10 @@
       }
 
       .contact-panel a {
+        display: block;
+        width: fit-content;
+        max-width: 100%;
+        overflow-wrap: anywhere;
         color: var(--gold);
         text-decoration: underline;
       }
@@ -507,7 +511,6 @@
         ← Back
       </button>
       <header class="page-header">
-        <p class="page-subtitle" data-en="Private Property Holdings" data-es="Administración Privada de Propiedades">Private Property Holdings</p>
         <h1 class="page-title" data-en="Application Received Successfully" data-es="Solicitud recibida correctamente">Application Received Successfully</h1>
         <span class="status-badge" data-en="Pending Review" data-es="Pendiente de revisión">Pending Review</span>
       </header>
@@ -516,11 +519,11 @@
         <p class="confirmation-message" data-en="Thank you for submitting your rental application." data-es="Gracias por enviar su solicitud de alquiler.">
           Thank you for submitting your rental application.
         </p>
-        <p data-en="Your application is currently pending review by the property management team." data-es="Su solicitud está actualmente pendiente de revisión por parte del equipo de administración de la propiedad.">
-          Your application is currently pending review by the property management team.
+        <p data-en="To proceed with the approval and processing step, payment instructions for the refundable application fee will be provided directly after submission." data-es="Para continuar con el paso de aprobación y procesamiento, las instrucciones de pago para el cargo de solicitud reembolsable se proporcionarán directamente después del envío.">
+          To proceed with the approval and processing step, payment instructions for the refundable application fee will be provided directly after submission.
         </p>
-        <p style="margin-top: 14px;" data-en="For security and verification purposes, payment instructions are assigned individually after review and will be provided once your application is ready for processing." data-es="Por motivos de seguridad y verificación, las instrucciones de pago se asignan individualmente después de la revisión y se proporcionarán una vez que su solicitud esté lista para procesamiento.">
-          For security and verification purposes, payment instructions are assigned individually after review and will be provided once your application is ready for processing.
+        <p style="margin-top: 14px;" data-en="Once payment is confirmed, your application review and approval process will begin." data-es="Una vez confirmado el pago, comenzará el proceso de revisión y aprobación de su solicitud.">
+          Once payment is confirmed, your application review and approval process will begin.
         </p>
         <div class="application-id" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</div>
       </section>
@@ -538,26 +541,26 @@
       </section>
 
       <section class="review-card" aria-labelledby="review-status-title">
-        <h2 id="review-status-title" data-en="Application Under Review" data-es="Solicitud en revisión">Application Under Review</h2>
+        <h2 id="review-status-title" data-en="Application Processing Status" data-es="Estado de procesamiento de la solicitud">Application Processing Status</h2>
         <div class="review-grid">
           <div class="review-row">
             <span data-en="Current Status" data-es="Estado actual">Current Status</span>
-            <strong data-en="Under Review" data-es="En revisión">Under Review</strong>
+            <strong data-en="Application Received" data-es="Solicitud recibida">Application Received</strong>
           </div>
           <div class="review-row">
             <span data-en="Processing Step" data-es="Paso de procesamiento">Processing Step</span>
-            <strong data-en="Verification process" data-es="Proceso de verificación">Verification process</strong>
+            <strong data-en="Payment Confirmation Pending" data-es="Confirmación de pago pendiente">Payment Confirmation Pending</strong>
           </div>
           <div class="review-row">
             <span data-en="Payment Handling" data-es="Gestión de pago">Payment Handling</span>
-            <strong data-en="Assigned privately" data-es="Asignado de forma privada">Assigned privately</strong>
+            <strong data-en="Assigned Privately" data-es="Asignado de forma privada">Assigned Privately</strong>
           </div>
         </div>
-        <p class="review-note" data-en="Our team is currently reviewing your submission. Once your application is ready for processing, assigned payment instructions and next steps will be provided directly." data-es="Nuestro equipo está revisando su solicitud. Una vez que su solicitud esté lista para procesamiento, se le proporcionarán directamente las instrucciones de pago asignadas y los próximos pasos.">
-          Our team is currently reviewing your submission. Once your application is ready for processing, assigned payment instructions and next steps will be provided directly.
+        <p class="review-note" data-en="Your application has been received successfully. Payment instructions for the refundable application fee will be provided directly to proceed with the approval and processing step. Once payment is confirmed, your application review will begin along with the next steps." data-es="Su solicitud se ha recibido correctamente. Las instrucciones de pago para el cargo de solicitud reembolsable se proporcionarán directamente para continuar con el paso de aprobación y procesamiento. Una vez confirmado el pago, comenzará la revisión de su solicitud junto con los próximos pasos.">
+          Your application has been received successfully. Payment instructions for the refundable application fee will be provided directly to proceed with the approval and processing step. Once payment is confirmed, your application review will begin along with the next steps.
         </p>
-        <p class="fee-note" data-en="Only one application submission is required per household. Please note that screening requirements may apply to each adult (18+) who will be residing in the property." data-es="Solo se requiere una solicitud por hogar. Tenga en cuenta que los requisitos de evaluación pueden aplicar a cada adulto (18+) que residirá en la propiedad.">
-          Only one application submission is required per household. Please note that screening requirements may apply to each adult (18+) who will be residing in the property.
+        <p class="fee-note" data-en="Only one application is required per household, however the application fee applies to each adult who will be moving in." data-es="Solo se requiere una solicitud por hogar; sin embargo, el cargo de solicitud aplica a cada adulto que se mudará.">
+          Only one application is required per household, however the application fee applies to each adult who will be moving in.
         </p>
       </section>
 
@@ -591,14 +594,15 @@
 
       <section class="contact-panel">
         <p>
-          <span data-en="Need help or want to reference your Application ID? Email us at" data-es="¿Necesita ayuda o desea consultar su ID de solicitud? Escríbanos a">Need help or want to reference your Application ID? Email us at</span>
-          <a href="mailto:info@privatepropertyholdings.co">info@privatepropertyholdings.co</a>
+          <span data-en="Need help or want to reference your Application ID? Contact us at" data-es="¿Necesita ayuda o desea consultar su ID de solicitud? Contáctenos en">Need help or want to reference your Application ID? Contact us at</span>
+          <a href="tel:+15042499908">+1 504-249-9908</a>
+          <a href="mailto:infoprivateproperty.holdings@gmail.com">infoprivateproperty.holdings@gmail.com</a>
         </p>
       </section>
 
       <div class="actions">
         <a class="btn-action btn-secondary" id="returnHomeLink" href="./index.html" data-en="Return to Home" data-es="Volver al inicio">Return to Home</a>
-        <a class="btn-action btn-primary" href="mailto:info@privatepropertyholdings.co" data-en="Contact Support" data-es="Contactar soporte">Contact Support</a>
+        <a class="btn-action btn-primary" href="mailto:infoprivateproperty.holdings@gmail.com" data-en="Contact Support" data-es="Contactar soporte">Contact Support</a>
       </div>
     </main>
     <script src="./script.js"></script>
