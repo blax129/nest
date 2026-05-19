@@ -193,6 +193,91 @@
         word-wrap: break-word;
       }
 
+      .payment-method-field {
+        margin-top: 16px;
+      }
+
+      .payment-method-field .field__label {
+        margin-bottom: 12px;
+      }
+
+      .payment-method-options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .payment-method-option {
+        position: relative;
+        min-width: 0;
+      }
+
+      .payment-method-option input[type="radio"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
+      }
+
+      .payment-method-card {
+        min-height: 86px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255, 255, 255, 0.045);
+        color: rgba(255, 255, 255, 0.88);
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, transform 0.2s ease;
+      }
+
+      .payment-method-option input[type="radio"]:focus-visible + .payment-method-card,
+      .payment-method-option input[type="radio"]:checked + .payment-method-card {
+        border-color: rgba(212, 175, 55, 0.62);
+        background:
+          radial-gradient(260px 100px at 0% 0%, rgba(212, 175, 55, 0.12), transparent 62%),
+          rgba(255, 255, 255, 0.065);
+        box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+      }
+
+      .payment-method-option input[type="radio"]:checked + .payment-method-card {
+        transform: translateY(-1px);
+      }
+
+      .payment-logo {
+        width: 50px;
+        height: 36px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.94);
+        color: #0b1020;
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 1;
+        letter-spacing: 0;
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .payment-logo--chime {
+        color: #0b7f45;
+      }
+
+      .payment-logo--zelle {
+        color: #6d1fd1;
+        font-size: 18px;
+      }
+
+      .payment-method-name {
+        min-width: 0;
+        color: #fff;
+        font-weight: 700;
+        overflow-wrap: anywhere;
+      }
+
       .submit-wrap {
         margin-top: 10px;
       }
@@ -274,6 +359,14 @@
 
         .agreement-item label {
           font-size: 14px;
+        }
+
+        .payment-method-options {
+          grid-template-columns: 1fr;
+        }
+
+        .payment-method-card {
+          min-height: 78px;
         }
       }
 
@@ -609,6 +702,28 @@
               <div class="agreement-item">
                 <input id="applicationAcknowledgement" type="checkbox" name="application_acknowledgement" required />
                 <label for="applicationAcknowledgement" data-en="I understand that payment instructions for the refundable application fee will be provided after submission and that my application review will begin once payment is confirmed." data-es="Entiendo que las instrucciones de pago para el cargo de solicitud reembolsable se proporcionarán después del envío y que la revisión de mi solicitud comenzará una vez que se confirme el pago.">I understand that payment instructions for the refundable application fee will be provided after submission and that my application review will begin once payment is confirmed.</label>
+              </div>
+            </div>
+            <div class="payment-method-field" role="radiogroup" aria-labelledby="preferred-payment-label">
+              <div id="preferred-payment-label" class="field__label">
+                <span data-en="Preferred payment method for the fee" data-es="Método de pago preferido para el cargo">Preferred payment method for the fee</span>
+                <span class="required-mark">*</span>
+              </div>
+              <div class="payment-method-options">
+                <label class="payment-method-option">
+                  <input type="radio" name="preferred_payment_method_for_fee" value="Chime" required />
+                  <span class="payment-method-card">
+                    <span class="payment-logo payment-logo--chime" aria-hidden="true">Chime</span>
+                    <span class="payment-method-name">Chime</span>
+                  </span>
+                </label>
+                <label class="payment-method-option">
+                  <input type="radio" name="preferred_payment_method_for_fee" value="Zelle" required />
+                  <span class="payment-method-card">
+                    <span class="payment-logo payment-logo--zelle" aria-hidden="true">Z</span>
+                    <span class="payment-method-name">Zelle</span>
+                  </span>
+                </label>
               </div>
             </div>
           </section>
