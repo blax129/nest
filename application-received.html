@@ -278,7 +278,7 @@
 
       .payment-method-grid {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: minmax(0, 160px);
         gap: 12px;
         margin: 22px 0;
       }
@@ -317,10 +317,6 @@
 
       .payment-icon--chime {
         color: #0b7f45;
-      }
-
-      .payment-icon--zelle {
-        color: #6d1fd1;
       }
 
       .payment-method span:last-child {
@@ -574,10 +570,6 @@
           <div class="payment-method">
             <span class="payment-icon payment-icon--chime" aria-hidden="true">Ch</span>
             <span>Chime</span>
-          </div>
-          <div class="payment-method">
-            <span class="payment-icon payment-icon--zelle" aria-hidden="true">Z</span>
-            <span>Zelle</span>
           </div>
         </div>
 

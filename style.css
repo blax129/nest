@@ -1508,7 +1508,7 @@ img{
 }
 .payment-method-grid{
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 160px);
   gap: 12px;
   margin: 22px 0;
 }
@@ -1543,7 +1543,6 @@ img{
   box-shadow: 0 10px 28px rgba(0,0,0,.22);
 }
 .payment-icon--chime{ color: #0b7f45; }
-.payment-icon--zelle{ color: #6d1fd1; }
 .payment-icon--apple{ color: #10131b; }
 .payment-icon--venmo{ color: #1677ff; }
 .payment-icon--paypal{ color: #063b88; }
