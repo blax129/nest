@@ -17,6 +17,23 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
+    <style>
+      .header .brand {
+        margin-left: -24px;
+      }
+
+      .brand__logo {
+        width: clamp(140px, 40vw, 240px);
+        height: auto;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .header .brand {
+          margin-left: -14px;
+        }
+      }
+    </style>
   </head>
   <body class="home-with-floating-apply" data-en-title="Private Property Holdings | Direct Owner Rentals" data-es-title="Private Property Holdings | Direct Owner Rentals">
     <a class="skip-link" href="#main" data-en="Skip to content" data-es="Saltar al contenido">Skip to content</a>
@@ -24,10 +41,7 @@
     <header class="header" >
       <div class="container header__inner">
         <a class="brand" href="./index.html" aria-label="Private Property Holdings home">
-          <span class="brand__text">
-            <span class="brand__name">Private Property Holdings</span>
-            <span class="brand__sub">Direct Owner Rentals</span>
-          </span>
+          <img class="brand__logo" src="./images/private-property-logo-new.png" alt="Private Property Holdings logo" />
         </a>
 
         <button class="hamburger" type="button" onclick="toggleMenu()" aria-label="Open menu" aria-expanded="false" aria-controls="nav" id="nav-toggle">☰</button>
@@ -246,10 +260,7 @@
       <div class="container footer__grid">
         <div class="footer__brand">
           <div class="brand brand--footer">
-            <span class="brand__text">
-              <span class="brand__name">Private Property Holdings</span>
-              <span class="brand__sub">Direct Owner Rentals</span>
-            </span>
+            <img class="brand__logo" src="./images/private-property-logo-new.png" alt="Private Property Holdings logo" />
           </div>
           <div class="footer__contact" aria-label="Footer contact phone number">
             <span>Contact</span>
