@@ -316,7 +316,14 @@
       }
 
       .payment-icon--chime {
-        color: #0b7f45;
+        padding: 6px 8px;
+      }
+
+      .payment-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
       }
 
       .payment-method span:last-child {
@@ -568,7 +575,9 @@
 
         <div class="payment-method-grid">
           <div class="payment-method">
-            <span class="payment-icon payment-icon--chime" aria-hidden="true">Ch</span>
+            <span class="payment-icon payment-icon--chime" aria-hidden="true">
+              <img src="./images/chime-logo.svg" alt="" width="46" height="34" />
+            </span>
             <span>Chime</span>
           </div>
         </div>

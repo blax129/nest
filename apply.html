@@ -271,7 +271,14 @@
       }
 
       .payment-logo--chime {
-        color: #0b7f45;
+        padding: 6px 8px;
+      }
+
+      .payment-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
       }
 
       .payment-method-name {
@@ -415,7 +422,7 @@
             <div class="form-grid">
               <label class="field">
                 <span class="field__label"><span data-en="Property Address" data-es="Dirección de la propiedad">Property Address</span> <span class="required-mark">*</span></span>
-                <input class="field__input" type="text" name="property_address" required />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="property_address" required />
               </label>
 
               <label class="field">
@@ -471,7 +478,7 @@
             <div class="form-grid">
               <label class="field">
                 <span class="field__label"><span data-en="Full Legal Name" data-es="Nombre legal completo">Full Legal Name</span> <span class="required-mark">*</span></span>
-                <input class="field__input" type="text" name="fullLegalName" required />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="fullLegalName" required />
               </label>
 
               <label class="field">
@@ -481,12 +488,12 @@
 
               <label class="field">
                 <span class="field__label"><span data-en="Email" data-es="Correo electrónico">Email</span> <span class="required-mark">*</span></span>
-                <input class="field__input" type="email" name="email" required />
+                <input class="field__input" type="email" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="email" required />
               </label>
 
               <label class="field">
                 <span class="field__label"><span data-en="Phone" data-es="Teléfono">Phone</span> <span class="required-mark">*</span></span>
-                <input class="field__input" type="tel" name="phone" required />
+                <input class="field__input" type="tel" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="phone" required />
               </label>
 
               <label class="field">
@@ -516,12 +523,12 @@
             <div class="form-grid form-grid--single">
               <label class="field">
                 <span class="field__label" data-en="Current Address" data-es="Dirección actual">Current Address</span>
-                <textarea class="field__input field__input--textarea" name="current_address"></textarea>
+                <textarea class="field__input field__input--textarea" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="current_address"></textarea>
               </label>
 
               <label class="field">
                 <span class="field__label" data-en="Previous Address" data-es="Dirección anterior">Previous Address</span>
-                <textarea class="field__input field__input--textarea" name="previous_address"></textarea>
+                <textarea class="field__input field__input--textarea" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="previous_address"></textarea>
               </label>
             </div>
           </section>
@@ -531,17 +538,17 @@
             <div class="form-grid">
               <label class="field">
                 <span class="field__label" data-en="Employer" data-es="Empleador">Employer</span>
-                <input class="field__input" type="text" name="employer" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="employer" />
               </label>
 
               <label class="field">
                 <span class="field__label" data-en="Employer Phone" data-es="Teléfono del empleador">Employer Phone</span>
-                <input class="field__input" type="tel" name="employer_phone" />
+                <input class="field__input" type="tel" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="employer_phone" />
               </label>
 
               <label class="field">
                 <span class="field__label" data-en="Monthly Income" data-es="Ingresos mensuales">Monthly Income</span>
-                <input class="field__input" type="number" name="monthly_income" min="0" step="1" />
+                <input class="field__input" type="number" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="monthly_income" min="0" step="1" />
               </label>
 
               <label class="field">
@@ -563,7 +570,7 @@
             <div class="form-grid">
               <label class="field">
                 <span class="field__label" data-en="Credit Score" data-es="Puntaje de crédito">Credit Score</span>
-                <input class="field__input" type="text" name="credit_score" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="credit_score" />
               </label>
 
               <label class="field">
@@ -577,7 +584,7 @@
 
               <label class="field">
                 <span class="field__label" data-en="If Yes, Please Provide Details" data-es="Si respondió sí, proporcione detalles">If Yes, Please Provide Details</span>
-                <input class="field__input" type="text" name="evicted_details" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="evicted_details" />
               </label>
 
               <label class="field">
@@ -591,7 +598,7 @@
 
               <label class="field">
                 <span class="field__label" data-en="If Yes, Please Provide Details" data-es="Si respondió sí, proporcione detalles">If Yes, Please Provide Details</span>
-                <input class="field__input" type="text" name="criminal_record_details" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="criminal_record_details" />
               </label>
             </div>
           </section>
@@ -601,7 +608,7 @@
             <div class="form-grid">
               <label class="field" style="grid-column: 1 / -1;">
                 <span class="field__label" data-en="Reason for Moving" data-es="Motivo de mudanza">Reason for Moving</span>
-                <textarea class="field__input field__input--textarea" name="reason_for_moving"></textarea>
+                <textarea class="field__input field__input--textarea" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="reason_for_moving"></textarea>
               </label>
 
               <label class="field">
@@ -618,7 +625,7 @@
 
               <label class="field">
                 <span class="field__label" data-en="Applicant Names" data-es="Nombres de los solicitantes">Applicant Names</span>
-                <input class="field__input" type="text" name="applicant_names" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="applicant_names" />
               </label>
 
               <label class="field">
@@ -636,12 +643,12 @@
 
               <label class="field">
                 <span class="field__label" data-en="Pets" data-es="Mascotas">Pets</span>
-                <input class="field__input" type="text" name="pets" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="pets" />
               </label>
 
               <label class="field">
                 <span class="field__label" data-en="Vehicles" data-es="Vehículos">Vehicles</span>
-                <input class="field__input" type="text" name="vehicles" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="vehicles" />
               </label>
             </div>
           </section>
@@ -662,12 +669,12 @@
 
               <label class="field">
                 <span class="field__label" data-en="Name" data-es="Nombre">Name</span>
-                <input class="field__input" type="text" name="reference_name" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="reference_name" />
               </label>
 
               <label class="field">
                 <span class="field__label" data-en="Phone" data-es="Teléfono">Phone</span>
-                <input class="field__input" type="tel" name="reference_phone" />
+                <input class="field__input" type="tel" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="reference_phone" />
               </label>
             </div>
           </section>
@@ -677,17 +684,17 @@
             <div class="form-grid">
               <label class="field">
                 <span class="field__label" data-en="Name" data-es="Nombre">Name</span>
-                <input class="field__input" type="text" name="emergency_name" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="emergency_name" />
               </label>
 
               <label class="field">
                 <span class="field__label" data-en="Relationship" data-es="Relación">Relationship</span>
-                <input class="field__input" type="text" name="emergency_relationship" />
+                <input class="field__input" type="text" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="emergency_relationship" />
               </label>
 
               <label class="field">
                 <span class="field__label" data-en="Phone" data-es="Teléfono">Phone</span>
-                <input class="field__input" type="tel" name="emergency_phone" />
+                <input class="field__input" type="tel" placeholder="Your answer" data-en-placeholder="Your answer" data-es-placeholder="Su respuesta" name="emergency_phone" />
               </label>
             </div>
           </section>
@@ -715,7 +722,9 @@
               <div class="payment-method-options">
                 <div class="payment-method-option">
                   <span class="payment-method-card payment-method-card--selected">
-                    <span class="payment-logo payment-logo--chime" aria-hidden="true">Chime</span>
+                    <span class="payment-logo payment-logo--chime" aria-hidden="true">
+                      <img src="./images/chime-logo.svg" alt="" width="50" height="36" />
+                    </span>
                     <span class="payment-method-name">Chime</span>
                   </span>
                 </div>
@@ -844,7 +853,9 @@
 
             if (response.ok) {
               console.log('[RentalForm] Formspree success, redirecting.');
-              window.location.href = 'application-received.html';
+              window.location.href = activeLang === 'es'
+                ? 'es-application-received.html'
+                : 'application-received.html';
               return;
             }
 

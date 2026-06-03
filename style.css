@@ -491,15 +491,15 @@ img{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 178px;
-  min-height: 54px;
-  padding: 0 24px;
+  min-width: 158px;
+  min-height: 48px;
+  padding: 0 20px;
   border: 1px solid rgba(255,255,255,.22);
   border-radius: 999px;
   background: var(--gold);
   color: rgba(10,12,18,.96);
   box-shadow: 0 12px 28px rgba(0,0,0,.34), 0 8px 22px rgba(212,175,55,.24);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: .2px;
   line-height: 1;
@@ -1542,7 +1542,13 @@ img{
   letter-spacing: 0;
   box-shadow: 0 10px 28px rgba(0,0,0,.22);
 }
-.payment-icon--chime{ color: #0b7f45; }
+.payment-icon--chime{ padding: 6px 8px; }
+.payment-icon img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .payment-icon--apple{ color: #10131b; }
 .payment-icon--venmo{ color: #1677ff; }
 .payment-icon--paypal{ color: #063b88; }
@@ -1902,27 +1908,41 @@ img{
   letter-spacing: .18em;
   text-transform: uppercase;
 }
-.footer__phone{
-  display:inline-flex;
-  color: rgba(212,175,55,.96);
-  font-size: clamp(16px, 2vw, 24px);
-  font-weight: 900;
-  letter-spacing: .04em;
-  line-height: 1.1;
-}
+.footer__phone,
 .footer__email{
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   max-width: 100%;
-  overflow-wrap: anywhere;
+  padding: 11px 14px;
+  border: 1px solid rgba(212,175,55,.34);
+  border-radius: 12px;
+  background: rgba(212,175,55,.10);
   color: rgba(212,175,55,.96);
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(17px, 2.1vw, 24px);
   font-weight: 900;
   letter-spacing: .04em;
-  line-height: 1.1;
+  line-height: 1.2;
   text-align: center;
+  text-decoration: none;
+  transition:
+    color .2s var(--ease),
+    background .2s var(--ease),
+    border-color .2s var(--ease),
+    transform .18s var(--ease);
 }
-.footer__email:hover{
-  color: rgba(212,175,55,.96);
+.footer__phone:hover,
+.footer__phone:focus-visible,
+.footer__email:hover,
+.footer__email:focus-visible{
+  color: rgba(255,255,255,.98);
+  background: rgba(212,175,55,.18);
+  border-color: rgba(212,175,55,.58);
+}
+.footer__phone:active,
+.footer__email:active{
+  transform: scale(.98);
 }
 
 .reveal{
@@ -2504,13 +2524,13 @@ img{
   }
 
   body.home-with-floating-apply{
-    padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px));
   }
 
   .floating-apply-btn{
     right: 18px;
     bottom: calc(18px + env(safe-area-inset-bottom, 0px));
-    min-width: min(240px, calc(100vw - 36px));
+    min-width: min(210px, calc(100vw - 36px));
     animation-duration: 3.2s;
   }
 
@@ -2911,10 +2931,10 @@ img{
 
   .btn,
   .floating-apply-btn{
-    min-height: 54px;
-    padding-left: 22px;
-    padding-right: 22px;
-    font-size: 15px;
+    min-height: 48px;
+    padding-left: 18px;
+    padding-right: 18px;
+    font-size: 14px;
   }
 
   .footer{
@@ -2945,7 +2965,17 @@ img{
 
   .footer__contact{
     width: 100%;
-    padding: 18px 16px;
+    min-width: 0;
+    padding: 16px 10px;
+    gap: 10px;
+  }
+
+  .footer__phone,
+  .footer__email{
+    padding: 11px 10px;
+    font-size: clamp(12px, 3.55vw, 17px);
+    letter-spacing: .01em;
+    white-space: nowrap;
   }
 
   .footer__bottom{
@@ -2973,6 +3003,16 @@ img{
 
   .service-card{
     padding: 16px;
+  }
+
+  .footer__contact{
+    padding: 14px 8px;
+  }
+
+  .footer__phone,
+  .footer__email{
+    padding: 10px 6px;
+    font-size: clamp(11.5px, 3.55vw, 14px);
   }
 
   .service-card__number{
