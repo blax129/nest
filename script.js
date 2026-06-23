@@ -53,6 +53,57 @@
     window.addEventListener("resize", updateOpenFaqHeights);
   }
 
+  function setupFeedbackForm() {
+    const form = document.getElementById("feedbackForm");
+    const status = document.getElementById("feedbackStatus");
+    if (!form || !status) return;
+
+    const messages = {
+      en: {
+        sending: "Sending feedback...",
+        success: "Thank you for your feedback!",
+        error: "Something went wrong. Please try again.",
+      },
+      es: {
+        sending: "Enviando comentario...",
+        success: "¡Gracias por sus comentarios!",
+        error: "Algo salió mal. Inténtelo de nuevo.",
+      },
+    };
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const lang = localStorage.getItem(STORAGE_KEY) || "en";
+      const copy = messages[lang] || messages.en;
+      const submitButton = form.querySelector('button[type="submit"]');
+
+      status.className = "feedback-status";
+      status.textContent = copy.sending;
+      if (submitButton) submitButton.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (!response.ok) {
+          throw new Error("Feedback submission failed");
+        }
+
+        form.reset();
+        status.className = "feedback-status is-success";
+        status.textContent = copy.success;
+      } catch (error) {
+        status.className = "feedback-status is-error";
+        status.textContent = copy.error;
+      } finally {
+        if (submitButton) submitButton.disabled = false;
+      }
+    });
+  }
+
   function setupRevealAnimations() {
     const items = document.querySelectorAll(".reveal");
     if (!items.length) return;
@@ -149,6 +200,7 @@
 
     applyLanguage(initialLang);
     setupFaqAccordion();
+    setupFeedbackForm();
     setupRevealAnimations();
     setupGallerySlider();
   });

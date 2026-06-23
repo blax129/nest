@@ -908,7 +908,8 @@ img{
 .gallery-section::before,
 .services::before,
 .leasing-process::before,
-.rental-faq::before{
+.rental-faq::before,
+.applicant-feedback::before{
   content: "";
   position: absolute;
   inset: 0 auto auto 50%;
@@ -1658,6 +1659,125 @@ img{
   line-height: 1.75;
 }
 
+.applicant-feedback{
+  position: relative;
+}
+.applicant-feedback .section__title{
+  font-size: clamp(28px, 3.2vw, 42px);
+  line-height: 1.12;
+}
+.applicant-feedback .section__lead{
+  font-size: 16px;
+  max-width: 52ch;
+  margin-inline: auto;
+}
+.testimonial-list{
+  display: grid;
+  gap: 14px;
+  max-width: 860px;
+  margin-inline: auto;
+}
+.testimonial-card{
+  display: grid;
+  gap: 12px;
+  padding: 20px 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.04)),
+    rgba(15,23,42,.36);
+  box-shadow: 0 14px 36px rgba(0,0,0,.18);
+}
+.testimonial-card__header{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.testimonial-card__avatar{
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+.testimonial-card__avatar--green{ background: #2f7a4f; }
+.testimonial-card__avatar--purple{ background: #6b4f8f; }
+.testimonial-card__avatar--teal{ background: #2f7a7a; }
+.testimonial-card__avatar--olive{ background: #7a6b3f; }
+.testimonial-card__avatar--brown{ background: #7a4f3f; }
+.testimonial-card__meta{
+  min-width: 0;
+}
+.testimonial-card__name{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: rgba(255,255,255,.94);
+  line-height: 1.3;
+}
+.testimonial-card__date{
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--muted-2);
+}
+.testimonial-card__quote{
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+.feedback-form-card{
+  max-width: 860px;
+  margin: 28px auto 0;
+  padding: 24px 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.12);
+  background:
+    radial-gradient(420px 180px at 0% 0%, rgba(212,175,55,.08), transparent 62%),
+    linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04)),
+    rgba(15,23,42,.42);
+  box-shadow: 0 18px 46px rgba(0,0,0,.22);
+}
+.feedback-form-card__header{
+  margin-bottom: 18px;
+}
+.feedback-form-card__title{
+  margin: 0 0 6px;
+  font-size: clamp(22px, 2.4vw, 28px);
+  font-weight: 800;
+  color: rgba(255,255,255,.95);
+  line-height: 1.2;
+}
+.feedback-form-card__lead{
+  margin: 0;
+  color: var(--muted-2);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.feedback-form .field{
+  margin-bottom: 16px;
+}
+.feedback-form .btn{
+  min-width: 168px;
+}
+.feedback-status{
+  margin: 12px 0 0;
+  min-height: 1.4em;
+  color: var(--muted);
+  font-size: 14px;
+}
+.feedback-status.is-success{
+  color: rgba(134, 239, 172, .92);
+}
+.feedback-status.is-error{
+  color: rgba(252, 165, 165, .92);
+}
+
 .trust__grid{
   display:grid;
   grid-template-columns: 1.05fr .95fr;
@@ -2129,6 +2249,16 @@ img{
   .leasing-process .rental-process__card{ padding: 18px; }
   .faq-list{ gap: 14px; }
   .faq-item{ border-radius: 18px; }
+  .testimonial-list{ gap: 12px; }
+  .testimonial-card{
+    padding: 18px;
+    border-radius: 16px;
+  }
+  .feedback-form-card{
+    margin-top: 22px;
+    padding: 20px 18px;
+    border-radius: 18px;
+  }
   .faq-item__question{
     min-height: 68px;
     padding: 18px 18px;

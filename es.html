@@ -254,6 +254,93 @@
           </div>
         </div>
       </section>
+
+      <section id="testimonials" class="section applicant-feedback" aria-labelledby="testimonials-title">
+        <div class="container">
+          <div class="section__header section__header--center reveal">
+            <h2 id="testimonials-title" class="section__title">Lo que dicen los solicitantes</h2>
+            <p class="section__lead">Comentarios de personas que completaron el proceso de solicitud.</p>
+          </div>
+
+          <div class="testimonial-list">
+            <article class="testimonial-card reveal">
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--green" aria-hidden="true">TM</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Tyler M.</p>
+                  <p class="testimonial-card__date">16 de marzo de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Solicité un domingo y recibí respuesta el lunes por la mañana. Proceso sencillo.</p>
+            </article>
+
+            <article class="testimonial-card reveal">
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--purple" aria-hidden="true">RK</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Ryan K.</p>
+                  <p class="testimonial-card__date">2 de abril de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Me explicaron la tarifa y la política de reembolso de antemano. Sin sorpresas.</p>
+            </article>
+
+            <article class="testimonial-card reveal">
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--teal" aria-hidden="true">ML</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Melissa L.</p>
+                  <p class="testimonial-card__date">18 de mayo de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Las instrucciones de pago fueron claras y la revisión avanzó rápido.</p>
+            </article>
+
+            <article class="testimonial-card reveal">
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--olive" aria-hidden="true">CD</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Chris D.</p>
+                  <p class="testimonial-card__date">8 de junio de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Buena comunicación en todo momento. Me mantuvieron informado después de enviar.</p>
+            </article>
+
+            <article class="testimonial-card reveal">
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--brown" aria-hidden="true">JH</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Jordan H.</p>
+                  <p class="testimonial-card__date">25 de julio de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Profesional de principio a fin. El proceso se sintió bien organizado.</p>
+            </article>
+          </div>
+
+          <div class="feedback-form-card reveal">
+            <div class="feedback-form-card__header">
+              <h3 class="feedback-form-card__title">Comparta su experiencia</h3>
+              <p class="feedback-form-card__lead">Comentarios privados para nuestro equipo.</p>
+            </div>
+            <form id="feedbackForm" class="feedback-form" action="https://formspree.io/f/mpqnkajy" method="POST">
+              <input type="hidden" name="_subject" value="Comentarios de solicitantes" />
+              <input type="hidden" name="form_type" value="applicant_feedback" />
+              <label class="field">
+                <span class="field__label">Su nombre</span>
+                <input class="field__input" type="text" name="feedback_name" autocomplete="name" required placeholder="Nombre e inicial del apellido" />
+              </label>
+              <label class="field">
+                <span class="field__label">Su comentario</span>
+                <textarea class="field__input field__input--textarea" name="feedback_comment" rows="4" required placeholder="Comparta su experiencia"></textarea>
+              </label>
+              <button class="btn btn--primary" type="submit">Enviar comentario</button>
+              <p id="feedbackStatus" class="feedback-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
