@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="iconTitle">
+  <title id="iconTitle">Private Property Holdings</title>
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0C1610"/>
+      <stop offset="100%" stop-color="#07100A"/>
+    </linearGradient>
+    <linearGradient id="greenBright" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#66BB6A"/>
+      <stop offset="50%" stop-color="#2E7D32"/>
+      <stop offset="100%" stop-color="#1B5E20"/>
+    </linearGradient>
+    <linearGradient id="towerFill" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#F7FBF8"/>
+      <stop offset="100%" stop-color="#B7E4C7"/>
+    </linearGradient>
+    <linearGradient id="arcGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2E7D32"/>
+      <stop offset="55%" stop-color="#43A047"/>
+      <stop offset="100%" stop-color="#66BB6A"/>
+    </linearGradient>
+    <linearGradient id="greenDeep" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#43A047"/>
+      <stop offset="100%" stop-color="#1B5E20"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)"/>
+  <g transform="translate(256 250)">
+    <path d="M-150 56 C-118 -74, 118 -74, 150 56" fill="none" stroke="url(#arcGlow)" stroke-width="16" stroke-linecap="round"/>
+    <rect x="-118" y="-10" width="44" height="72" rx="3" fill="none" stroke="url(#greenBright)" stroke-width="4"/>
+    <path d="M-24 -68 L24 -68 L38 44 L-38 44 Z" fill="url(#towerFill)"/>
+    <rect x="74" y="-30" width="52" height="92" rx="3" fill="none" stroke="url(#greenBright)" stroke-width="4"/>
+    <line x1="88" y1="-14" x2="88" y2="54" stroke="#43A047" stroke-width="3"/>
+    <line x1="102" y1="-14" x2="102" y2="54" stroke="#43A047" stroke-width="3"/>
+    <line x1="116" y1="-14" x2="116" y2="54" stroke="#43A047" stroke-width="3"/>
+    <path d="M-44 44 L0 10 L44 44 V68 H-44 Z" fill="url(#greenDeep)"/>
+    <rect x="-14" y="30" width="28" height="22" rx="2" fill="#D8F3DC"/>
+    <path d="M0 -78 L4 -70 L12 -70 L5 -64 L8 -56 L0 -62 L-8 -56 L-5 -64 L-12 -70 L-4 -70 Z" fill="#D8F3DC"/>
+  </g>
+</svg>

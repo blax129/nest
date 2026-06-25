@@ -3,10 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#2E7D32" />
     <meta
       name="description"
-      content="Application Received — Private Property Holdings. Your rental application is pending review and payment processing instructions will be assigned privately when ready."
+      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to privatepropertyholdings@outlook.com."
     />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Private Property Holdings" />
+    <meta property="og:title" content="Application Received | Private Property Holdings" />
+    <meta property="og:description" content="Complete your refundable application fee via Chime after submitting your rental application." />
+    <meta property="og:image" content="/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Private Property Holdings logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Application Received | Private Property Holdings" />
+    <meta name="twitter:description" content="Complete your refundable application fee via Chime after submitting your rental application." />
+    <meta name="twitter:image" content="/images/og-image.png" />
+    <meta name="twitter:image:alt" content="Private Property Holdings logo" />
     <title>Application Received | Private Property Holdings</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,17 +35,24 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #070b16;
-        --panel: rgba(255, 255, 255, 0.04);
-        --panel-strong: rgba(255, 255, 255, 0.07);
+        --bg: #0c1610;
+        --surface: rgba(255, 255, 255, 0.05);
+        --surface-soft: rgba(255, 255, 255, 0.045);
+        --surface-green: rgba(46, 125, 50, 0.12);
+        --surface-blue: rgba(255, 255, 255, 0.045);
+        --surface-muted: rgba(255, 255, 255, 0.05);
         --border: rgba(255, 255, 255, 0.12);
-        --text: #f7f7f9;
-        --muted: rgba(255, 255, 255, 0.7);
-        --gold: #d4af37;
-        --gold-soft: rgba(212, 175, 55, 0.18);
-        --radius: 16px;
-        --shadow: 0 22px 65px rgba(0, 0, 0, 0.38);
-        --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+        --border-strong: rgba(46, 125, 50, 0.32);
+        --text: rgba(255, 255, 255, 0.92);
+        --text-soft: rgba(255, 255, 255, 0.68);
+        --brand: #2e7d32;
+        --brand-dark: #1b5e20;
+        --brand-light: #66bb6a;
+        --blue: #2e7d32;
+        --blue-dark: #1b5e20;
+        --orange: #f26b1d;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+        --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.26);
       }
 
       * {
@@ -42,9 +67,13 @@
 
       body {
         font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        background: radial-gradient(circle at top left, rgba(212, 175, 55, 0.08), transparent 24%),
-          radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.05), transparent 22%),
-          linear-gradient(180deg, var(--bg), #04060d);
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px),
+          radial-gradient(1200px 700px at 15% -10%, rgba(46, 125, 50, 0.12), transparent 55%),
+          radial-gradient(900px 520px at 90% 10%, rgba(27, 94, 32, 0.10), transparent 58%),
+          radial-gradient(800px 600px at 60% 120%, rgba(102, 187, 106, 0.08), transparent 58%),
+          linear-gradient(180deg, #0c1610 0%, #07100a 100%);
+        background-size: 3px 3px, auto, auto, auto, auto;
         color: var(--text);
         line-height: 1.6;
       }
@@ -59,551 +88,860 @@
         text-decoration: none;
       }
 
-      .back-btn {
-        background: transparent;
-        border: none;
-        color: #d4af37;
-        font: inherit;
-        font-size: 14px;
-        cursor: pointer;
-        margin: 16px;
-        padding: 6px 0;
-      }
-
-      .back-btn:hover {
-        text-decoration: underline;
-      }
-
       .page-shell {
-        width: min(800px, calc(100% - 32px));
+        width: min(560px, 100%);
         margin: 0 auto;
-        padding: 32px 0 40px;
+        padding: 10px 0 120px;
+      }
+
+      .back-btn {
+        width: 56px;
+        height: 56px;
+        margin: 0 0 18px 18px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--brand-light);
+        font: inherit;
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+      }
+
+      .top-strip {
+        height: 68px;
+        margin-bottom: 8px;
+        background: linear-gradient(180deg, rgba(8, 20, 14, 0.92), rgba(8, 20, 14, 0.78));
+        border-bottom: 1px solid rgba(46, 125, 50, 0.18);
       }
 
       .page-header {
         text-align: center;
-        padding-bottom: 24px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 6px 24px 0;
       }
 
-      .page-subtitle {
-        margin: 0 0 12px;
-        color: var(--muted);
+      .page-kicker {
+        margin: 0 0 14px;
+        color: var(--brand-light);
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .progress {
+        margin: 0 auto 18px;
+        max-width: 390px;
+      }
+
+      .progress-track {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: start;
+        gap: 0;
+      }
+
+      .progress-step {
+        position: relative;
+        text-align: center;
+      }
+
+      .progress-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 21px;
+        left: calc(50% + 22px);
+        width: calc(100% - 44px);
+        height: 3px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .progress-step.is-complete:not(:last-child)::after,
+      .progress-step.is-current:not(:last-child)::after {
+        background: var(--blue);
+      }
+
+      .progress-dot {
+        width: 38px;
+        height: 38px;
+        margin: 0 auto 6px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        border: 2px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.56);
         font-size: 14px;
-        letter-spacing: 0.24em;
-        text-transform: uppercase;
+        font-weight: 800;
+        position: relative;
+        z-index: 1;
       }
 
-      .page-title {
+      .progress-step.is-complete .progress-dot,
+      .progress-step.is-current .progress-dot {
+        border-color: var(--blue);
+        background: var(--blue);
+        color: #fff;
+      }
+
+      .progress-step.is-current .progress-dot {
+        box-shadow: 0 0 0 6px rgba(46, 125, 50, 0.14);
+      }
+
+      .progress-label {
+        color: rgba(255, 255, 255, 0.56);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .progress-step.is-current .progress-label,
+      .progress-step.is-complete .progress-label {
+        color: var(--blue);
+      }
+
+      .intro-copy {
         margin: 0;
-        font-family: "Playfair Display", ui-serif, Georgia, serif;
-        font-size: clamp(34px, 5vw, 44px);
-        letter-spacing: 0.2px;
-        line-height: 1.04;
+        padding: 0 24px;
+        color: var(--text-soft);
+        font-size: clamp(16px, 4vw, 19px);
+        line-height: 1.5;
+        text-align: center;
       }
 
-      .status-badge {
+      .page-card,
+      .notice-card,
+      .support-card,
+      .disabled-card,
+      .upload-card {
+        margin: 20px 20px 0;
+        border-radius: 22px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .page-card {
+        padding: 18px;
+      }
+
+      .payment-card-header {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        align-items: start;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .payment-brand {
+        width: 64px;
+        height: 64px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin: 22px auto 0;
-        padding: 12px 18px;
-        border-radius: 999px;
-        border: 1px solid var(--gold);
-        background: rgba(212, 175, 55, 0.06);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        box-shadow: 0 16px 34px rgba(46, 125, 50, 0.18);
+        overflow: hidden;
+      }
+
+      .payment-brand img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .payment-card-title {
+        margin: 4px 0 6px;
+        color: rgba(255, 255, 255, 0.96);
+        font-size: clamp(19px, 4.5vw, 22px);
+        font-weight: 800;
+        line-height: 1.2;
+      }
+
+      .payment-card-copy {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .payment-email-card {
+        margin-top: 16px;
+        padding: 14px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(46, 125, 50, 0.32);
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+      }
+
+      .payment-email-label {
+        margin: 0 0 8px;
+        color: rgba(255, 255, 255, 0.58);
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .payment-email-address {
+        margin: 0;
+        padding: 10px 12px;
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         color: #fff;
+        font-family: "Courier New", Courier, monospace;
+        font-size: clamp(13px, 2.65vw, 14px);
+        font-weight: 700;
+        line-height: 1.15;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        letter-spacing: -0.03em;
+        text-align: center;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .copy-email-btn,
+      .store-btn {
+        width: 100%;
+        margin-top: 16px;
+        min-height: 52px;
+        padding: 0 18px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.06);
+        color: #fff;
+        font: inherit;
+        font-size: 15px;
+        font-weight: 800;
+        cursor: pointer;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+      }
+
+      .copy-email-btn:hover,
+      .store-btn:hover {
+        transform: translateY(-1px);
+        border-color: rgba(46, 125, 50, 0.38);
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .meta-strip {
+        margin-top: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .meta-pill {
+        padding: 9px 12px;
+        border-radius: 999px;
+        background: var(--surface-soft);
+        border: 1px solid var(--border);
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .steps-card {
+        margin-top: 16px;
+        padding: 16px 16px 8px;
+        border-radius: 18px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .steps-list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .steps-list li {
+        display: grid;
+        grid-template-columns: 38px 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .step-number {
+        width: 34px;
+        height: 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        border: 1px solid rgba(46, 125, 50, 0.28);
+        background: var(--surface-blue);
+        color: var(--brand-light);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .step-copy {
+        color: var(--text-soft);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .step-copy strong {
+        color: #fff;
+      }
+
+      .support-card {
+        padding: 18px;
+        background: var(--surface-green);
+        text-align: center;
+      }
+
+      .section-title {
+        margin: 0 0 10px;
+        color: rgba(255, 255, 255, 0.96);
+        font-size: clamp(18px, 4vw, 21px);
+        font-weight: 800;
+        line-height: 1.25;
+      }
+
+      .section-copy {
+        margin: 0;
+        color: var(--text-soft);
+        font-size: 14px;
+        line-height: 1.65;
+      }
+
+      .store-list {
+        margin-top: 16px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .store-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .store-btn__icon {
+        width: 20px;
+        height: 20px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.92);
+        flex-shrink: 0;
+      }
+
+      .store-btn__icon svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .notice-card {
+        padding: 16px 16px 16px 14px;
+        background: var(--surface-blue);
+      }
+
+      .notice-row {
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 12px;
+        align-items: start;
+      }
+
+      .notice-icon {
+        width: 24px;
+        height: 24px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        border: 1px solid rgba(46, 125, 50, 0.28);
+        color: var(--brand-light);
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .notice-copy {
+        color: var(--text-soft);
+        font-size: 14px;
+        line-height: 1.62;
+      }
+
+      .disabled-card {
+        padding: 18px;
+        border-top: 4px solid var(--orange);
+        text-align: center;
+      }
+
+      .disabled-header {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+        align-items: start;
+        justify-items: center;
+      }
+
+      .disabled-icon {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: var(--surface-blue);
+        color: var(--brand-light);
+        font-size: 24px;
+      }
+
+      .disabled-copy {
+        margin: 6px 0 0;
+        color: var(--text-soft);
+        font-size: 14px;
+        line-height: 1.62;
+      }
+
+      .card-grid {
+        margin-top: 18px;
+        padding: 18px;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .card-grid-inner {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .card-logo {
+        min-height: 62px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.03));
+        color: #f6deb0;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 0.02em;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .card-logo--visa {
+        font-style: italic;
+        letter-spacing: 0.08em;
+      }
+
+      .card-logo--mastercard {
+        gap: 0;
+      }
+
+      .card-logo__mc {
+        width: 20px;
+        height: 20px;
+        border-radius: 999px;
+        opacity: 0.96;
+      }
+
+      .card-logo__mc--left {
+        background: #eb5757;
+        margin-right: -6px;
+      }
+
+      .card-logo__mc--right {
+        background: #f2c94c;
+      }
+
+      .card-logo__label {
+        margin-left: 10px;
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.84);
+      }
+
+      .card-logo--verve {
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .card-logo__verve-v {
+        color: #34d399;
+      }
+
+      .card-logo__verve-e {
+        color: #60a5fa;
+      }
+
+      .card-logo__verve-rve {
+        color: #fbbf24;
+      }
+
+      .card-logo--more {
+        color: rgba(255, 255, 255, 0.84);
         font-size: 13px;
         letter-spacing: 0.12em;
         text-transform: uppercase;
       }
 
-      .content-card {
-        margin-top: 30px;
-        padding: 28px;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
+      .security-badge {
+        margin-top: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 18px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
+        box-shadow: 0 12px 34px rgba(46, 125, 50, 0.16);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
       }
 
-      .content-card p {
+      .upload-card {
+        padding: 22px;
+      }
+
+      .upload-box {
+        margin-top: 18px;
+        min-height: 180px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px dashed rgba(255, 255, 255, 0.16);
+        text-align: center;
+        padding: 22px;
+      }
+
+      .upload-icon {
+        width: 74px;
+        height: 74px;
+        margin: 0 auto 14px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--brand-light);
+        font-size: 34px;
+      }
+
+      .upload-title {
         margin: 0;
-        color: var(--muted);
-        font-size: 15px;
-      }
-
-      .content-card strong {
-        color: var(--text);
-      }
-
-      .confirmation-message {
-        margin-bottom: 18px;
-        color: var(--text);
+        color: #fff;
         font-size: 16px;
+        font-weight: 800;
+      }
+
+      .upload-help {
+        margin: 8px 0 0;
+        color: var(--text-soft);
+        font-size: 14px;
+      }
+
+      .contact-panel {
+        margin: 20px 20px 0;
+        padding: 0 2px;
+        text-align: center;
+      }
+
+      .contact-panel a {
+        color: var(--brand-light);
+        text-decoration: underline;
       }
 
       .application-id {
         margin-top: 16px;
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        padding: 14px 16px;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: #fff;
+        display: inline-block;
+        padding: 10px 14px;
+        border-radius: 14px;
+        background: var(--surface-blue);
+        border: 1px solid var(--border);
+        color: rgba(255, 255, 255, 0.82);
         font-family: "Courier New", Courier, monospace;
-        font-size: 15px;
-      }
-
-      .section-block {
-        margin-top: 32px;
-      }
-
-      .section-title {
-        margin: 0 0 14px;
-        font-family: "Playfair Display", ui-serif, Georgia, serif;
-        font-size: 20px;
-        letter-spacing: 0.12px;
-        color: #fff;
-      }
-
-      .steps-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: grid;
-        gap: 16px;
-      }
-
-      .steps-list li {
-        display: grid;
-        gap: 8px;
-        padding: 20px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .steps-list strong {
-        color: var(--text);
-        font-size: 15px;
-      }
-
-      .review-card {
-        margin-top: 32px;
-        padding: 24px;
-        border-radius: 18px;
-        background: rgba(212, 175, 55, 0.08);
-        border: 1px solid rgba(212, 175, 55, 0.18);
-      }
-
-      .review-card h2 {
-        margin: 0 0 16px;
-        font-size: 18px;
-        color: #fff;
-      }
-
-      .review-grid {
-        display: grid;
-        gap: 12px;
-      }
-
-      .review-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 8px;
-        color: #f4f4f4;
-        font-size: 15px;
-      }
-
-      .review-row span:first-child {
-        color: var(--muted);
-      }
-
-      .review-note {
-        margin-top: 18px;
-        color: rgba(255, 255, 255, 0.78);
-        line-height: 1.65;
         font-size: 14px;
-      }
-
-      .fee-note {
-        margin-top: 8px;
-        color: var(--muted);
-        font-size: 13px;
-        line-height: 1.6;
-      }
-
-      .payment-options-card {
-        position: relative;
-        overflow: hidden;
-        margin-top: 32px;
-        padding: 26px;
-        border-radius: 18px;
-        background:
-          radial-gradient(420px 180px at 12% 0%, rgba(212, 175, 55, 0.16), transparent 62%),
-          linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.035));
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 22px 65px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        backdrop-filter: blur(16px);
-      }
-
-      .payment-options-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: linear-gradient(135deg, rgba(212, 175, 55, 0.16), transparent 34%, rgba(255, 255, 255, 0.06));
-      }
-
-      .payment-options-card > * {
-        position: relative;
-      }
-
-      .payment-options-card h2 {
-        margin: 0 0 10px;
-        font-family: "Playfair Display", ui-serif, Georgia, serif;
-        font-size: 22px;
-        line-height: 1.2;
-        color: #fff;
-      }
-
-      .payment-options-card p {
-        margin: 0;
-        color: rgba(255, 255, 255, 0.76);
-        font-size: 14px;
-        line-height: 1.7;
-      }
-
-      .payment-method-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 160px);
-        gap: 12px;
-        margin: 22px 0;
-      }
-
-      .payment-method {
-        min-width: 0;
-        min-height: 92px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        padding: 14px 10px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.055);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
-        text-align: center;
-      }
-
-      .payment-icon {
-        width: 46px;
-        height: 34px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 10px;
-        background: rgba(255, 255, 255, 0.92);
-        color: #0b1020;
-        font-weight: 800;
-        font-size: 13px;
-        line-height: 1;
-        letter-spacing: 0;
-        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
-      }
-
-      .payment-icon--chime {
-        padding: 6px 8px;
-      }
-
-      .payment-icon img {
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        display: block;
-      }
-
-      .payment-method span:last-child {
-        max-width: 100%;
-        color: #fff;
-        font-size: 13px;
         font-weight: 700;
-        overflow-wrap: anywhere;
-      }
-
-      .trust-panel,
-      .contact-panel {
-        margin-top: 32px;
-        padding: 24px;
-        border-radius: 16px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .trust-panel p,
-      .contact-panel p {
-        margin: 0;
-        color: rgba(255, 255, 255, 0.78);
-        font-size: 15px;
-        line-height: 1.7;
-      }
-
-      .contact-panel a {
-        display: block;
-        width: fit-content;
-        max-width: 100%;
-        overflow-wrap: anywhere;
-        color: var(--gold);
-        text-decoration: underline;
       }
 
       .actions {
-        margin-top: 36px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 14px;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 20;
+        padding: 14px 22px 16px;
+        background: linear-gradient(180deg, rgba(12, 22, 16, 0), rgba(12, 22, 16, 0.96) 26%, #0c1610 100%);
       }
 
       .btn-action {
+        width: 100%;
+        min-height: 62px;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: 180px;
-        padding: 14px 18px;
-        border-radius: 999px;
-        border: 1px solid transparent;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        transition: transform 0.2s var(--ease), background 0.2s var(--ease), border-color 0.2s var(--ease);
-      }
-
-      .btn-primary {
-        background: linear-gradient(135deg, #d4af37, #f0d28d);
-        color: #10131b;
-      }
-
-      .btn-secondary {
-        background: rgba(255, 255, 255, 0.05);
-        color: #fff;
-        border-color: rgba(255, 255, 255, 0.14);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: linear-gradient(135deg, var(--brand), var(--brand-light));
+        color: #08110b;
+        font-size: 16px;
+        font-weight: 800;
+        box-shadow: 0 10px 22px rgba(46, 125, 50, 0.24);
+        transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
       }
 
       .btn-action:hover {
         transform: translateY(-1px);
-      }
-
-      @media (max-width: 640px) {
-        .page-shell {
-          width: calc(100% - 24px);
-          padding: 28px 0 32px;
-        }
-
-        .status-badge,
-        .application-id,
-        .review-card,
-        .payment-options-card,
-        .trust-panel,
-        .contact-panel,
-        .content-card {
-          padding-left: 18px;
-          padding-right: 18px;
-        }
-
-        .review-row {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .payment-method-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 10px;
-        }
-
-        .payment-method {
-          min-height: 86px;
-        }
-
-        .actions {
-          flex-direction: column;
-          align-items: stretch;
-        }
-
-        .btn-action {
-          width: 100%;
-        }
-      }
-
-      @media (max-width: 768px) {
-        html,
-        body {
-          overflow-x: hidden;
-        }
-
-        .page-shell,
-        .page-header,
-        .content-card,
-        .section-block,
-        .review-card,
-        .payment-options-card,
-        .trust-panel,
-        .contact-panel,
-        .actions {
-          width: 100%;
-          max-width: 500px;
-          margin-left: auto;
-          margin-right: auto;
-          box-sizing: border-box;
-        }
-
-        .page-shell {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          padding-left: 16px;
-          padding-right: 16px;
-        }
-
-        .content-card,
-        .section-block,
-        .review-card,
-        .payment-options-card,
-        .trust-panel,
-        .contact-panel {
-          margin-top: 24px;
-          margin-bottom: 24px;
-          padding-left: 16px;
-          padding-right: 16px;
-          text-align: left;
-        }
-
-        .page-header {
-          text-align: left;
-        }
-
-        .btn-action {
-          display: block;
-          width: 100%;
-          max-width: 320px;
-          margin-left: auto;
-          margin-right: auto;
-          text-align: center;
-        }
-
-        .back-btn {
-          margin: 12px 16px;
-          font-size: 13px;
-          align-self: flex-start;
-        }
-
+        filter: brightness(1.03);
       }
 
       @media (max-width: 420px) {
-        .payment-method-grid {
+        .page-card,
+        .notice-card,
+        .support-card,
+        .disabled-card,
+        .upload-card,
+        .contact-panel {
+          margin-left: 12px;
+          margin-right: 12px;
+        }
+
+        .intro-copy,
+        .page-header {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+
+        .actions {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+
+        .payment-card-header,
+        .disabled-header {
           grid-template-columns: 1fr;
+        }
+
+        .progress-label {
+          font-size: 11px;
+        }
+
+        .payment-brand {
+          width: 58px;
+          height: 58px;
         }
       }
     </style>
   </head>
   <body data-en-title="Application Received | Private Property Holdings" data-es-title="Solicitud recibida | Administración Privada de Propiedades">
+    <div class="top-strip"></div>
     <main class="page-shell">
-      <button class="back-btn" id="backBtn" type="button" aria-label="Go back" data-en="← Back" data-es="← Volver">
-        ← Back
+      <button class="back-btn" id="backBtn" type="button" aria-label="Go back">
+        ←
       </button>
+
       <header class="page-header">
-        <h1 class="page-title" data-en="Application Received Successfully" data-es="Solicitud recibida correctamente">Application Received Successfully</h1>
-        <span class="status-badge" data-en="Pending Review" data-es="Pendiente de revisión">Pending Review</span>
+        <p class="page-kicker" data-en="Payment" data-es="Pago">Payment</p>
+        <div class="progress" aria-label="Application progress">
+          <div class="progress-track">
+            <div class="progress-step is-complete">
+              <div class="progress-dot">✓</div>
+              <div class="progress-label" data-en="Application" data-es="Solicitud">Application</div>
+            </div>
+            <div class="progress-step is-complete">
+              <div class="progress-dot">✓</div>
+              <div class="progress-label" data-en="Review" data-es="Revisión">Review</div>
+            </div>
+            <div class="progress-step is-current">
+              <div class="progress-dot">3</div>
+              <div class="progress-label" data-en="Payment" data-es="Pago">Payment</div>
+            </div>
+            <div class="progress-step">
+              <div class="progress-dot">4</div>
+              <div class="progress-label" data-en="Confirmation" data-es="Confirmación">Confirmation</div>
+            </div>
+          </div>
+        </div>
       </header>
 
-      <section class="content-card">
-        <p class="confirmation-message" data-en="Thank you for submitting your rental application." data-es="Gracias por enviar su solicitud de alquiler.">
-          Thank you for submitting your rental application.
-        </p>
-        <p data-en="To proceed with the approval and processing step, payment instructions for the refundable application fee will be provided directly after submission." data-es="Para continuar con el paso de aprobación y procesamiento, las instrucciones de pago para el cargo de solicitud reembolsable se proporcionarán directamente después del envío.">
-          To proceed with the approval and processing step, payment instructions for the refundable application fee will be provided directly after submission.
-        </p>
-        <p style="margin-top: 14px;" data-en="Once payment is confirmed, your application review and approval process will begin." data-es="Una vez confirmado el pago, comenzará el proceso de revisión y aprobación de su solicitud.">
-          Once payment is confirmed, your application review and approval process will begin.
-        </p>
-        <div class="application-id" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</div>
-      </section>
+      <p class="intro-copy" data-en="Your application is almost complete. Please submit the $70 refundable application fee using the secure payment method below." data-es="Su solicitud está casi completa. Envíe el cargo de solicitud reembolsable de $70 usando el método de pago seguro a continuación.">
+        Your application is almost complete. Please submit the $70 refundable application fee using the secure payment method below.
+      </p>
 
-      <section class="section-block">
-        <h2 class="section-title" data-en="Next Steps" data-es="Próximos pasos">Next Steps</h2>
-        <div class="steps-list">
-          <p data-en="Estimated review timeline: most applications are reviewed within 12-24 hours, depending on verification needs and application volume." data-es="Tiempo estimado de revisión: la mayoría de las solicitudes se revisan dentro de 12 a 24 horas, según las necesidades de verificación y el volumen de solicitudes.">
-            Estimated review timeline: most applications are reviewed within 12-24 hours, depending on verification needs and application volume.
-          </p>
-          <p data-en="Please keep your Application ID available when contacting support. Application-specific payment details will only be provided directly after review." data-es="Tenga a mano su ID de solicitud cuando se comunique con soporte. Los detalles de pago específicos de la solicitud solo se proporcionarán directamente después de la revisión.">
-            Please keep your Application ID available when contacting support. Application-specific payment details will only be provided directly after review.
-          </p>
+      <section class="page-card" aria-labelledby="payment-options-title">
+        <div class="payment-card-header">
+          <div class="payment-brand" aria-hidden="true">
+            <img src="./images/chime-app-icon.png" alt="" width="74" height="74" />
+          </div>
+          <div>
+            <h1 id="payment-options-title" class="payment-card-title" data-en="Chime Pay Anyone" data-es="Chime Pay Anyone">Chime Pay Anyone</h1>
+            <p class="payment-card-copy" data-en="Send your refundable application fee securely through Chime using the Pay Anyone feature." data-es="Envíe su cargo de solicitud reembolsable de forma segura por Chime usando la función Pay Anyone.">
+              Send your refundable application fee securely through Chime using the Pay Anyone feature.
+            </p>
+          </div>
+        </div>
+
+        <div class="payment-email-card">
+          <p class="payment-email-label" data-en="Payment email address" data-es="Correo electrónico de pago">Payment email address</p>
+          <p class="payment-email-address" id="chimePaymentEmail">privatepropertyholdings@outlook.com</p>
+          <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy email address" data-es="Copiar correo electrónico">Copy email address</button>
+          <div class="meta-strip">
+            <span class="meta-pill" data-en="Amount: $70 refundable fee" data-es="Monto: cargo reembolsable de $70">Amount: $70 refundable fee</span>
+            <span class="meta-pill" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</span>
+          </div>
+        </div>
+
+        <div class="steps-card">
+          <ol class="steps-list">
+            <li>
+              <div class="step-number">1</div>
+              <div class="step-copy" data-en="Open the Chime app." data-es="Abra la aplicación Chime.">Open the Chime app.</div>
+            </li>
+            <li>
+              <div class="step-number">2</div>
+              <div class="step-copy" data-en="Tap Pay Anyone." data-es="Toque Pay Anyone.">Tap Pay Anyone.</div>
+            </li>
+            <li>
+              <div class="step-number">3</div>
+              <div class="step-copy" data-en="Enter the payment email address shown above." data-es="Ingrese la dirección de correo de pago mostrada arriba.">Enter the payment email address shown above.</div>
+            </li>
+            <li>
+              <div class="step-number">4</div>
+              <div class="step-copy" data-en="Confirm the recipient details before sending." data-es="Confirme los datos del destinatario antes de enviar.">Confirm the recipient details before sending.</div>
+            </li>
+            <li>
+              <div class="step-number">5</div>
+              <div class="step-copy" data-en="After payment, email your screenshot or receipt confirmation." data-es="Después del pago, envíe por correo su captura de pantalla o confirmación del recibo.">After payment, email your screenshot or receipt confirmation.</div>
+            </li>
+          </ol>
         </div>
       </section>
 
-      <section class="review-card" aria-labelledby="review-status-title">
-        <h2 id="review-status-title" data-en="Application Processing Status" data-es="Estado de procesamiento de la solicitud">Application Processing Status</h2>
-        <div class="review-grid">
-          <div class="review-row">
-            <span data-en="Current Status" data-es="Estado actual">Current Status</span>
-            <strong data-en="Application Received" data-es="Solicitud recibida">Application Received</strong>
-          </div>
-          <div class="review-row">
-            <span data-en="Processing Step" data-es="Paso de procesamiento">Processing Step</span>
-            <strong data-en="Payment Confirmation Pending" data-es="Confirmación de pago pendiente">Payment Confirmation Pending</strong>
-          </div>
-          <div class="review-row">
-            <span data-en="Payment Handling" data-es="Gestión de pago">Payment Handling</span>
-            <strong data-en="Assigned Privately" data-es="Asignado de forma privada">Assigned Privately</strong>
-          </div>
+      <section class="support-card">
+        <h2 class="section-title" data-en="Don't Have Chime?" data-es="¿No tiene Chime?">Don't Have Chime?</h2>
+        <p class="section-copy" data-en="Follow these steps to create a Chime account, then return here to complete your application fee payment." data-es="Siga estos pasos para crear una cuenta de Chime y luego regrese aquí para completar el pago de su cargo de solicitud.">
+          Follow these steps to create a Chime account, then return here to complete your application fee payment.
+        </p>
+
+        <div class="steps-card" style="margin-top: 18px; background: transparent; box-shadow: none;">
+          <ol class="steps-list">
+            <li>
+              <div class="step-number">1</div>
+              <div class="step-copy" data-en="Download the official Chime mobile banking app using the links below." data-es="Descargue la aplicación oficial de banca móvil Chime usando los enlaces a continuación.">Download the official Chime mobile banking app using the links below.</div>
+            </li>
+            <li>
+              <div class="step-number">2</div>
+              <div class="step-copy" data-en="Open the app and tap Sign Up to begin your application." data-es="Abra la aplicación y toque Sign Up para comenzar su solicitud.">Open the app and tap Sign Up to begin your application.</div>
+            </li>
+            <li>
+              <div class="step-number">3</div>
+              <div class="step-copy" data-en="Enter your personal information and complete identity verification as prompted." data-es="Ingrese su información personal y complete la verificación de identidad según se le indique.">Enter your personal information and complete identity verification as prompted.</div>
+            </li>
+            <li>
+              <div class="step-number">4</div>
+              <div class="step-copy" data-en="Once your account is approved, return to this page and send your payment using Pay Anyone." data-es="Una vez aprobada su cuenta, regrese a esta página y envíe su pago usando Pay Anyone.">Once your account is approved, return to this page and send your payment using Pay Anyone.</div>
+            </li>
+          </ol>
         </div>
-        <p class="review-note" data-en="Your application has been received successfully. Payment instructions for the refundable application fee will be provided directly to proceed with the approval and processing step. Once payment is confirmed, your application review will begin along with the next steps." data-es="Su solicitud se ha recibido correctamente. Las instrucciones de pago para el cargo de solicitud reembolsable se proporcionarán directamente para continuar con el paso de aprobación y procesamiento. Una vez confirmado el pago, comenzará la revisión de su solicitud junto con los próximos pasos.">
-          Your application has been received successfully. Payment instructions for the refundable application fee will be provided directly to proceed with the approval and processing step. Once payment is confirmed, your application review will begin along with the next steps.
-        </p>
-        <p class="fee-note" data-en="Only one application is required per household, however the application fee applies to each adult who will be moving in." data-es="Solo se requiere una solicitud por hogar; sin embargo, el cargo de solicitud aplica a cada adulto que se mudará.">
-          Only one application is required per household, however the application fee applies to each adult who will be moving in.
-        </p>
-      </section>
 
-      <section class="payment-options-card" aria-labelledby="payment-options-title">
-        <h2 id="payment-options-title" data-en="Supported Payment Methods" data-es="Métodos de pago disponibles">Supported Payment Methods</h2>
-        <p data-en="For security and verification purposes, payment instructions are assigned individually after application review." data-es="Por motivos de seguridad y verificación, las instrucciones de pago se asignan individualmente después de la revisión de la solicitud.">
-          For security and verification purposes, payment instructions are assigned individually after application review.
-        </p>
-
-        <div class="payment-method-grid">
-          <div class="payment-method">
-            <span class="payment-icon payment-icon--chime" aria-hidden="true">
-              <img src="./images/chime-logo.svg" alt="" width="46" height="34" />
+        <div class="store-list">
+          <a class="store-btn" href="https://apps.apple.com/us/app/chime-mobile-banking/id836215269" target="_blank" rel="noreferrer">
+            <span class="store-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" role="presentation">
+                <path d="M16.32 12.98c.01 2.28 2 3.04 2.02 3.05-.02.05-.32 1.1-1.04 2.18-.63.94-1.28 1.88-2.31 1.9-1 .02-1.32-.59-2.46-.59s-1.5.57-2.44.61c-.99.04-1.75-.99-2.39-1.92-1.31-1.9-2.31-5.37-.97-7.69.66-1.15 1.84-1.88 3.12-1.9.98-.02 1.9.66 2.46.66.56 0 1.62-.82 2.74-.7.47.02 1.79.19 2.64 1.43-.07.04-1.58.92-1.57 2.97Zm-2.08-7.34c.53-.64.89-1.53.79-2.42-.76.03-1.68.51-2.22 1.15-.49.57-.92 1.47-.81 2.34.85.07 1.71-.43 2.24-1.07Z"/>
+              </svg>
             </span>
-            <span>Chime</span>
+            <span data-en="App Store" data-es="App Store">App Store</span>
+          </a>
+          <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.onedebit.chime" target="_blank" rel="noreferrer">
+            <span class="store-btn__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" role="presentation">
+                <path d="M4 3.5v17l9.8-8.5L4 3.5Z" fill="#7CFFB2"/>
+                <path d="M13.8 12 17.2 8.9l-4.34-2.47L6.28 9.8 13.8 12Z" fill="#9CEBFF"/>
+                <path d="M13.8 12 6.28 14.2l6.58 3.76 4.4-2.5L13.8 12Z" fill="#FFD166"/>
+                <path d="M17.2 8.9 19.64 10.3c.8.46.8 1.93 0 2.39l-2.38 1.35L13.8 12l3.4-3.1Z" fill="#FF7A7A"/>
+              </svg>
+            </span>
+            <span data-en="Google Play" data-es="Google Play">Google Play</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="notice-card">
+        <div class="notice-row">
+          <div class="notice-icon">✓</div>
+          <div class="notice-copy" data-en="Please confirm the email address carefully before sending payment. Your application review will begin once payment confirmation is received." data-es="Confirme cuidadosamente la dirección de correo electrónico antes de enviar el pago. La revisión de su solicitud comenzará una vez que se reciba la confirmación del pago.">
+            Please confirm the email address carefully before sending payment. Your application review will begin once payment confirmation is received.
+          </div>
+        </div>
+      </section>
+
+      <section class="notice-card">
+        <div class="notice-row">
+          <div class="notice-icon">!</div>
+          <div class="notice-copy" data-en="Refund requests are processed within an hour of receiving your request, provided the application has not been approved." data-es="Las solicitudes de reembolso se procesan dentro de una hora después de recibir su solicitud, siempre que la solicitud no haya sido aprobada.">
+            Refund requests are processed within an hour of receiving your request, provided the application has not been approved.
+          </div>
+        </div>
+      </section>
+
+      <section class="disabled-card">
+        <div class="disabled-header">
+          <div class="disabled-icon" aria-hidden="true">▭</div>
+          <div>
+            <h2 class="section-title" data-en="Debit & Credit Card" data-es="Tarjeta de débito y crédito">Debit & Credit Card</h2>
+            <p class="disabled-copy" data-en="Expanded secure card processing is currently being upgraded for additional applicant support." data-es="El procesamiento seguro ampliado de tarjetas se está actualizando actualmente para brindar soporte adicional a los solicitantes.">
+              Expanded secure card processing is currently being upgraded for additional applicant support.
+            </p>
           </div>
         </div>
 
-        <p data-en="Available payment options may vary depending on the assigned processing instructions. No public usernames, tags, account numbers, or QR codes are displayed on this website." data-es="Las opciones de pago disponibles pueden variar según las instrucciones de procesamiento asignadas. En este sitio web no se muestran nombres de usuario, etiquetas, números de cuenta ni códigos QR públicos.">
-          Available payment options may vary depending on the assigned processing instructions. No public usernames, tags, account numbers, or QR codes are displayed on this website.
-        </p>
-      </section>
+        <div class="card-grid" aria-hidden="true">
+          <div class="card-grid-inner">
+            <div class="card-logo card-logo--visa">VISA</div>
+            <div class="card-logo card-logo--mastercard">
+              <span class="card-logo__mc card-logo__mc--left"></span>
+              <span class="card-logo__mc card-logo__mc--right"></span>
+              <span class="card-logo__label">Mastercard</span>
+            </div>
+            <div class="card-logo card-logo--verve">
+              <span class="card-logo__verve-v">V</span><span class="card-logo__verve-e">e</span><span class="card-logo__verve-rve">rve</span>
+            </div>
+            <div class="card-logo card-logo--more">AMEX</div>
+          </div>
+        </div>
 
-      <section class="trust-panel">
-        <p>
-          <span data-en="This process is handled directly by Private Property Holdings. Payment processing instructions are assigned privately and documented through the verification process." data-es="Este proceso es gestionado directamente por Private Property Holdings. Las instrucciones de procesamiento de pago se asignan de forma privada y se documentan durante el proceso de verificación.">This process is handled directly by Private Property Holdings. Payment processing instructions are assigned privately and documented through the verification process.</span>
+        <div class="security-badge" data-en="Security upgrade in progress" data-es="Actualización de seguridad en progreso">
+          Security upgrade in progress
+        </div>
+
+        <p class="disabled-copy" style="margin-top: 18px;" data-en="Debit and credit card support is currently being expanded as part of our enhanced payment security rollout." data-es="El soporte para tarjetas de débito y crédito se está ampliando actualmente como parte de nuestra implementación mejorada de seguridad de pagos.">
+          Debit and credit card support is currently being expanded as part of our enhanced payment security rollout.
         </p>
       </section>
 
       <section class="contact-panel">
-        <p>
-          <span data-en="Need help or want to reference your Application ID? Contact us at" data-es="¿Necesita ayuda o desea consultar su ID de solicitud? Contáctenos en">Need help or want to reference your Application ID? Contact us at</span>
-          <a href="tel:+15042499908">+1 504-249-9908</a>
+        <p class="section-copy">
+          <span data-en="Need help? Contact us at " data-es="¿Necesita ayuda? Contáctenos en ">Need help? Contact us at </span>
           <a href="mailto:infoprivateproperty.holdings@gmail.com">infoprivateproperty.holdings@gmail.com</a>
         </p>
       </section>
 
       <div class="actions">
-        <a class="btn-action btn-secondary" id="returnHomeLink" href="./index.html" data-en="Return to Home" data-es="Volver al inicio">Return to Home</a>
-        <a class="btn-action btn-primary" href="mailto:infoprivateproperty.holdings@gmail.com" data-en="Contact Support" data-es="Contactar soporte">Contact Support</a>
+        <a class="btn-action" id="paymentConfirmationBtn" href="mailto:infoprivateproperty.holdings@gmail.com" data-en="Email Payment Confirmation" data-es="Enviar confirmación de pago">Email Payment Confirmation</a>
       </div>
     </main>
     <script src="./script.js"></script>
@@ -622,10 +960,29 @@
       })();
 
       (function () {
-        const returnHomeLink = document.getElementById('returnHomeLink');
-        if (returnHomeLink && localStorage.getItem('lang') === 'es') {
-          returnHomeLink.setAttribute('href', './es.html');
-        }
+        const copyBtn = document.getElementById('copyEmailBtn');
+        const emailEl = document.getElementById('chimePaymentEmail');
+        if (!copyBtn || !emailEl) return;
+
+        const messages = {
+          en: { copy: 'Copy email address', copied: 'Copied!' },
+          es: { copy: 'Copiar correo electrónico', copied: '¡Copiado!' },
+        };
+
+        copyBtn.addEventListener('click', async function () {
+          const lang = localStorage.getItem('lang') || 'en';
+          const copy = messages[lang] || messages.en;
+
+          try {
+            await navigator.clipboard.writeText(emailEl.textContent.trim());
+            copyBtn.textContent = copy.copied;
+            window.setTimeout(function () {
+              copyBtn.textContent = copy.copy;
+            }, 1800);
+          } catch (error) {
+            window.prompt(lang === 'es' ? 'Copie este correo:' : 'Copy this email:', emailEl.textContent.trim());
+          }
+        });
       })();
 
       (function () {
@@ -643,6 +1000,7 @@
         }
 
         const display = document.getElementById('application-id-display');
+        const confirmBtn = document.getElementById('paymentConfirmationBtn');
 
         if (!display) {
           return;
@@ -651,13 +1009,26 @@
         const activeLang = localStorage.getItem('lang') || 'en';
 
         if (!applicationId) {
-          display.setAttribute('data-en', 'Check your email for your application ID');
-          display.setAttribute('data-es', 'Revise su correo electrónico para ver su ID de solicitud');
-          display.textContent = display.dataset[activeLang] || display.dataset.en;
+          display.style.display = 'none';
         } else {
+          display.style.display = 'inline-block';
           display.setAttribute('data-en', `Application ID: ${applicationId}`);
           display.setAttribute('data-es', `ID de solicitud: ${applicationId}`);
           display.textContent = display.dataset[activeLang] || display.dataset.en;
+        }
+
+        if (confirmBtn) {
+          const subject = encodeURIComponent(activeLang === 'es' ? 'Confirmación de pago de solicitud' : 'Application Payment Confirmation');
+          const body = encodeURIComponent(
+            (activeLang === 'es'
+              ? 'Hola, ya envié el pago de mi solicitud.\n\nID de solicitud: '
+              : 'Hello, I have sent my application payment.\n\nApplication ID: ') +
+              (applicationId || '[add your application ID]') +
+              (activeLang === 'es'
+                ? '\n\nAdjunto mi captura de pantalla o confirmación del recibo.'
+                : '\n\nI have attached my screenshot or receipt confirmation.')
+          );
+          confirmBtn.href = `mailto:infoprivateproperty.holdings@gmail.com?subject=${subject}&body=${body}`;
         }
       })();
     </script>

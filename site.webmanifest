@@ -1,0 +1,27 @@
+{
+  "name": "Private Property Holdings",
+  "short_name": "PPH",
+  "description": "Professional rental coordination for privately managed properties.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#0C1610",
+  "theme_color": "#2E7D32",
+  "icons": [
+    {
+      "src": "/images/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
