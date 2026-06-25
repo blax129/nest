@@ -162,6 +162,9 @@
         margin-top: 7px;
         color: rgba(255, 255, 255, 0.55);
         font-size: 12px;
+        line-height: 1.6;
+        overflow-wrap: anywhere;
+        word-break: break-word;
       }
 
       .checkbox-group {
@@ -207,7 +210,8 @@
         font-size: 15px;
         line-height: 1.6;
         cursor: pointer;
-        overflow-wrap: break-word;
+        overflow-wrap: anywhere;
+        word-break: break-word;
         word-wrap: break-word;
       }
 
@@ -387,6 +391,12 @@
 
         .agreement-item label {
           font-size: 14px;
+        }
+
+        .help-text,
+        .agreement-item label {
+          overflow-wrap: anywhere;
+          word-break: break-word;
         }
 
         .payment-method-options {
