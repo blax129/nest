@@ -728,28 +728,6 @@
                 <label for="applicationAcknowledgement" data-en="I understand that after submission I must pay the refundable $70 application fee through Chime to privatepropertyholdings@outlook.com and include my Application ID in the payment note." data-es="Entiendo que después del envío debo pagar el cargo de solicitud reembolsable de $70 por Chime a privatepropertyholdings@outlook.com e incluir mi ID de solicitud en la nota del pago.">I understand that after submission I must pay the refundable $70 application fee through Chime to privatepropertyholdings@outlook.com and include my Application ID in the payment note.</label>
               </div>
             </div>
-            <div class="payment-method-field" aria-labelledby="payment-method-label">
-              <div id="payment-method-label" class="field__label">
-                <span data-en="Payment method for the fee" data-es="Método de pago para el cargo">Payment method for the fee</span>
-              </div>
-              <input type="hidden" name="preferred_payment_method_for_fee" value="Chime" />
-              <div class="payment-method-options">
-                <div class="payment-method-option">
-                  <span class="payment-method-card payment-method-card--selected">
-                    <span class="payment-logo payment-logo--chime" aria-hidden="true">
-                      <img src="./images/chime-logo.svg" alt="" width="50" height="36" />
-                    </span>
-                    <span class="payment-method-name">Chime</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="checkbox-group">
-              <div class="agreement-item">
-                <input id="chimePaymentAcknowledgement" type="checkbox" name="chime_payment_acknowledgement" required />
-                <label for="chimePaymentAcknowledgement" data-en="I acknowledge and agree that Chime is required to pay the refundable application fee to privatepropertyholdings@outlook.com and that I must be willing to complete this payment to proceed with my application." data-es="Reconozco y acepto que se requiere Chime para pagar el cargo de solicitud reembolsable a privatepropertyholdings@outlook.com y que debo estar dispuesto a completar este pago para continuar con mi solicitud.">I acknowledge and agree that Chime is required to pay the refundable application fee to privatepropertyholdings@outlook.com and that I must be willing to complete this payment to proceed with my application.</label>
-              </div>
-            </div>
           </section>
 
           <div class="submit-wrap">
@@ -873,9 +851,10 @@
 
             if (response.ok) {
               console.log('[RentalForm] Formspree success, redirecting.');
-              window.location.href = activeLang === 'es'
+              const destination = activeLang === 'es'
                 ? 'es-application-received.html'
                 : 'application-received.html';
+              window.location.href = destination + '?id=' + encodeURIComponent(appId);
               return;
             }
 

@@ -799,7 +799,7 @@
           <p class="payment-email-address" id="chimePaymentEmail">privatepropertyholdings@outlook.com</p>
           <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy email address" data-es="Copiar correo electrónico">Copy email address</button>
           <div class="meta-strip">
-            <span class="meta-pill" data-en="Amount: $70 refundable fee" data-es="Monto: cargo reembolsable de $70">Amount: $70 refundable fee</span>
+            <span class="meta-pill" data-en="Amount: $70 per adult" data-es="Monto: $70 por adulto">Amount: $70 per adult</span>
             <span class="meta-pill" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</span>
           </div>
         </div>
@@ -1009,7 +1009,10 @@
         const activeLang = localStorage.getItem('lang') || 'en';
 
         if (!applicationId) {
-          display.style.display = 'none';
+          display.style.display = 'inline-block';
+          display.setAttribute('data-en', 'Application ID unavailable');
+          display.setAttribute('data-es', 'ID de solicitud no disponible');
+          display.textContent = display.dataset[activeLang] || display.dataset.en;
         } else {
           display.style.display = 'inline-block';
           display.setAttribute('data-en', `Application ID: ${applicationId}`);
