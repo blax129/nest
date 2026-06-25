@@ -395,6 +395,30 @@
         color: #fff;
       }
 
+      .step-content {
+        display: grid;
+        gap: 12px;
+        min-width: 0;
+      }
+
+      .step-figure {
+        margin: 0;
+        width: 100%;
+      }
+
+      .step-figure--instruction {
+        max-width: 320px;
+      }
+
+      .step-illustration {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 14px;
+        border: 1px solid rgba(46, 125, 50, 0.22);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      }
+
       .support-card {
         padding: 18px;
         background: var(--surface-green);
@@ -812,7 +836,12 @@
             </li>
             <li>
               <div class="step-number">2</div>
-              <div class="step-copy" data-en="Tap Pay Anyone." data-es="Toque Pay Anyone.">Tap Pay Anyone.</div>
+              <div class="step-content">
+                <div class="step-copy" data-en='Tap "Send Money to Anyone" and use the payment email provided above.' data-es='Toque "Send Money to Anyone" y use el correo de pago proporcionado arriba.'>Tap "Send Money to Anyone" and use the payment email provided above.</div>
+                <figure class="step-figure step-figure--instruction">
+                  <img class="step-illustration" src="./images/chime-send-money-step.png" alt="Chime Send Money to Anyone screen" width="1024" height="576" />
+                </figure>
+              </div>
             </li>
             <li>
               <div class="step-number">3</div>

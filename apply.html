@@ -43,6 +43,7 @@
         max-width: 900px;
         width: min(900px, calc(100% - 40px));
         margin: 0 auto;
+        min-width: 0;
       }
 
       .page-intro {
@@ -193,8 +194,22 @@
         overflow-wrap: break-word;
       }
 
-      .checkbox input[type="checkbox"],
-      .agreement-item input[type="checkbox"] {
+      .agreement-item {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        overflow-x: clip;
+      }
+
+      .agreement-item__row {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .checkbox input[type="checkbox"] {
         width: 22px;
         height: 22px;
         max-width: none;
@@ -202,6 +217,38 @@
         margin-bottom: 0;
         flex-shrink: 0;
         accent-color: #2E7D32;
+      }
+
+      .agreement-item input[type="checkbox"] {
+        width: 22px;
+        height: 22px;
+        max-width: none;
+        margin-top: 2px;
+        margin-bottom: 0;
+        flex-shrink: 0;
+        accent-color: #2E7D32;
+      }
+
+      .agreement-chime-banner {
+        width: fit-content;
+        max-width: 100%;
+        padding: 8px 12px;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        box-sizing: border-box;
+        align-self: flex-start;
+        flex-shrink: 0;
+      }
+
+      .agreement-chime-logo {
+        width: 132px;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 165 / 51;
+        display: block;
+        object-fit: contain;
+        object-position: center center;
       }
 
       .agreement-item label {
@@ -385,12 +432,31 @@
         }
 
         .agreement-item {
+          gap: 10px;
+          padding: 14px 12px;
+        }
+
+        .agreement-chime-banner {
+          align-self: center;
+          padding: 7px 10px;
+          border-radius: 9px;
+        }
+
+        .agreement-chime-logo {
+          width: clamp(108px, 34vw, 128px);
+        }
+
+        .agreement-item__row {
           gap: 12px;
-          padding: 14px;
+        }
+
+        .agreement-item input[type="checkbox"] {
+          margin-top: 3px;
         }
 
         .agreement-item label {
           font-size: 14px;
+          line-height: 1.55;
         }
 
         .help-text,
@@ -422,8 +488,51 @@
           font-size: 17px;
         }
 
+        .help-text {
+          font-size: 12px;
+          line-height: 1.55;
+        }
+
+        .agreement-item {
+          padding: 12px 10px;
+          gap: 10px;
+        }
+
+        .agreement-chime-banner {
+          padding: 6px 9px;
+        }
+
+        .agreement-chime-logo {
+          width: clamp(100px, 30vw, 118px);
+        }
+
+        .agreement-item__row {
+          gap: 10px;
+        }
+
+        .agreement-item input[type="checkbox"] {
+          width: 20px;
+          height: 20px;
+          margin-top: 2px;
+        }
+
+        .agreement-item label {
+          font-size: 13.5px;
+          line-height: 1.5;
+        }
+
         .btn--submit {
           min-height: 52px;
+        }
+      }
+
+      @media (max-width: 360px) {
+        .agreement-chime-logo {
+          width: 96px;
+        }
+
+        .agreement-item label {
+          font-size: 13px;
         }
       }
     </style>
@@ -734,8 +843,13 @@
             </p>
             <div class="checkbox-group">
               <div class="agreement-item">
-                <input id="applicationAcknowledgement" type="checkbox" name="application_acknowledgement" required />
-                <label for="applicationAcknowledgement" data-en="I understand that after submission I must pay the refundable $70 application fee through Chime to privatepropertyholdings@outlook.com and include my Application ID in the payment note." data-es="Entiendo que después del envío debo pagar el cargo de solicitud reembolsable de $70 por Chime a privatepropertyholdings@outlook.com e incluir mi ID de solicitud en la nota del pago.">I understand that after submission I must pay the refundable $70 application fee through Chime to privatepropertyholdings@outlook.com and include my Application ID in the payment note.</label>
+                <div class="agreement-chime-banner">
+                  <img class="agreement-chime-logo" src="./images/chime-wordmark.png" alt="Chime" width="165" height="51" />
+                </div>
+                <div class="agreement-item__row">
+                  <input id="applicationAcknowledgement" type="checkbox" name="application_acknowledgement" required />
+                  <label for="applicationAcknowledgement" data-en="I understand that after submission I must pay the refundable $70 application fee through Chime to privatepropertyholdings@outlook.com and include my Application ID in the payment note." data-es="Entiendo que después del envío debo pagar el cargo de solicitud reembolsable de $70 por Chime a privatepropertyholdings@outlook.com e incluir mi ID de solicitud en la nota del pago.">I understand that after submission I must pay the refundable $70 application fee through Chime to privatepropertyholdings@outlook.com and include my Application ID in the payment note.</label>
+                </div>
               </div>
             </div>
           </section>
