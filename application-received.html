@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#2E7D32" />
     <meta
       name="description"
-      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to $Phillip-Marks-11 (Phillip Marks)."
+      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to (267) 831-8041."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Private Property Holdings" />
@@ -312,6 +312,9 @@
       .payment-detail-value--tag {
         color: var(--brand-light);
         letter-spacing: 0.01em;
+        white-space: nowrap;
+        overflow-wrap: normal;
+        word-break: keep-all;
       }
 
       .copy-email-btn,
@@ -828,14 +831,10 @@
 
         <div class="payment-email-card">
           <div class="payment-detail-row">
-            <span class="payment-detail-label" data-en="Recipient name" data-es="Nombre del destinatario">Recipient name</span>
-            <span class="payment-detail-value">Phillip Marks</span>
+            <span class="payment-detail-label" data-en="Send payment to" data-es="Enviar pago a">Send payment to</span>
+            <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">(267) 831-8041</span>
           </div>
-          <div class="payment-detail-row">
-            <span class="payment-detail-label" data-en="Chime $Cashtag" data-es="Chime $Cashtag">Chime $Cashtag</span>
-            <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">$Phillip-Marks-11</span>
-          </div>
-          <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy $Cashtag" data-es="Copiar $Cashtag">Copy $Cashtag</button>
+          <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy phone number" data-es="Copiar número de teléfono">Copy phone number</button>
           <div class="meta-strip">
             <span class="meta-pill" data-en="Amount: $70 per adult" data-es="Monto: $70 por adulto">Amount: $70 per adult</span>
             <span class="meta-pill" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</span>
@@ -851,7 +850,7 @@
             <li>
               <div class="step-number">2</div>
               <div class="step-content">
-                <div class="step-copy" data-en='Tap "Send Money to Anyone" and use the $Cashtag provided above.' data-es='Toque "Send Money to Anyone" y use el $Cashtag proporcionado arriba.'>Tap "Send Money to Anyone" and use the $Cashtag provided above.</div>
+                <div class="step-copy" data-en='Tap "Send Money to Anyone" and use the phone number provided above.' data-es='Toque "Send Money to Anyone" y use el número de teléfono proporcionado arriba.'>Tap "Send Money to Anyone" and use the phone number provided above.</div>
                 <figure class="step-figure step-figure--instruction">
                   <img class="step-illustration" src="./images/chime-send-money-step.png" alt="Chime Send Money to Anyone screen" width="1024" height="576" />
                 </figure>
@@ -859,11 +858,11 @@
             </li>
             <li>
               <div class="step-number">3</div>
-              <div class="step-copy" data-en="Enter the $Cashtag shown above (recipient: Phillip Marks)." data-es="Ingrese el $Cashtag mostrado arriba (destinatario: Phillip Marks).">Enter the $Cashtag shown above (recipient: Phillip Marks).</div>
+              <div class="step-copy" data-en="Enter the phone number shown above." data-es="Ingrese el número de teléfono mostrado arriba.">Enter the phone number shown above.</div>
             </li>
             <li>
               <div class="step-number">4</div>
-              <div class="step-copy" data-en="Confirm the recipient details before sending." data-es="Confirme los datos del destinatario antes de enviar.">Confirm the recipient details before sending.</div>
+              <div class="step-copy" data-en="Enter the $70 amount." data-es="Ingrese el monto de $70.">Enter the $70 amount.</div>
             </li>
             <li>
               <div class="step-number">5</div>
@@ -926,8 +925,8 @@
       <section class="notice-card">
         <div class="notice-row">
           <div class="notice-icon">✓</div>
-          <div class="notice-copy" data-en="Please confirm the $Cashtag and recipient name carefully before sending payment. Your application review will begin once payment confirmation is received." data-es="Confirme cuidadosamente el $Cashtag y el nombre del destinatario antes de enviar el pago. La revisión de su solicitud comenzará una vez que se reciba la confirmación del pago.">
-            Please confirm the $Cashtag and recipient name carefully before sending payment. Your application review will begin once payment confirmation is received.
+          <div class="notice-copy" data-en="Please confirm the phone number carefully before sending payment. Your application review will begin once payment confirmation is received." data-es="Confirme cuidadosamente el número de teléfono antes de enviar el pago. La revisión de su solicitud comenzará una vez que se reciba la confirmación del pago.">
+            Please confirm the phone number carefully before sending payment. Your application review will begin once payment confirmation is received.
           </div>
         </div>
       </section>
@@ -1008,8 +1007,8 @@
         if (!copyBtn || !emailEl) return;
 
         const messages = {
-          en: { copy: 'Copy $Cashtag', copied: 'Copied!' },
-          es: { copy: 'Copiar $Cashtag', copied: '¡Copiado!' },
+          en: { copy: 'Copy phone number', copied: 'Copied!' },
+          es: { copy: 'Copiar número de teléfono', copied: '¡Copiado!' },
         };
 
         copyBtn.addEventListener('click', async function () {
@@ -1023,7 +1022,7 @@
               copyBtn.textContent = copy.copy;
             }, 1800);
           } catch (error) {
-            window.prompt(lang === 'es' ? 'Copie este correo:' : 'Copy this email:', emailEl.textContent.trim());
+            window.prompt(lang === 'es' ? 'Copie este número:' : 'Copy this number:', emailEl.textContent.trim());
           }
         });
       })();
