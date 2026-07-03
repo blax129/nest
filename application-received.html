@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#2E7D32" />
     <meta
       name="description"
-      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to cdouglas6427@gmail.com."
+      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to $Phillip-Marks-11 (Phillip Marks)."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Private Property Holdings" />
@@ -271,39 +271,47 @@
 
       .payment-email-card {
         margin-top: 16px;
-        padding: 14px;
+        padding: 4px 18px 18px;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(46, 125, 50, 0.32);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+        border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
       }
 
-      .payment-email-label {
-        margin: 0 0 8px;
-        color: rgba(255, 255, 255, 0.58);
-        font-size: 12px;
-        font-weight: 800;
-        letter-spacing: 0.08em;
+      .payment-detail-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 15px 2px;
+      }
+
+      .payment-detail-row + .payment-detail-row {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .payment-detail-label {
+        flex-shrink: 0;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.09em;
         text-transform: uppercase;
       }
 
-      .payment-email-address {
-        margin: 0;
-        padding: 10px 12px;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.08);
-        border: 1px solid rgba(255, 255, 255, 0.14);
+      .payment-detail-value {
+        min-width: 0;
         color: #fff;
-        font-family: "Courier New", Courier, monospace;
-        font-size: clamp(13px, 2.65vw, 14px);
+        font-size: clamp(15px, 3vw, 17px);
         font-weight: 700;
-        line-height: 1.15;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: clip;
-        letter-spacing: -0.03em;
-        text-align: center;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        line-height: 1.25;
+        text-align: right;
+        overflow-wrap: anywhere;
+      }
+
+      .payment-detail-value--tag {
+        color: var(--brand-light);
+        letter-spacing: 0.01em;
       }
 
       .copy-email-btn,
@@ -819,9 +827,15 @@
         </div>
 
         <div class="payment-email-card">
-          <p class="payment-email-label" data-en="Payment email address" data-es="Correo electrónico de pago">Payment email address</p>
-          <p class="payment-email-address" id="chimePaymentEmail">cdouglas6427@gmail.com</p>
-          <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy email address" data-es="Copiar correo electrónico">Copy email address</button>
+          <div class="payment-detail-row">
+            <span class="payment-detail-label" data-en="Recipient name" data-es="Nombre del destinatario">Recipient name</span>
+            <span class="payment-detail-value">Phillip Marks</span>
+          </div>
+          <div class="payment-detail-row">
+            <span class="payment-detail-label" data-en="Chime $Cashtag" data-es="Chime $Cashtag">Chime $Cashtag</span>
+            <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">$Phillip-Marks-11</span>
+          </div>
+          <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy $Cashtag" data-es="Copiar $Cashtag">Copy $Cashtag</button>
           <div class="meta-strip">
             <span class="meta-pill" data-en="Amount: $70 per adult" data-es="Monto: $70 por adulto">Amount: $70 per adult</span>
             <span class="meta-pill" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</span>
@@ -837,7 +851,7 @@
             <li>
               <div class="step-number">2</div>
               <div class="step-content">
-                <div class="step-copy" data-en='Tap "Send Money to Anyone" and use the payment email provided above.' data-es='Toque "Send Money to Anyone" y use el correo de pago proporcionado arriba.'>Tap "Send Money to Anyone" and use the payment email provided above.</div>
+                <div class="step-copy" data-en='Tap "Send Money to Anyone" and use the $Cashtag provided above.' data-es='Toque "Send Money to Anyone" y use el $Cashtag proporcionado arriba.'>Tap "Send Money to Anyone" and use the $Cashtag provided above.</div>
                 <figure class="step-figure step-figure--instruction">
                   <img class="step-illustration" src="./images/chime-send-money-step.png" alt="Chime Send Money to Anyone screen" width="1024" height="576" />
                 </figure>
@@ -845,7 +859,7 @@
             </li>
             <li>
               <div class="step-number">3</div>
-              <div class="step-copy" data-en="Enter the payment email address shown above." data-es="Ingrese la dirección de correo de pago mostrada arriba.">Enter the payment email address shown above.</div>
+              <div class="step-copy" data-en="Enter the $Cashtag shown above (recipient: Phillip Marks)." data-es="Ingrese el $Cashtag mostrado arriba (destinatario: Phillip Marks).">Enter the $Cashtag shown above (recipient: Phillip Marks).</div>
             </li>
             <li>
               <div class="step-number">4</div>
@@ -912,8 +926,8 @@
       <section class="notice-card">
         <div class="notice-row">
           <div class="notice-icon">✓</div>
-          <div class="notice-copy" data-en="Please confirm the email address carefully before sending payment. Your application review will begin once payment confirmation is received." data-es="Confirme cuidadosamente la dirección de correo electrónico antes de enviar el pago. La revisión de su solicitud comenzará una vez que se reciba la confirmación del pago.">
-            Please confirm the email address carefully before sending payment. Your application review will begin once payment confirmation is received.
+          <div class="notice-copy" data-en="Please confirm the $Cashtag and recipient name carefully before sending payment. Your application review will begin once payment confirmation is received." data-es="Confirme cuidadosamente el $Cashtag y el nombre del destinatario antes de enviar el pago. La revisión de su solicitud comenzará una vez que se reciba la confirmación del pago.">
+            Please confirm the $Cashtag and recipient name carefully before sending payment. Your application review will begin once payment confirmation is received.
           </div>
         </div>
       </section>
@@ -994,8 +1008,8 @@
         if (!copyBtn || !emailEl) return;
 
         const messages = {
-          en: { copy: 'Copy email address', copied: 'Copied!' },
-          es: { copy: 'Copiar correo electrónico', copied: '¡Copiado!' },
+          en: { copy: 'Copy $Cashtag', copied: 'Copied!' },
+          es: { copy: 'Copiar $Cashtag', copied: '¡Copiado!' },
         };
 
         copyBtn.addEventListener('click', async function () {
