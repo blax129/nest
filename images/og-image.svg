@@ -2,35 +2,35 @@
   <title id="ogTitle">Private Property Holdings</title>
   <defs>
     <linearGradient id="pageBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0C1610"/>
+      <stop offset="0%" stop-color="#0A0A0A"/>
       <stop offset="45%" stop-color="#0A1410"/>
-      <stop offset="100%" stop-color="#07100A"/>
+      <stop offset="100%" stop-color="#111111"/>
     </linearGradient>
     <radialGradient id="glow" cx="18%" cy="12%" r="55%">
-      <stop offset="0%" stop-color="#2E7D32" stop-opacity="0.28"/>
-      <stop offset="100%" stop-color="#2E7D32" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
     </radialGradient>
     <radialGradient id="glow2" cx="88%" cy="82%" r="45%">
-      <stop offset="0%" stop-color="#43A047" stop-opacity="0.16"/>
-      <stop offset="100%" stop-color="#43A047" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#E0C35A" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#E0C35A" stop-opacity="0"/>
     </radialGradient>
     <linearGradient id="greenBright" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#66BB6A"/>
-      <stop offset="50%" stop-color="#2E7D32"/>
-      <stop offset="100%" stop-color="#1B5E20"/>
+      <stop offset="0%" stop-color="#F0D78C"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#B8942E"/>
     </linearGradient>
     <linearGradient id="towerFill" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#F7FBF8"/>
-      <stop offset="100%" stop-color="#B7E4C7"/>
+      <stop offset="0%" stop-color="#FFF8E7"/>
+      <stop offset="100%" stop-color="#E8D8A8"/>
     </linearGradient>
     <linearGradient id="arcGlow" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2E7D32"/>
-      <stop offset="55%" stop-color="#43A047"/>
-      <stop offset="100%" stop-color="#66BB6A"/>
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="55%" stop-color="#E0C35A"/>
+      <stop offset="100%" stop-color="#F0D78C"/>
     </linearGradient>
     <linearGradient id="greenDeep" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#43A047"/>
-      <stop offset="100%" stop-color="#1B5E20"/>
+      <stop offset="0%" stop-color="#E0C35A"/>
+      <stop offset="100%" stop-color="#B8942E"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#pageBg)"/>
@@ -42,17 +42,17 @@
     <rect x="-118" y="-10" width="44" height="72" rx="3" fill="none" stroke="url(#greenBright)" stroke-width="4"/>
     <path d="M-24 -68 L24 -68 L38 44 L-38 44 Z" fill="url(#towerFill)"/>
     <rect x="74" y="-30" width="52" height="92" rx="3" fill="none" stroke="url(#greenBright)" stroke-width="4"/>
-    <line x1="88" y1="-14" x2="88" y2="54" stroke="#43A047" stroke-width="3"/>
-    <line x1="102" y1="-14" x2="102" y2="54" stroke="#43A047" stroke-width="3"/>
-    <line x1="116" y1="-14" x2="116" y2="54" stroke="#43A047" stroke-width="3"/>
+    <line x1="88" y1="-14" x2="88" y2="54" stroke="#E0C35A" stroke-width="3"/>
+    <line x1="102" y1="-14" x2="102" y2="54" stroke="#E0C35A" stroke-width="3"/>
+    <line x1="116" y1="-14" x2="116" y2="54" stroke="#E0C35A" stroke-width="3"/>
     <path d="M-44 44 L0 10 L44 44 V68 H-44 Z" fill="url(#greenDeep)"/>
-    <rect x="-14" y="30" width="28" height="22" rx="2" fill="#D8F3DC"/>
-    <path d="M0 -78 L4 -70 L12 -70 L5 -64 L8 -56 L0 -62 L-8 -56 L-5 -64 L-12 -70 L-4 -70 Z" fill="#D8F3DC"/>
+    <rect x="-14" y="30" width="28" height="22" rx="2" fill="#F4E8C4"/>
+    <path d="M0 -78 L4 -70 L12 -70 L5 -64 L8 -56 L0 -62 L-8 -56 L-5 -64 L-12 -70 L-4 -70 Z" fill="#F4E8C4"/>
   </g>
 
   <text x="600" y="360" text-anchor="middle" fill="url(#greenBright)" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" letter-spacing="5">PRIVATE PROPERTY</text>
-  <line x1="300" y1="388" x2="470" y2="388" stroke="#2E7D32" stroke-width="3" opacity="0.85"/>
-  <text x="600" y="430" text-anchor="middle" fill="#E8F5EE" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="12">HOLDINGS</text>
-  <line x1="730" y1="388" x2="900" y2="388" stroke="#2E7D32" stroke-width="3" opacity="0.85"/>
+  <line x1="300" y1="388" x2="470" y2="388" stroke="#D4AF37" stroke-width="3" opacity="0.85"/>
+  <text x="600" y="430" text-anchor="middle" fill="#F5EDD8" font-family="Manrope, Arial, sans-serif" font-size="34" font-weight="700" letter-spacing="12">HOLDINGS</text>
+  <line x1="730" y1="388" x2="900" y2="388" stroke="#D4AF37" stroke-width="3" opacity="0.85"/>
   <text x="600" y="510" text-anchor="middle" fill="rgba(232,245,238,0.72)" font-family="Manrope, Arial, sans-serif" font-size="28" font-weight="500" letter-spacing="1.5">Professional rental coordination for privately managed properties</text>
 </svg>

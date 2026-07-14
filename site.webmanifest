@@ -4,8 +4,8 @@
   "description": "Professional rental coordination for privately managed properties.",
   "start_url": "/index.html",
   "display": "standalone",
-  "background_color": "#0C1610",
-  "theme_color": "#2E7D32",
+  "background_color": "#0A0A0A",
+  "theme_color": "#D4AF37",
   "icons": [
     {
       "src": "/images/favicon-32.png",
