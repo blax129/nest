@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="logoTitle logoDesc">
   <title id="logoTitle">Private Property Holdings</title>
-  <desc id="logoDesc">Forest green property management logo with skyline mark and wordmark.</desc>
+  <desc id="logoDesc">Navy blue property management logo with skyline mark and wordmark.</desc>
   <defs>
     <linearGradient id="greenDeep" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#43A047"/>
-      <stop offset="100%" stop-color="#1B5E20"/>
+      <stop offset="0%" stop-color="#2C5282"/>
+      <stop offset="100%" stop-color="#0C1F38"/>
     </linearGradient>
     <linearGradient id="greenBright" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#66BB6A"/>
-      <stop offset="50%" stop-color="#2E7D32"/>
-      <stop offset="100%" stop-color="#1B5E20"/>
+      <stop offset="0%" stop-color="#5B8FD4"/>
+      <stop offset="50%" stop-color="#1B365D"/>
+      <stop offset="100%" stop-color="#0C1F38"/>
     </linearGradient>
     <linearGradient id="towerFill" x1="50%" y1="0%" x2="50%" y2="100%">
       <stop offset="0%" stop-color="#F7FBF8"/>
       <stop offset="100%" stop-color="#B7E4C7"/>
     </linearGradient>
     <linearGradient id="arcGlow" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#2E7D32"/>
-      <stop offset="55%" stop-color="#43A047"/>
-      <stop offset="100%" stop-color="#66BB6A"/>
+      <stop offset="0%" stop-color="#1B365D"/>
+      <stop offset="55%" stop-color="#2C5282"/>
+      <stop offset="100%" stop-color="#5B8FD4"/>
     </linearGradient>
     <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
       <feGaussianBlur stdDeviation="2" result="blur"/>
@@ -34,20 +34,20 @@
     <path d="M-118 42 C-92 -58, 92 -58, 118 42" fill="none" stroke="#1B4332" stroke-opacity="0.22" stroke-width="16" stroke-linecap="round"/>
 
     <rect x="-92" y="-8" width="34" height="58" rx="2" fill="none" stroke="url(#greenBright)" stroke-width="3"/>
-    <rect x="-84" y="2" width="18" height="10" rx="1" fill="#2E7D32" opacity="0.45"/>
+    <rect x="-84" y="2" width="18" height="10" rx="1" fill="#1B365D" opacity="0.45"/>
 
     <path d="M-18 -54 L18 -54 L28 34 L-28 34 Z" fill="url(#towerFill)"/>
-    <path d="M-10 -44 L10 -44 L16 24 L-16 24 Z" fill="#2E7D32" opacity="0.18"/>
+    <path d="M-10 -44 L10 -44 L16 24 L-16 24 Z" fill="#1B365D" opacity="0.18"/>
 
     <rect x="58" y="-24" width="40" height="74" rx="2" fill="none" stroke="url(#greenBright)" stroke-width="3"/>
-    <line x1="68" y1="-12" x2="68" y2="42" stroke="#43A047" stroke-width="2" opacity="0.8"/>
-    <line x1="78" y1="-12" x2="78" y2="42" stroke="#43A047" stroke-width="2" opacity="0.8"/>
-    <line x1="88" y1="-12" x2="88" y2="42" stroke="#43A047" stroke-width="2" opacity="0.8"/>
+    <line x1="68" y1="-12" x2="68" y2="42" stroke="#2C5282" stroke-width="2" opacity="0.8"/>
+    <line x1="78" y1="-12" x2="78" y2="42" stroke="#2C5282" stroke-width="2" opacity="0.8"/>
+    <line x1="88" y1="-12" x2="88" y2="42" stroke="#2C5282" stroke-width="2" opacity="0.8"/>
 
     <path d="M-34 34 L0 8 L34 34 V52 H-34 Z" fill="url(#greenDeep)"/>
     <rect x="-10" y="24" width="20" height="16" rx="1.5" fill="#D8F3DC" opacity="0.95"/>
-    <line x1="0" y1="24" x2="0" y2="40" stroke="#1B5E20" stroke-width="1.2" opacity="0.55"/>
-    <line x1="-10" y1="32" x2="10" y2="32" stroke="#1B5E20" stroke-width="1.2" opacity="0.55"/>
+    <line x1="0" y1="24" x2="0" y2="40" stroke="#0C1F38" stroke-width="1.2" opacity="0.55"/>
+    <line x1="-10" y1="32" x2="10" y2="32" stroke="#0C1F38" stroke-width="1.2" opacity="0.55"/>
 
     <g filter="url(#softGlow)" fill="#D8F3DC">
       <path d="M0 -62 L3 -56 L9 -56 L4 -52 L6 -46 L0 -50 L-6 -46 L-4 -52 L-9 -56 L-3 -56 Z"/>
@@ -56,7 +56,7 @@
   </g>
 
   <text x="320" y="236" text-anchor="middle" fill="url(#greenBright)" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="54" font-weight="700" letter-spacing="4">PRIVATE PROPERTY</text>
-  <line x1="118" y1="258" x2="238" y2="258" stroke="#2E7D32" stroke-width="2" opacity="0.85"/>
+  <line x1="118" y1="258" x2="238" y2="258" stroke="#1B365D" stroke-width="2" opacity="0.85"/>
   <text x="320" y="286" text-anchor="middle" fill="#E8F5EE" font-family="Manrope, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="9">HOLDINGS</text>
-  <line x1="402" y1="258" x2="522" y2="258" stroke="#2E7D32" stroke-width="2" opacity="0.85"/>
+  <line x1="402" y1="258" x2="522" y2="258" stroke="#1B365D" stroke-width="2" opacity="0.85"/>
 </svg>
