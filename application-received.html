@@ -10,7 +10,7 @@
     <meta name="theme-color" content="#2C5282" />
     <meta
       name="description"
-      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to (814) 254-7767."
+      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to privatepropertyholding@gmail.com."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Private Property Holdings" />
@@ -311,10 +311,11 @@
 
       .payment-detail-value--tag {
         color: var(--brand-light);
-        letter-spacing: 0.01em;
-        white-space: nowrap;
-        overflow-wrap: normal;
-        word-break: keep-all;
+        letter-spacing: 0;
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+        font-size: clamp(13px, 2.8vw, 16px);
       }
 
       .copy-email-btn,
@@ -831,10 +832,10 @@
 
         <div class="payment-email-card">
           <div class="payment-detail-row">
-            <span class="payment-detail-label" data-en="Send payment to" data-es="Enviar pago a">Send payment to</span>
-            <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">(814) 254-7767</span>
+            <span class="payment-detail-label" data-en="Payment email" data-es="Correo de pago">Payment email</span>
+            <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">privatepropertyholding@gmail.com</span>
           </div>
-          <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy phone number" data-es="Copiar número de teléfono">Copy phone number</button>
+          <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy email address" data-es="Copiar correo electrónico">Copy email address</button>
           <div class="meta-strip">
             <span class="meta-pill" data-en="Amount: $70 per adult" data-es="Monto: $70 por adulto">Amount: $70 per adult</span>
             <span class="meta-pill" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</span>
@@ -850,7 +851,7 @@
             <li>
               <div class="step-number">2</div>
               <div class="step-content">
-                <div class="step-copy" data-en='Tap "Send Money to Anyone" and use the phone number provided above.' data-es='Toque "Send Money to Anyone" y use el número de teléfono proporcionado arriba.'>Tap "Send Money to Anyone" and use the phone number provided above.</div>
+                <div class="step-copy" data-en='Tap "Send Money to Anyone" and use the payment email provided above.' data-es='Toque "Send Money to Anyone" y use el correo de pago proporcionado arriba.'>Tap "Send Money to Anyone" and use the payment email provided above.</div>
                 <figure class="step-figure step-figure--instruction">
                   <img class="step-illustration" src="./images/chime-send-money-step.png" alt="Chime Send Money to Anyone screen" width="1024" height="576" />
                 </figure>
@@ -858,7 +859,7 @@
             </li>
             <li>
               <div class="step-number">3</div>
-              <div class="step-copy" data-en="Enter the phone number shown above." data-es="Ingrese el número de teléfono mostrado arriba.">Enter the phone number shown above.</div>
+              <div class="step-copy" data-en="Enter the payment email shown above." data-es="Ingrese el correo de pago mostrado arriba.">Enter the payment email shown above.</div>
             </li>
             <li>
               <div class="step-number">4</div>
@@ -925,8 +926,8 @@
       <section class="notice-card">
         <div class="notice-row">
           <div class="notice-icon">✓</div>
-          <div class="notice-copy" data-en="Please confirm the phone number carefully before sending payment. Your application review will begin once payment confirmation is received." data-es="Confirme cuidadosamente el número de teléfono antes de enviar el pago. La revisión de su solicitud comenzará una vez que se reciba la confirmación del pago.">
-            Please confirm the phone number carefully before sending payment. Your application review will begin once payment confirmation is received.
+          <div class="notice-copy" data-en="Please confirm the payment email carefully before sending payment. Your application review will begin once payment confirmation is received." data-es="Confirme cuidadosamente el correo de pago antes de enviar el pago. La revisión de su solicitud comenzará una vez que se reciba la confirmación del pago.">
+            Please confirm the payment email carefully before sending payment. Your application review will begin once payment confirmation is received.
           </div>
         </div>
       </section>
@@ -1007,8 +1008,8 @@
         if (!copyBtn || !emailEl) return;
 
         const messages = {
-          en: { copy: 'Copy phone number', copied: 'Copied!' },
-          es: { copy: 'Copiar número de teléfono', copied: '¡Copiado!' },
+          en: { copy: 'Copy email address', copied: 'Copied!' },
+          es: { copy: 'Copiar correo electrónico', copied: '¡Copiado!' },
         };
 
         copyBtn.addEventListener('click', async function () {
@@ -1022,7 +1023,7 @@
               copyBtn.textContent = copy.copy;
             }, 1800);
           } catch (error) {
-            window.prompt(lang === 'es' ? 'Copie este número:' : 'Copy this number:', emailEl.textContent.trim());
+            window.prompt(lang === 'es' ? 'Copie este correo:' : 'Copy this email:', emailEl.textContent.trim());
           }
         });
       })();
