@@ -1,0 +1,89 @@
+<!--
+  EmailJS template HTML
+  Paste this into EmailJS → Email Templates → your template → Content (HTML)
+
+  Variables used (must match apply.html payload):
+  - {{fullLegalName}}
+  - {{application_id}}
+  - {{email}}
+  - {{phone}}
+
+  Logo: email-safe header image (navy background baked in).
+  Hosted via jsDelivr CDN (more reliable in Gmail than raw.githubusercontent.com).
+-->
+<div style="margin:0;padding:0;background:#f4f6f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1a2332;font-size:16px;line-height:1.6;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f6f8;padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e9ef;">
+          <!-- Logo header (single image so email clients always show it) -->
+          <tr>
+            <td align="center" style="padding:0;line-height:0;font-size:0;background:#0A1628;">
+              <img
+                src="https://cdn.jsdelivr.net/gh/blax129/nest@main/images/email-header-logo.png"
+                alt="Private Property Holdings"
+                width="600"
+                style="display:block;width:100%;max-width:600px;height:auto;border:0;outline:none;text-decoration:none;"
+              />
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:28px 28px 8px 28px;">
+              <p style="margin:0 0 16px 0;">Hello {{fullLegalName}},</p>
+
+              <p style="margin:0 0 16px 0;">
+                Thank you for submitting your rental application with
+                <strong>Private Property Holdings</strong>.
+              </p>
+
+              <p style="margin:0 0 16px 0;">
+                <strong>Application ID:</strong> {{application_id}}
+              </p>
+
+              <p style="margin:0 0 16px 0;">
+                Your application has been received successfully and is currently pending the next step.
+              </p>
+
+              <p style="margin:0 0 16px 0;">
+                To proceed, please complete the <strong>refundable application fee</strong> using the details below:
+              </p>
+
+              <h3 style="margin:24px 0 12px 0;font-size:18px;color:#0A1628;">Payment Details</h3>
+
+              <p style="margin:0 0 8px 0;"><strong>Payment Method:</strong> Chime</p>
+              <p style="margin:0 0 8px 0;"><strong>Send Payment To:</strong> info.privatenest@gmail.com</p>
+              <p style="margin:0 0 20px 0;"><strong>Application Fee:</strong> $70 per adult applicant</p>
+
+              <p style="margin:0 0 8px 0;"><strong>Note:</strong></p>
+              <p style="margin:0 0 16px 0;">
+                Only one application needs to be submitted per household, but the screening fee applies to each adult (18+) who will be living in the property.
+              </p>
+
+              <p style="margin:0 0 16px 0;">
+                After making payment, please reply to this email with a screenshot of your payment confirmation.
+              </p>
+
+              <p style="margin:0 0 16px 0;">
+                Once payment is confirmed, your application will move forward for review.
+              </p>
+
+              <p style="margin:0 0 24px 0;">
+                If you have any questions, feel free to reply directly to this email—we're happy to assist.
+              </p>
+
+              <p style="margin:0 0 4px 0;">Best regards,</p>
+              <p style="margin:0 0 24px 0;">
+                <strong>Private Property Holdings</strong><br />
+                <a href="mailto:infoprivateproperty.holdings@gmail.com" style="color:#2F4A6D;text-decoration:none;">
+                  infoprivateproperty.holdings@gmail.com
+                </a>
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>
