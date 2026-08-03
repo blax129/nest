@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#2C5282" />
+    <meta name="theme-color" content="#2F4A6D" />
     <meta
       name="description"
       content="Administración Privada de Propiedades — Coordinación profesional y transparente de alquileres para propiedades administradas de forma privada."
@@ -97,18 +97,20 @@
         <div class="container portfolio-hero__inner">
           <div class="hero__content reveal">
             <section class="hero-overview" aria-label="Introducción a la gestión privada de alquileres">
-              <h1 class="hero-overview__title">Gestión privada de alquileres con apoyo directo del propietario</h1>
+              <h1 class="hero-overview__title">Administración Privada de Propiedades</h1>
               <p>
-                Administración Privada de Propiedades se enfoca en ofrecer una
-                coordinación de alquiler organizada, transparente y profesional
-                para viviendas administradas de forma privada y futuros
-                solicitantes.
+                Administración Privada de Propiedades ofrece apoyo confiable de
+                alquiler para viviendas administradas de forma privada y
+                posibles inquilinos, con consistencia, claridad y
+                responsabilidad en cada etapa del proceso de arrendamiento.
               </p>
               <p>
-                Con un fuerte enfoque en profesionalismo, capacidad de respuesta
-                y confiabilidad, Administración Privada de Propiedades busca
-                crear una experiencia moderna, bien estructurada y respetuosa
-                para todas las personas involucradas.
+                Desde las primeras consultas y la programación hasta la
+                orientación de la solicitud y la comunicación continua, nuestro
+                proceso es organizado y orientado al servicio. Establecemos
+                expectativas claras, damos seguimiento oportuno y coordinamos con
+                cuidado para que propietarios y solicitantes vivan un proceso
+                fluido, eficiente y respetuoso.
               </p>
             </section>
           </div>
@@ -157,7 +159,11 @@
           </div>
 
           <figure class="why-work__media reveal">
-            <img src="./images/community2.png" alt="Grupo profesional de capacitación en administración privada de alquileres" />
+            <div class="community-slider why-work__slider" aria-label="Fotos del equipo de Administración Privada de Propiedades">
+              <img class="slide active" src="./images/community-team.jpg" alt="Equipo de Administración Privada de Propiedades colaborando juntos" />
+              <img class="slide" src="./images/community-advocates.jpg" alt="Equipo de Administración Privada de Propiedades en un evento de apoyo comunitario" />
+              <img class="slide" src="./images/community-erpac-team.jpg" alt="Equipo de Administración Privada de Propiedades en una reunión de ERPAC" />
+            </div>
           </figure>
 
           <ul class="why-work__list">
@@ -240,7 +246,7 @@
               <div class="faq-item__answer">
                 <p>
                   Sí, hay un cargo de solicitud reembolsable de $70, que se paga
-                  por Chime a privatepropertyholding@gmail.com inmediatamente después de enviar su solicitud.
+                  por Chime inmediatamente después de enviar su solicitud. El correo de pago se asigna a su ID de solicitud y se muestra en la página de pago.
                 </p>
               </div>
             </article>
@@ -281,7 +287,7 @@
             <p class="section__lead">Comentarios de personas que completaron el proceso de solicitud.</p>
           </div>
 
-          <div class="testimonial-list">
+          <div class="testimonial-list" id="testimonialList">
             <article class="testimonial-card reveal">
               <div class="testimonial-card__header">
                 <span class="testimonial-card__avatar testimonial-card__avatar--green" aria-hidden="true">TM</span>
@@ -336,6 +342,73 @@
               </div>
               <p class="testimonial-card__quote">Profesional de principio a fin. El proceso se sintió bien organizado.</p>
             </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--slate" aria-hidden="true">AP</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Alicia P.</p>
+                  <p class="testimonial-card__date">11 de agosto de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Aprecié lo claros que fueron los siguientes pasos después de enviar. Todo se sintió intencional.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--navy" aria-hidden="true">DW</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">David W.</p>
+                  <p class="testimonial-card__date">3 de septiembre de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Respondieron mis preguntas con rapidez y el formulario de solicitud fue fácil de completar.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--steel" aria-hidden="true">SN</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Sara N.</p>
+                  <p class="testimonial-card__date">19 de octubre de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">El equipo respetó mi tiempo y explicó los plazos sin presión.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--ink" aria-hidden="true">MB</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Marcus B.</p>
+                  <p class="testimonial-card__date">7 de noviembre de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Los detalles de pago por Chime fueron fáciles de seguir y la confirmación se gestionó con prontitud.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--mist" aria-hidden="true">EL</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Elena R.</p>
+                  <p class="testimonial-card__date">14 de diciembre de 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote">Se sintió como un proceso de administración real: organizado, transparente y fácil de confiar.</p>
+            </article>
+          </div>
+
+          <div class="testimonials-more-wrap">
+            <button
+              type="button"
+              class="testimonials-more-btn"
+              id="testimonialsMoreBtn"
+              aria-expanded="false"
+              aria-controls="testimonialList"
+            >
+              Ver más reseñas
+            </button>
           </div>
 
           <div class="feedback-form-card reveal">
@@ -423,6 +496,37 @@
           closeMenu();
         }
       });
+
+      (function () {
+        const slides = document.querySelectorAll('.community-slider .slide');
+        if (slides.length < 2) return;
+
+        let current = 0;
+        setInterval(function () {
+          slides[current].classList.remove('active');
+          current = (current + 1) % slides.length;
+          slides[current].classList.add('active');
+        }, 2500);
+      })();
+
+      (function () {
+        const btn = document.getElementById('testimonialsMoreBtn');
+        const extras = document.querySelectorAll('.testimonial-card--extra');
+        const wrap = btn && btn.closest('.testimonials-more-wrap');
+        if (!btn || !extras.length) return;
+
+        btn.addEventListener('click', function () {
+          extras.forEach(function (card) {
+            card.hidden = false;
+            card.classList.add('reveal');
+            requestAnimationFrame(function () {
+              card.classList.add('is-visible');
+            });
+          });
+          btn.setAttribute('aria-expanded', 'true');
+          if (wrap) wrap.hidden = true;
+        });
+      })();
     </script>
     <script src="./script.js"></script>
   </body>

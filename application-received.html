@@ -7,10 +7,10 @@
     <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#2C5282" />
+    <meta name="theme-color" content="#2F4A6D" />
     <meta
       name="description"
-      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime to privatepropertyholding@gmail.com."
+      content="Application Received — Private Property Holdings. Complete your refundable $70 application fee via Chime using the payment email assigned to your Application ID."
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Private Property Holdings" />
@@ -35,21 +35,21 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #0a1224;
+        --bg: #0a1628;
         --surface: rgba(255, 255, 255, 0.05);
         --surface-soft: rgba(255, 255, 255, 0.045);
-        --surface-green: rgba(27, 54, 93, 0.12);
+        --surface-green: rgba(220, 227, 234, 0.12);
         --surface-blue: rgba(255, 255, 255, 0.045);
         --surface-muted: rgba(255, 255, 255, 0.05);
         --border: rgba(255, 255, 255, 0.12);
-        --border-strong: rgba(27, 54, 93, 0.32);
-        --text: rgba(255, 255, 255, 0.92);
-        --text-soft: rgba(255, 255, 255, 0.68);
-        --brand: #2c5282;
-        --brand-dark: #1b365d;
-        --brand-light: #5b8fd4;
-        --blue: #2c5282;
-        --blue-dark: #1b365d;
+        --border-strong: rgba(220, 227, 234, 0.32);
+        --text: #f8fafc;
+        --text-soft: rgba(248, 250, 252, 0.72);
+        --brand: #2f4a6d;
+        --brand-dark: #1a3352;
+        --brand-light: #dce3ea;
+        --blue: #2f4a6d;
+        --blue-dark: #1a3352;
         --orange: #f26b1d;
         --shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
         --shadow-soft: 0 14px 32px rgba(0, 0, 0, 0.26);
@@ -69,10 +69,10 @@
         font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
         background:
           radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px),
-          radial-gradient(1200px 700px at 15% -10%, rgba(27, 54, 93, 0.12), transparent 55%),
-          radial-gradient(900px 520px at 90% 10%, rgba(12, 31, 56, 0.10), transparent 58%),
-          radial-gradient(800px 600px at 60% 120%, rgba(91, 143, 212, 0.08), transparent 58%),
-          linear-gradient(180deg, #0a1224 0%, #060b18 100%);
+          radial-gradient(1200px 700px at 15% -10%, rgba(220, 227, 234, 0.12), transparent 55%),
+          radial-gradient(900px 520px at 90% 10%, rgba(16, 32, 51, 0.10), transparent 58%),
+          radial-gradient(800px 600px at 60% 120%, rgba(220, 227, 234, 0.08), transparent 58%),
+          linear-gradient(180deg, #0a1628 0%, #102033 100%);
         background-size: 3px 3px, auto, auto, auto, auto;
         color: var(--text);
         line-height: 1.6;
@@ -113,8 +113,8 @@
       .top-strip {
         height: 68px;
         margin-bottom: 8px;
-        background: linear-gradient(180deg, rgba(8, 20, 14, 0.92), rgba(8, 20, 14, 0.78));
-        border-bottom: 1px solid rgba(27, 54, 93, 0.18);
+        background: linear-gradient(180deg, rgba(10, 22, 40, 0.92), rgba(10, 22, 40, 0.78));
+        border-bottom: 1px solid rgba(220, 227, 234, 0.18);
       }
 
       .page-header {
@@ -185,7 +185,7 @@
       }
 
       .progress-step.is-current .progress-dot {
-        box-shadow: 0 0 0 6px rgba(27, 54, 93, 0.14);
+        box-shadow: 0 0 0 6px rgba(220, 227, 234, 0.14);
       }
 
       .progress-label {
@@ -243,7 +243,7 @@
         border-radius: 18px;
         background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        box-shadow: 0 16px 34px rgba(27, 54, 93, 0.18);
+        box-shadow: 0 16px 34px rgba(220, 227, 234, 0.18);
         overflow: hidden;
       }
 
@@ -339,7 +339,7 @@
       .copy-email-btn:hover,
       .store-btn:hover {
         transform: translateY(-1px);
-        border-color: rgba(27, 54, 93, 0.38);
+        border-color: rgba(220, 227, 234, 0.38);
         background: rgba(255, 255, 255, 0.08);
       }
 
@@ -390,7 +390,7 @@
         display: grid;
         place-items: center;
         border-radius: 999px;
-        border: 1px solid rgba(27, 54, 93, 0.28);
+        border: 1px solid rgba(220, 227, 234, 0.28);
         background: var(--surface-blue);
         color: var(--brand-light);
         font-size: 15px;
@@ -427,7 +427,7 @@
         width: 100%;
         height: auto;
         border-radius: 14px;
-        border: 1px solid rgba(27, 54, 93, 0.22);
+        border: 1px solid rgba(220, 227, 234, 0.22);
         box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
       }
 
@@ -499,7 +499,7 @@
         display: grid;
         place-items: center;
         border-radius: 999px;
-        border: 1px solid rgba(27, 54, 93, 0.28);
+        border: 1px solid rgba(220, 227, 234, 0.28);
         color: var(--brand-light);
         font-size: 14px;
         font-weight: 800;
@@ -640,7 +640,7 @@
         padding: 0 18px;
         border-radius: 999px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.04));
-        box-shadow: 0 12px 34px rgba(27, 54, 93, 0.16);
+        box-shadow: 0 12px 34px rgba(220, 227, 234, 0.16);
         color: #fff;
         font-size: 12px;
         font-weight: 900;
@@ -720,7 +720,7 @@
         bottom: 0;
         z-index: 20;
         padding: 14px 22px 16px;
-        background: linear-gradient(180deg, rgba(12, 22, 16, 0), rgba(12, 22, 16, 0.96) 26%, #0a1224 100%);
+        background: linear-gradient(180deg, rgba(12, 22, 16, 0), rgba(12, 22, 16, 0.96) 26%, #0a1628 100%);
       }
 
       .btn-action {
@@ -731,11 +731,11 @@
         justify-content: center;
         border-radius: 18px;
         border: 1px solid rgba(255, 255, 255, 0.14);
-        background: linear-gradient(135deg, var(--brand), var(--brand-light));
-        color: #08110b;
+        background: #dce3ea;
+        color: #0a1628;
         font-size: 16px;
         font-weight: 800;
-        box-shadow: 0 10px 22px rgba(27, 54, 93, 0.24);
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
         transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
       }
 
@@ -833,7 +833,7 @@
         <div class="payment-email-card">
           <div class="payment-detail-row">
             <span class="payment-detail-label" data-en="Payment email" data-es="Correo de pago">Payment email</span>
-            <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">privatepropertyholding@gmail.com</span>
+            <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">—</span>
           </div>
           <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy email address" data-es="Copiar correo electrónico">Copy email address</button>
           <div class="meta-strip">
@@ -1044,12 +1044,22 @@
 
         const display = document.getElementById('application-id-display');
         const confirmBtn = document.getElementById('paymentConfirmationBtn');
+        const emailEl = document.getElementById('chimePaymentEmail');
 
         if (!display) {
           return;
         }
 
         const activeLang = localStorage.getItem('lang') || 'en';
+        const paymentEmail =
+          typeof window.getChimePaymentEmail === 'function'
+            ? window.getChimePaymentEmail(applicationId)
+            : 'info.privatenest@gmail.com';
+
+        if (emailEl && paymentEmail) {
+          emailEl.textContent = paymentEmail;
+          localStorage.setItem('chimePaymentEmail', paymentEmail);
+        }
 
         if (!applicationId) {
           display.style.display = 'inline-block';
@@ -1070,6 +1080,10 @@
               ? 'Hola, ya envié el pago de mi solicitud.\n\nID de solicitud: '
               : 'Hello, I have sent my application payment.\n\nApplication ID: ') +
               (applicationId || '[add your application ID]') +
+              (activeLang === 'es'
+                ? '\nCorreo de pago usado: '
+                : '\nPayment email used: ') +
+              (paymentEmail || '[payment email]') +
               (activeLang === 'es'
                 ? '\n\nAdjunto mi captura de pantalla o confirmación del recibo.'
                 : '\n\nI have attached my screenshot or receipt confirmation.')

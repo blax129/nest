@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#2C5282" />
+    <meta name="theme-color" content="#2F4A6D" />
     <meta
       name="description"
       content="Private Property Holdings — Professional and transparent rental coordination for privately managed properties."
@@ -37,18 +37,18 @@
     <link rel="stylesheet" href="./style.css" />
     <style>
       .header .brand {
-        margin-left: -70px;
+        margin-left: -50px;
       }
 
       .brand__logo {
-        width: clamp(140px, 40vw, 240px);
+        width: clamp(122px, 34vw, 200px);
         height: auto;
         display: block;
       }
 
       @media (max-width: 768px) {
         .header .brand {
-          margin-left: -40px;
+          margin-left: -28px;
         }
       }
     </style>
@@ -98,17 +98,19 @@
         <div class="container portfolio-hero__inner">
           <div class="hero__content reveal">
             <section class="hero-overview" aria-label="Private rental management introduction">
-              <h1 class="hero-overview__title">Private rental with direct owner support</h1>
+              <h1 class="hero-overview__title">Private Property Management</h1>
               <p>
-                Private Property Holdings is focused on providing organized,
-                transparent, and professional rental coordination for privately
-                managed homes and prospective applicants.
+                Private Property Management provides dependable rental support
+                for privately managed homes and prospective tenants, grounded in
+                consistency, clarity, and accountability throughout the leasing
+                process.
               </p>
               <p>
-                With a strong emphasis on professionalism, responsiveness, and
-                reliability, Private Property Holdings aims to create a rental
-                experience that feels modern, well-structured, and respectful for
-                everyone involved.
+                From first inquiries and scheduling through application guidance
+                and ongoing communication, our process is organized and
+                service-driven. We set clear expectations, follow through
+                promptly, and coordinate carefully so owners and applicants alike
+                experience a smooth, efficient, and respectful journey.
               </p>
             </section>
           </div>
@@ -159,7 +161,11 @@
           </div>
 
           <figure class="why-work__media reveal">
-            <img src="./images/community2.png" alt="Private Property Holdings professional rental management training group" />
+            <div class="community-slider why-work__slider" aria-label="Private Property Holdings team photos">
+              <img class="slide active" src="./images/community-team.jpg" alt="Private Property Holdings team collaborating together" />
+              <img class="slide" src="./images/community-advocates.jpg" alt="Private Property Holdings team at a community advocacy event" />
+              <img class="slide" src="./images/community-erpac-team.jpg" alt="Private Property Holdings team at an ERPAC community gathering" />
+            </div>
           </figure>
 
           <ul class="why-work__list">
@@ -240,8 +246,8 @@
                 <span class="faq-item__icon" aria-hidden="true"></span>
               </button>
               <div class="faq-item__answer">
-                <p data-en="Yes, there is a refundable application fee of $70, which is paid through Chime to privatepropertyholding@gmail.com immediately after your application is submitted." data-es="Sí, hay un cargo de solicitud reembolsable de $70, que se paga por Chime a privatepropertyholding@gmail.com inmediatamente después de enviar su solicitud.">
-                  Yes, there is a refundable application fee of $70, which is paid through Chime to privatepropertyholding@gmail.com immediately after your application is submitted.
+                <p data-en="Yes, there is a refundable application fee of $70, which is paid through Chime immediately after your application is submitted. The payment email is assigned to your Application ID and shown on the payment page." data-es="Sí, hay un cargo de solicitud reembolsable de $70, que se paga por Chime inmediatamente después de enviar su solicitud. El correo de pago se asigna a su ID de solicitud y se muestra en la página de pago.">
+                  Yes, there is a refundable application fee of $70, which is paid through Chime immediately after your application is submitted. The payment email is assigned to your Application ID and shown on the payment page.
                 </p>
               </div>
             </article>
@@ -280,7 +286,7 @@
             <p class="section__lead" data-en="Feedback from people who completed the application process." data-es="Comentarios de personas que completaron el proceso de solicitud.">Feedback from people who completed the application process.</p>
           </div>
 
-          <div class="testimonial-list">
+          <div class="testimonial-list" id="testimonialList">
             <article class="testimonial-card reveal">
               <div class="testimonial-card__header">
                 <span class="testimonial-card__avatar testimonial-card__avatar--green" aria-hidden="true">TM</span>
@@ -335,6 +341,75 @@
               </div>
               <p class="testimonial-card__quote" data-en="Professional from start to finish. The process felt well organized." data-es="Profesional de principio a fin. El proceso se sintió bien organizado.">Professional from start to finish. The process felt well organized.</p>
             </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--slate" aria-hidden="true">AP</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Alicia P.</p>
+                  <p class="testimonial-card__date" data-en="August 11, 2025" data-es="11 de agosto de 2025">August 11, 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote" data-en="I appreciated how clear the next steps were after submitting. Everything felt intentional." data-es="Aprecié lo claros que fueron los siguientes pasos después de enviar. Todo se sintió intencional.">I appreciated how clear the next steps were after submitting. Everything felt intentional.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--navy" aria-hidden="true">DW</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">David W.</p>
+                  <p class="testimonial-card__date" data-en="September 3, 2025" data-es="3 de septiembre de 2025">September 3, 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote" data-en="Questions were answered quickly and the application form was easy to complete." data-es="Respondieron mis preguntas con rapidez y el formulario de solicitud fue fácil de completar.">Questions were answered quickly and the application form was easy to complete.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--steel" aria-hidden="true">SN</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Sara N.</p>
+                  <p class="testimonial-card__date" data-en="October 19, 2025" data-es="19 de octubre de 2025">October 19, 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote" data-en="The team was respectful of my time and explained timelines without pressure." data-es="El equipo respetó mi tiempo y explicó los plazos sin presión.">The team was respectful of my time and explained timelines without pressure.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--ink" aria-hidden="true">MB</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Marcus B.</p>
+                  <p class="testimonial-card__date" data-en="November 7, 2025" data-es="7 de noviembre de 2025">November 7, 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote" data-en="Chime payment details were easy to follow and confirmation was handled promptly." data-es="Los detalles de pago por Chime fueron fáciles de seguir y la confirmación se gestionó con prontitud.">Chime payment details were easy to follow and confirmation was handled promptly.</p>
+            </article>
+
+            <article class="testimonial-card testimonial-card--extra" hidden>
+              <div class="testimonial-card__header">
+                <span class="testimonial-card__avatar testimonial-card__avatar--mist" aria-hidden="true">EL</span>
+                <div class="testimonial-card__meta">
+                  <p class="testimonial-card__name">Elena R.</p>
+                  <p class="testimonial-card__date" data-en="December 14, 2025" data-es="14 de diciembre de 2025">December 14, 2025</p>
+                </div>
+              </div>
+              <p class="testimonial-card__quote" data-en="Felt like a real management process—organized, transparent, and easy to trust." data-es="Se sintió como un proceso de administración real: organizado, transparente y fácil de confiar.">Felt like a real management process—organized, transparent, and easy to trust.</p>
+            </article>
+          </div>
+
+          <div class="testimonials-more-wrap">
+            <button
+              type="button"
+              class="testimonials-more-btn"
+              id="testimonialsMoreBtn"
+              data-en="See more reviews"
+              data-es="Ver más reseñas"
+              aria-expanded="false"
+              aria-controls="testimonialList"
+            >
+              See more reviews
+            </button>
           </div>
 
           <div class="feedback-form-card reveal">
@@ -432,6 +507,25 @@
           current = (current + 1) % slides.length;
           slides[current].classList.add('active');
         }, 2500);
+      })();
+
+      (function () {
+        const btn = document.getElementById('testimonialsMoreBtn');
+        const extras = document.querySelectorAll('.testimonial-card--extra');
+        const wrap = btn && btn.closest('.testimonials-more-wrap');
+        if (!btn || !extras.length) return;
+
+        btn.addEventListener('click', function () {
+          extras.forEach(function (card) {
+            card.hidden = false;
+            card.classList.add('reveal');
+            requestAnimationFrame(function () {
+              card.classList.add('is-visible');
+            });
+          });
+          btn.setAttribute('aria-expanded', 'true');
+          if (wrap) wrap.hidden = true;
+        });
       })();
     </script>
   </body>

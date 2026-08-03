@@ -7,7 +7,7 @@
     <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <meta name="theme-color" content="#2C5282" />
+    <meta name="theme-color" content="#2F4A6D" />
     <meta
       name="description"
       content="Private Property Holdings Rental Application — complete your premium rental application."
@@ -127,7 +127,7 @@
       }
 
       .required-mark {
-        color: rgba(27, 54, 93, 0.98);
+        color: rgba(220, 227, 234, 0.98);
         font-weight: 700;
       }
 
@@ -149,8 +149,8 @@
       }
 
       .field__input:focus {
-        border-color: rgba(27, 54, 93, 0.5);
-        box-shadow: 0 0 0 4px rgba(27, 54, 93, 0.1);
+        border-color: rgba(220, 227, 234, 0.5);
+        box-shadow: 0 0 0 4px rgba(220, 227, 234, 0.1);
         background: rgba(255, 255, 255, 0.08);
       }
 
@@ -187,9 +187,9 @@
         font-size: 15px;
         padding: 16px;
         border-radius: 14px;
-        border: 1px solid rgba(27, 54, 93, 0.22);
+        border: 1px solid rgba(220, 227, 234, 0.22);
         background:
-          radial-gradient(340px 120px at 0% 0%, rgba(27, 54, 93, 0.1), transparent 62%),
+          radial-gradient(340px 120px at 0% 0%, rgba(220, 227, 234, 0.1), transparent 62%),
           rgba(255, 255, 255, 0.04);
         overflow-wrap: break-word;
       }
@@ -216,7 +216,7 @@
         margin-top: 1px;
         margin-bottom: 0;
         flex-shrink: 0;
-        accent-color: #2C5282;
+        accent-color: #DCE3EA;
       }
 
       .agreement-item input[type="checkbox"] {
@@ -226,14 +226,14 @@
         margin-top: 2px;
         margin-bottom: 0;
         flex-shrink: 0;
-        accent-color: #2C5282;
+        accent-color: #DCE3EA;
       }
 
       .agreement-chime-banner {
         width: fit-content;
         max-width: 100%;
-        padding: 8px 12px;
-        border-radius: 10px;
+        padding: 6px;
+        border-radius: 14px;
         background: #fff;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
         box-sizing: border-box;
@@ -242,13 +242,14 @@
       }
 
       .agreement-chime-logo {
-        width: 132px;
+        width: 72px;
+        height: 72px;
         max-width: 100%;
-        height: auto;
-        aspect-ratio: 165 / 51;
+        aspect-ratio: 1 / 1;
         display: block;
         object-fit: contain;
         object-position: center center;
+        border-radius: 16px;
       }
 
       .agreement-item label {
@@ -277,11 +278,11 @@
       }
 
       .payment-method-card--selected {
-        border-color: rgba(27, 54, 93, 0.62);
+        border-color: rgba(220, 227, 234, 0.62);
         background:
-          radial-gradient(260px 100px at 0% 0%, rgba(27, 54, 93, 0.12), transparent 62%),
+          radial-gradient(260px 100px at 0% 0%, rgba(220, 227, 234, 0.12), transparent 62%),
           rgba(255, 255, 255, 0.065);
-        box-shadow: 0 0 0 4px rgba(27, 54, 93, 0.1);
+        box-shadow: 0 0 0 4px rgba(220, 227, 234, 0.1);
       }
 
       .payment-method-option {
@@ -311,11 +312,11 @@
 
       .payment-method-option input[type="radio"]:focus-visible + .payment-method-card,
       .payment-method-option input[type="radio"]:checked + .payment-method-card {
-        border-color: rgba(27, 54, 93, 0.62);
+        border-color: rgba(220, 227, 234, 0.62);
         background:
-          radial-gradient(260px 100px at 0% 0%, rgba(27, 54, 93, 0.12), transparent 62%),
+          radial-gradient(260px 100px at 0% 0%, rgba(220, 227, 234, 0.12), transparent 62%),
           rgba(255, 255, 255, 0.065);
-        box-shadow: 0 0 0 4px rgba(27, 54, 93, 0.1);
+        box-shadow: 0 0 0 4px rgba(220, 227, 234, 0.1);
       }
 
       .payment-method-option input[type="radio"]:checked + .payment-method-card {
@@ -438,12 +439,14 @@
 
         .agreement-chime-banner {
           align-self: center;
-          padding: 7px 10px;
-          border-radius: 9px;
+          padding: 5px;
+          border-radius: 13px;
         }
 
         .agreement-chime-logo {
-          width: clamp(108px, 34vw, 128px);
+          width: 64px;
+          height: 64px;
+          border-radius: 14px;
         }
 
         .agreement-item__row {
@@ -499,11 +502,13 @@
         }
 
         .agreement-chime-banner {
-          padding: 6px 9px;
+          padding: 4px;
         }
 
         .agreement-chime-logo {
-          width: clamp(100px, 30vw, 118px);
+          width: 56px;
+          height: 56px;
+          border-radius: 12px;
         }
 
         .agreement-item__row {
@@ -528,7 +533,9 @@
 
       @media (max-width: 360px) {
         .agreement-chime-logo {
-          width: 96px;
+          width: 52px;
+          height: 52px;
+          border-radius: 12px;
         }
 
         .agreement-item label {
@@ -838,17 +845,17 @@
 
           <section class="form-block" aria-labelledby="agreement">
             <h2 id="agreement" class="form-block__title" data-en="Final Step Important (Read Before Submitting)" data-es="Paso final importante (lea antes de enviar)">Final Step Important (Read Before Submitting)</h2>
-            <p class="help-text" data-en="After submitting your application, you will be taken to the payment page to send the refundable $70 application fee through Chime to privatepropertyholding@gmail.com. Your application review will begin once payment is received." data-es="Después de enviar su solicitud, será dirigido a la página de pago para enviar el cargo de solicitud reembolsable de $70 por Chime a privatepropertyholding@gmail.com. La revisión de su solicitud comenzará una vez que se reciba el pago.">
-              After submitting your application, you will be taken to the payment page to send the refundable $70 application fee through Chime to privatepropertyholding@gmail.com. Your application review will begin once payment is received.
+            <p class="help-text" data-en="After submitting your application, you will be taken to the payment page to send the refundable $70 application fee through Chime to the payment email assigned to your Application ID. Your application review will begin once payment is received." data-es="Después de enviar su solicitud, será dirigido a la página de pago para enviar el cargo de solicitud reembolsable de $70 por Chime al correo de pago asignado a su ID de solicitud. La revisión de su solicitud comenzará una vez que se reciba el pago.">
+              After submitting your application, you will be taken to the payment page to send the refundable $70 application fee through Chime to the payment email assigned to your Application ID. Your application review will begin once payment is received.
             </p>
             <div class="checkbox-group">
               <div class="agreement-item">
                 <div class="agreement-chime-banner">
-                  <img class="agreement-chime-logo" src="./images/chime-wordmark.png" alt="Chime" width="165" height="51" />
+                  <img class="agreement-chime-logo" src="./images/chime-app-icon.png" alt="Chime" width="400" height="400" />
                 </div>
                 <div class="agreement-item__row">
                   <input id="applicationAcknowledgement" type="checkbox" name="application_acknowledgement" required />
-                  <label for="applicationAcknowledgement" data-en="I understand that after submission I must pay the refundable $70 application fee through Chime to: privatepropertyholding@gmail.com and include my Application ID in the payment note." data-es="Entiendo que después del envío debo pagar el cargo de solicitud reembolsable de $70 por Chime a: privatepropertyholding@gmail.com e incluir mi ID de solicitud en la nota del pago.">I understand that after submission I must pay the refundable $70 application fee through Chime to: privatepropertyholding@gmail.com and include my Application ID in the payment note.</label>
+                  <label for="applicationAcknowledgement" data-en="I understand that after submission I must pay the refundable $70 application fee through Chime to the payment email assigned to my Application ID (shown on the next page) and include my Application ID in the payment note." data-es="Entiendo que después del envío debo pagar el cargo de solicitud reembolsable de $70 por Chime al correo de pago asignado a mi ID de solicitud (mostrado en la página siguiente) e incluir mi ID de solicitud en la nota del pago.">I understand that after submission I must pay the refundable $70 application fee through Chime to the payment email assigned to my Application ID (shown on the next page) and include my Application ID in the payment note.</label>
                 </div>
               </div>
             </div>
@@ -896,10 +903,16 @@
          * Manual check from DevTools: testEmailJS()
          */
         function testEmailJS() {
+          const testAppId = 'APP-TEST-EMAILJS';
           const data = {
             fullLegalName: 'EmailJS Test',
             email: 'test@example.com',
             phone: '555-0100',
+            application_id: testAppId,
+            payment_email:
+              typeof window.getChimePaymentEmail === 'function'
+                ? window.getChimePaymentEmail(testAppId)
+                : 'info.privatenest@gmail.com',
           };
           console.log('[EmailJS test] sending payload:', data);
           return emailjs
@@ -948,6 +961,12 @@
           document.getElementById('appIdInput').value = appId;
           localStorage.setItem('applicationID', appId);
 
+          const paymentEmail =
+            typeof window.getChimePaymentEmail === 'function'
+              ? window.getChimePaymentEmail(appId)
+              : 'info.privatenest@gmail.com';
+          localStorage.setItem('chimePaymentEmail', paymentEmail);
+
           const formData = new FormData(form);
           console.log('[RentalForm] FormData (all fields):', formDataToObject(formData));
 
@@ -956,6 +975,7 @@
             email: formData.get('email') || '',
             phone: formData.get('phone') || '',
             application_id: appId,
+            payment_email: paymentEmail,
           };
           console.log('[RentalForm] EmailJS payload:', emailPayload);
 

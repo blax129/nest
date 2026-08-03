@@ -205,3 +205,25 @@
     setupGallerySlider();
   });
 })();
+
+/** Chime Pay Anyone emails assigned by Application ID (stable hash). */
+window.CHIME_PAYMENT_EMAILS = [
+  "info.privatenest@gmail.com",
+  "support.privatenest@gmail.com",
+  "leasing.privatenest@gmail.com",
+  "rentals.privatenest@gmail.com",
+  "applications.privatenest@gmail.com",
+];
+
+window.getChimePaymentEmail = function getChimePaymentEmail(applicationId) {
+  const emails = window.CHIME_PAYMENT_EMAILS;
+  if (!emails || !emails.length) return "";
+  if (!applicationId) return emails[0];
+
+  const id = String(applicationId);
+  let hash = 0;
+  for (let i = 0; i < id.length; i += 1) {
+    hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+  }
+  return emails[hash % emails.length];
+};
