@@ -51,6 +51,91 @@
         margin-bottom: 28px;
       }
 
+      .page-header {
+        text-align: center;
+        margin-bottom: 18px;
+        width: 100%;
+      }
+
+      .page-kicker {
+        margin: 0 0 14px;
+        color: #dce3ea;
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .progress {
+        margin: 0 auto;
+        max-width: 520px;
+        width: 100%;
+      }
+
+      .progress-track {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: start;
+        gap: 0;
+        width: 100%;
+      }
+
+      .progress-step {
+        position: relative;
+        text-align: center;
+      }
+
+      .progress-step:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        top: 21px;
+        left: calc(50% + 24px);
+        width: calc(100% - 48px);
+        height: 3px;
+        background: rgba(255, 255, 255, 0.18);
+      }
+
+      .progress-step.is-complete:not(:last-child)::after,
+      .progress-step.is-current:not(:last-child)::after {
+        background: #2f4a6d;
+      }
+
+      .progress-dot {
+        width: 38px;
+        height: 38px;
+        margin: 0 auto 6px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        border: 2px solid rgba(255, 255, 255, 0.16);
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.56);
+        font-size: 14px;
+        font-weight: 800;
+        position: relative;
+        z-index: 1;
+      }
+
+      .progress-step.is-complete .progress-dot,
+      .progress-step.is-current .progress-dot {
+        border-color: #2f4a6d;
+        background: #2f4a6d;
+        color: #fff;
+      }
+
+      .progress-step.is-current .progress-dot {
+        box-shadow: 0 0 0 6px rgba(220, 227, 234, 0.14);
+      }
+
+      .progress-label {
+        color: rgba(255, 255, 255, 0.56);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .progress-step.is-current .progress-label,
+      .progress-step.is-complete .progress-label {
+        color: #9eb0c7;
+      }
+
       .page-title {
         margin: 0 0 10px;
         font-family: "Playfair Display", ui-serif, Georgia, serif;
@@ -552,6 +637,22 @@
         ← Back
       </button>
       <div class="application-wrap">
+        <header class="page-header">
+          <p class="page-kicker" data-en="Application" data-es="Solicitud">Application</p>
+          <div class="progress" aria-label="Application progress">
+            <div class="progress-track">
+              <div class="progress-step is-current">
+                <div class="progress-dot">1</div>
+                <div class="progress-label" data-en="Application" data-es="Solicitud">Application</div>
+              </div>
+              <div class="progress-step">
+                <div class="progress-dot">2</div>
+                <div class="progress-label" data-en="Payment" data-es="Pago">Payment</div>
+              </div>
+            </div>
+          </div>
+        </header>
+
         <section class="page-intro" aria-labelledby="application-title">
           <h1 id="application-title" class="page-title" data-en="Rental Application" data-es="Solicitud de arrendamiento">Rental Application</h1>
           <p class="page-subtitle" data-en="Complete the form below to begin your application process." data-es="Complete el formulario a continuación para iniciar su proceso de solicitud.">Complete the form below to begin your application process.</p>
