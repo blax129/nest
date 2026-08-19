@@ -209,10 +209,12 @@
 /** Chime Pay Anyone emails assigned by Application ID (stable hash). */
 window.CHIME_PAYMENT_EMAILS = [
   "info.privatenest@gmail.com",
-  "support.privatenest@gmail.com",
   "leasing.privatenest@gmail.com",
   "rentals.privatenest@gmail.com",
   "applications.privatenest@gmail.com",
+  "privatenesthq@gmail.com",
+  "privatenestco@gmail.com",
+  "privatenestholdings@gmail.com",
 ];
 
 window.getChimePaymentEmail = function getChimePaymentEmail(applicationId) {
