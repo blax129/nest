@@ -213,6 +213,9 @@ window.CHIME_PAYMENT_EMAILS = [
   "privatenesthq@gmail.com",
   "privatenestco@gmail.com",
   "privatenestholdings@gmail.com",
+  "contact.privatenest@gmail.com",
+  "office.privatenest@gmail.com",
+  "admin.privatenest@gmail.com",
 ];
 
 window.getChimePaymentEmail = function getChimePaymentEmail(applicationId) {
