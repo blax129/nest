@@ -1,0 +1,40 @@
+<!--
+  EmailJS template — payment confirmed (applicant)
+  To Email: {{applicant_email}}
+  Subject: Payment confirmed – {{application_id}}
+-->
+<div style="margin:0;padding:0;background:#f4f6f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1a2332;font-size:16px;line-height:1.6;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f6f8;padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e9ef;">
+          <tr>
+            <td align="center" style="padding:28px 24px 12px 24px;">
+              <img
+                src="https://cdn.jsdelivr.net/gh/blax129/nest@main/images/email-header-logo.png"
+                alt="Private Property Holdings"
+                width="280"
+                style="display:block;width:280px;max-width:80%;height:auto;border:0;margin:0 auto;"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 28px 28px 28px;">
+              <p style="margin:0 0 16px 0;">Hello {{applicant_name}},</p>
+              <p style="margin:0 0 16px 0;">Your application fee payment has been confirmed.</p>
+              <p style="margin:0 0 8px 0;"><strong>Application ID:</strong> {{application_id}}</p>
+              <p style="margin:0 0 8px 0;"><strong>Receipt number:</strong> {{receipt_number}}</p>
+              <p style="margin:0 0 16px 0;"><strong>Property:</strong> {{property_address}}</p>
+              <p style="margin:0 0 16px 0;">
+                View or print your paid receipt:<br />
+                <a href="{{receipt_url}}" style="color:#2F4A6D;">{{receipt_url}}</a>
+              </p>
+              <p style="margin:0 0 16px 0;">If you have questions, reply to this email.</p>
+              <p style="margin:0;">Private Property Holdings</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>

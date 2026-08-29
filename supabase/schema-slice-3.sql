@@ -146,6 +146,7 @@ begin
     from (
       select
         a.application_id,
+        a.access_token,
         a.applicant_name,
         a.applicant_email,
         a.applicant_phone,

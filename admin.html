@@ -74,6 +74,7 @@
         <div class="list" id="list"></div>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="./script.js"></script>
     <script>
       (function () {
@@ -139,7 +140,15 @@
               confirmBtn.addEventListener('click', async function () {
                 confirmBtn.disabled = true;
                 try {
-                  await window.ownerConfirmProof(password, row.receipt_number);
+                  const result = await window.ownerConfirmProof(password, row.receipt_number);
+                  if (!result || !result.replay) {
+                    try {
+                      await window.sendPaidReceiptEmail(row);
+                    } catch (emailError) {
+                      console.error('[Admin] Paid receipt email failed', emailError);
+                      queueError.textContent = 'Payment was confirmed, but the applicant email failed. You can send the receipt link manually.';
+                    }
+                  }
                   await loadQueue(password);
                 } catch (error) {
                   queueError.textContent = error.message || 'Confirm failed';

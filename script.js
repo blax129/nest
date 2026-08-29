@@ -227,6 +227,11 @@ window.EMAILJS_SERVICE_ID = "service_4blzxar";
 window.EMAILJS_PUBLIC_KEY = "X-TTc6mZ7Y4RqKsdI";
 window.EMAILJS_PAYMENT_TEMPLATE_ID = "template_n74rpzm";
 
+/** EmailJS — paid-receipt email to the applicant (separate account). */
+window.EMAILJS_PAID_PUBLIC_KEY = "KCAHVFrJSzxYDLsKQ";
+window.EMAILJS_PAID_SERVICE_ID = "service_b7vipz6";
+window.EMAILJS_PAID_TEMPLATE_ID = "template_ulu44ue";
+
 window.SUPABASE_URL = "https://hkyeuxtkpltgnpnxythz.supabase.co";
 window.SUPABASE_ANON_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhreWV1eHRrcGx0Z25wbnh5dGh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5OTg4NjgsImV4cCI6MjEwMzU3NDg2OH0.FZTm5e_yHdqF0s9CT6BysJUd1qMjaaE4277WQyncHjE";
@@ -334,6 +339,32 @@ window.verifyPageUrl = function verifyPageUrl(receiptNumber) {
   url.search = "";
   if (receiptNumber) url.searchParams.set("r", receiptNumber);
   return url.toString();
+};
+
+window.sendPaidReceiptEmail = async function sendPaidReceiptEmail(row) {
+  if (!window.emailjs) {
+    throw new Error("EmailJS is not loaded");
+  }
+  const publicKey = window.EMAILJS_PAID_PUBLIC_KEY;
+  const serviceId = window.EMAILJS_PAID_SERVICE_ID;
+  const templateId = window.EMAILJS_PAID_TEMPLATE_ID;
+  if (!publicKey || !serviceId || !templateId) {
+    throw new Error("Paid-receipt EmailJS is not configured");
+  }
+  if (!row || !row.applicant_email) {
+    throw new Error("Applicant email is missing");
+  }
+
+  emailjs.init({ publicKey: publicKey });
+  return emailjs.send(serviceId, templateId, {
+    applicant_email: row.applicant_email,
+    email: row.applicant_email,
+    applicant_name: row.applicant_name || "",
+    application_id: row.application_id || "",
+    receipt_number: row.receipt_number || "",
+    property_address: row.property_address || "",
+    receipt_url: window.receiptPageUrl(row.access_token),
+  });
 };
 
 window.getChimePaymentEmail = function getChimePaymentEmail(applicationId) {
