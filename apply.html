@@ -1069,7 +1069,32 @@
           localStorage.setItem('chimePaymentEmail', paymentEmail);
 
           const formData = new FormData(form);
+          localStorage.setItem('applicantName', formData.get('fullLegalName') || '');
+          localStorage.setItem('applicantEmail', formData.get('email') || '');
+          localStorage.setItem('applicantPhone', formData.get('phone') || '');
+          localStorage.setItem('propertyAddress', formData.get('property_address') || '');
           console.log('[RentalForm] FormData (all fields):', formDataToObject(formData));
+
+          let accessToken = '';
+          if (typeof window.saveApplicationRecord === 'function') {
+            try {
+              const saved = await window.saveApplicationRecord({
+                applicationId: appId,
+                applicantName: formData.get('fullLegalName') || '',
+                applicantEmail: formData.get('email') || '',
+                applicantPhone: formData.get('phone') || '',
+                propertyAddress: formData.get('property_address') || '',
+                paymentEmail: paymentEmail,
+              });
+              accessToken = saved && saved.access_token ? String(saved.access_token) : '';
+              if (accessToken) {
+                localStorage.setItem('applicationAccessToken', accessToken);
+              }
+              console.log('[RentalForm] Supabase save success');
+            } catch (supabaseError) {
+              console.error('[RentalForm] Supabase save failed (Formspree will still run):', supabaseError);
+            }
+          }
 
           const emailPayload = {
             fullLegalName: formData.get('fullLegalName') || '',
@@ -1099,7 +1124,9 @@
               const destination = activeLang === 'es'
                 ? 'es-application-received.html'
                 : 'application-received.html';
-              window.location.href = destination + '?id=' + encodeURIComponent(appId);
+              const params = new URLSearchParams({ id: appId });
+              if (accessToken) params.set('token', accessToken);
+              window.location.href = destination + '?' + params.toString();
               return;
             }
 

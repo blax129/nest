@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
@@ -63,6 +63,12 @@
       body {
         margin: 0;
         min-height: 100%;
+        overflow-x: clip;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
       }
 
       body {
@@ -76,6 +82,8 @@
         background-size: 3px 3px, auto, auto, auto, auto;
         color: var(--text);
         line-height: 1.6;
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
       }
 
       img {
@@ -91,13 +99,14 @@
       .page-shell {
         width: min(560px, 100%);
         margin: 0 auto;
-        padding: 10px 0 120px;
+        padding: 10px 0 calc(132px + env(safe-area-inset-bottom));
+        min-width: 0;
       }
 
       .back-btn {
         width: 56px;
         height: 56px;
-        margin: 0 0 18px 18px;
+        margin: 0 0 18px max(18px, env(safe-area-inset-left));
         border: 1px solid var(--border);
         border-radius: 16px;
         background: rgba(255, 255, 255, 0.06);
@@ -108,6 +117,8 @@
         cursor: pointer;
         box-shadow: var(--shadow-soft);
         transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
       }
 
       .top-strip {
@@ -336,6 +347,8 @@
         cursor: pointer;
         box-shadow: var(--shadow-soft);
         transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
       }
 
       .copy-email-btn:hover,
@@ -354,6 +367,7 @@
       }
 
       .meta-pill {
+        max-width: 100%;
         padding: 9px 12px;
         border-radius: 999px;
         background: var(--surface-soft);
@@ -361,6 +375,7 @@
         color: rgba(255, 255, 255, 0.82);
         font-size: 12px;
         font-weight: 700;
+        overflow-wrap: anywhere;
       }
 
       .steps-card {
@@ -654,41 +669,155 @@
         padding: 22px;
       }
 
+      .upload-card .section-title {
+        margin: 0 0 6px;
+      }
+
+      .upload-help {
+        margin: 0 0 16px;
+        color: var(--text-soft);
+        font-size: 14px;
+      }
+
       .upload-box {
-        margin-top: 18px;
-        min-height: 180px;
-        display: grid;
-        place-items: center;
+        position: relative;
+        margin-top: 0;
+        min-height: 168px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
         border-radius: 18px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px dashed rgba(255, 255, 255, 0.16);
+        background: rgba(220, 227, 234, 0.06);
+        border: 2px dashed rgba(220, 227, 234, 0.28);
         text-align: center;
-        padding: 22px;
+        padding: 22px 16px;
+        cursor: pointer;
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .upload-box:hover,
+      .upload-box.is-dragover {
+        border-color: rgba(220, 227, 234, 0.55);
+        background: rgba(220, 227, 234, 0.10);
+      }
+
+      .upload-box.is-success {
+        border-style: solid;
+        border-color: rgba(158, 212, 182, 0.5);
+        background: rgba(158, 212, 182, 0.08);
+      }
+
+      .upload-box input[type="file"] {
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        cursor: pointer;
       }
 
       .upload-icon {
-        width: 74px;
-        height: 74px;
-        margin: 0 auto 14px;
+        width: 52px;
+        height: 52px;
+        margin: 0;
         display: grid;
         place-items: center;
         border-radius: 999px;
         background: rgba(255, 255, 255, 0.08);
         color: var(--brand-light);
-        font-size: 34px;
+        font-size: 22px;
       }
 
       .upload-title {
         margin: 0;
         color: #fff;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 800;
       }
 
-      .upload-help {
-        margin: 8px 0 0;
+      .upload-formats {
+        margin: 0;
         color: var(--text-soft);
+        font-size: 12px;
+      }
+
+      .upload-status {
+        display: none;
+        margin-top: 12px;
+        padding: 10px 12px;
+        border-radius: 12px;
+        font-size: 13px;
+        line-height: 1.45;
+        color: var(--text-soft);
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .upload-status.is-visible { display: block; }
+      .upload-status.is-loading { color: #dce3ea; }
+      .upload-status.is-success { color: #9ed4b6; border-color: rgba(158, 212, 182, 0.35); }
+      .upload-status.is-error { color: #f0a8a8; border-color: rgba(248, 113, 113, 0.28); }
+
+      .upload-preview {
+        display: none;
+        margin-top: 14px;
+        padding: 12px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.04);
+      }
+
+      .upload-preview.is-visible { display: block; }
+
+      .upload-preview__row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .upload-preview__thumb {
+        width: 52px;
+        height: 52px;
+        border-radius: 10px;
+        object-fit: cover;
+        flex-shrink: 0;
+        background: rgba(0, 0, 0, 0.3);
+      }
+
+      .upload-preview__meta { flex: 1; min-width: 0; }
+
+      .upload-preview__name {
         font-size: 14px;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .upload-preview__size {
+        font-size: 12px;
+        color: var(--text-soft);
+      }
+
+      .upload-preview__remove {
+        padding: 8px 12px;
+        min-height: 44px;
+        border: 0;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text-soft);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      .btn-action:disabled {
+        opacity: 0.65;
+        cursor: wait;
+        transform: none;
       }
 
       .contact-panel {
@@ -721,7 +850,9 @@
         right: 0;
         bottom: 0;
         z-index: 20;
-        padding: 14px 22px 16px;
+        padding: 14px 22px calc(16px + env(safe-area-inset-bottom));
+        padding-left: max(22px, env(safe-area-inset-left));
+        padding-right: max(22px, env(safe-area-inset-right));
         background: linear-gradient(180deg, rgba(12, 22, 16, 0), rgba(12, 22, 16, 0.96) 26%, #0a1628 100%);
       }
 
@@ -739,11 +870,34 @@
         font-weight: 800;
         box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
         transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
       }
 
       .btn-action:hover {
         transform: translateY(-1px);
         filter: brightness(1.03);
+      }
+
+      @media (max-width: 480px) {
+        .payment-detail-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+
+        .payment-detail-value {
+          text-align: left;
+          font-size: 15px;
+        }
+
+        .card-grid-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .step-figure--instruction {
+          max-width: 100%;
+        }
       }
 
       @media (max-width: 420px) {
@@ -764,8 +918,8 @@
         }
 
         .actions {
-          padding-left: 12px;
-          padding-right: 12px;
+          padding-left: max(12px, env(safe-area-inset-left));
+          padding-right: max(12px, env(safe-area-inset-right));
         }
 
         .payment-card-header,
@@ -825,13 +979,21 @@
         </div>
 
         <div class="payment-email-card">
+          <div class="payment-detail-row" id="summaryNameRow" hidden>
+            <span class="payment-detail-label" data-en="Applicant" data-es="Solicitante">Applicant</span>
+            <span class="payment-detail-value" id="summaryName"></span>
+          </div>
+          <div class="payment-detail-row" id="summaryPropertyRow" hidden>
+            <span class="payment-detail-label" data-en="Property" data-es="Propiedad">Property</span>
+            <span class="payment-detail-value" id="summaryProperty"></span>
+          </div>
           <div class="payment-detail-row">
             <span class="payment-detail-label" data-en="Payment email" data-es="Correo de pago">Payment email</span>
             <span class="payment-detail-value payment-detail-value--tag" id="chimePaymentEmail">—</span>
           </div>
           <button class="copy-email-btn" id="copyEmailBtn" type="button" data-en="Copy email address" data-es="Copiar correo electrónico">Copy email address</button>
           <div class="meta-strip">
-            <span class="meta-pill" data-en="Amount: $70 per adult" data-es="Monto: $70 por adulto">Amount: $70 per adult</span>
+            <span class="meta-pill" id="applicationFeePill" data-en="Amount: $70 per adult" data-es="Monto: $70 por adulto">Amount: $70 per adult</span>
             <span class="meta-pill" id="application-id-display" data-en="Loading application ID..." data-es="Cargando ID de solicitud...">Loading application ID...</span>
           </div>
         </div>
@@ -861,7 +1023,7 @@
             </li>
             <li>
               <div class="step-number">5</div>
-              <div class="step-copy" data-en="After payment, email your screenshot or receipt confirmation." data-es="Después del pago, envíe por correo su captura de pantalla o confirmación del recibo.">After payment, email your screenshot or receipt confirmation.</div>
+              <div class="step-copy" data-en="After payment, upload your screenshot or receipt confirmation below." data-es="Después del pago, cargue su captura de pantalla o confirmación del recibo a continuación.">After payment, upload your screenshot or receipt confirmation below.</div>
             </li>
           </ol>
         </div>
@@ -970,6 +1132,31 @@
         </p>
       </section>
 
+      <section class="upload-card" aria-labelledby="upload-title">
+        <h2 id="upload-title" class="section-title" data-en="Upload Payment Confirmation" data-es="Cargar confirmación de pago">Upload Payment Confirmation</h2>
+        <p class="upload-help" data-en="After payment, upload a screenshot or receipt confirmation." data-es="Después del pago, cargue una captura de pantalla o confirmación del recibo.">After payment, upload a screenshot or receipt confirmation.</p>
+
+        <label class="upload-box" id="dropzone" for="fileInput">
+          <span class="upload-icon" aria-hidden="true">↑</span>
+          <span class="upload-title" data-en="Drag & drop or tap to upload" data-es="Arrastre o toque para cargar">Drag & drop or tap to upload</span>
+          <span class="upload-formats" data-en="PNG or JPG · max 5 MB" data-es="PNG o JPG · máx. 5 MB">PNG or JPG · max 5 MB</span>
+          <input type="file" id="fileInput" accept=".png,.jpg,.jpeg,image/png,image/jpeg" />
+        </label>
+
+        <div class="upload-status" id="uploadStatus" role="status" aria-live="polite" hidden></div>
+
+        <div class="upload-preview" id="filePreview" hidden>
+          <div class="upload-preview__row">
+            <img class="upload-preview__thumb" id="previewThumb" alt="" width="52" height="52" hidden />
+            <div class="upload-preview__meta">
+              <div class="upload-preview__name" id="previewName"></div>
+              <div class="upload-preview__size" id="previewSize"></div>
+            </div>
+            <button type="button" class="upload-preview__remove" id="removeFile" data-en="Remove" data-es="Quitar">Remove</button>
+          </div>
+        </div>
+      </section>
+
       <section class="contact-panel">
         <p class="section-copy">
           <span data-en="Need help? Contact us at " data-es="¿Necesita ayuda? Contáctenos en ">Need help? Contact us at </span>
@@ -978,9 +1165,10 @@
       </section>
 
       <div class="actions">
-        <a class="btn-action" id="paymentConfirmationBtn" href="mailto:infoprivateproperty.holdings@gmail.com" data-en="Email Payment Confirmation" data-es="Enviar confirmación de pago">Email Payment Confirmation</a>
+        <button class="btn-action" id="paymentConfirmationBtn" type="button" data-en="I've Sent The Payment" data-es="Ya envié el pago">I've Sent The Payment</button>
       </div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="./script.js"></script>
     <script>
       (function () {
@@ -1029,61 +1217,409 @@
         }
 
         const idFromUrl = getQueryParam('id');
+        const tokenFromUrl = getQueryParam('token');
         const storedId = localStorage.getItem('applicationID');
         let applicationId = idFromUrl || storedId;
+        const accessToken = tokenFromUrl || localStorage.getItem('applicationAccessToken') || '';
 
         if (idFromUrl) {
           localStorage.setItem('applicationID', idFromUrl);
         }
+        if (tokenFromUrl) {
+          localStorage.setItem('applicationAccessToken', tokenFromUrl);
+        }
 
         const display = document.getElementById('application-id-display');
-        const confirmBtn = document.getElementById('paymentConfirmationBtn');
         const emailEl = document.getElementById('chimePaymentEmail');
+        const feePill = document.getElementById('applicationFeePill');
+        const nameRow = document.getElementById('summaryNameRow');
+        const nameEl = document.getElementById('summaryName');
+        const propertyRow = document.getElementById('summaryPropertyRow');
+        const propertyEl = document.getElementById('summaryProperty');
 
         if (!display) {
           return;
         }
 
         const activeLang = localStorage.getItem('lang') || 'en';
-        const paymentEmail =
-          typeof window.getChimePaymentEmail === 'function'
-            ? window.getChimePaymentEmail(applicationId)
-            : 'info.privatenest@gmail.com';
 
-        if (emailEl && paymentEmail) {
-          emailEl.textContent = paymentEmail;
-          localStorage.setItem('chimePaymentEmail', paymentEmail);
+        function fillPaymentDetails(record) {
+          if (record && record.application_id) {
+            applicationId = record.application_id;
+            localStorage.setItem('applicationID', applicationId);
+          }
+          if (record && record.applicant_name) {
+            localStorage.setItem('applicantName', record.applicant_name);
+          }
+          if (record && record.applicant_email) {
+            localStorage.setItem('applicantEmail', record.applicant_email);
+          }
+          if (record && record.applicant_phone) {
+            localStorage.setItem('applicantPhone', record.applicant_phone);
+          }
+          if (record && record.property_address) {
+            localStorage.setItem('propertyAddress', record.property_address);
+          }
+
+          const applicantName = (record && record.applicant_name) || localStorage.getItem('applicantName') || '';
+          const propertyAddress = (record && record.property_address) || localStorage.getItem('propertyAddress') || '';
+          const storedPaymentEmail = (record && record.payment_email) || localStorage.getItem('chimePaymentEmail') || '';
+          const paymentEmail =
+            storedPaymentEmail ||
+            (typeof window.getChimePaymentEmail === 'function'
+              ? window.getChimePaymentEmail(applicationId)
+              : 'info.privatenest@gmail.com');
+
+          if (emailEl && paymentEmail) {
+            emailEl.textContent = paymentEmail;
+            localStorage.setItem('chimePaymentEmail', paymentEmail);
+          }
+
+          if (nameRow && nameEl && applicantName) {
+            nameEl.textContent = applicantName;
+            nameRow.hidden = false;
+          }
+          if (propertyRow && propertyEl && propertyAddress) {
+            propertyEl.textContent = propertyAddress;
+            propertyRow.hidden = false;
+          }
+
+          const fee = record && record.application_fee != null ? Number(record.application_fee) : 70;
+          if (feePill && Number.isFinite(fee)) {
+            feePill.setAttribute('data-en', 'Amount: $' + fee.toFixed(0) + ' per adult');
+            feePill.setAttribute('data-es', 'Monto: $' + fee.toFixed(0) + ' por adulto');
+            feePill.textContent = feePill.dataset[activeLang] || feePill.dataset.en;
+          }
+
+          if (!applicationId) {
+            display.style.display = 'inline-block';
+            display.setAttribute('data-en', 'Application ID unavailable');
+            display.setAttribute('data-es', 'ID de solicitud no disponible');
+            display.textContent = display.dataset[activeLang] || display.dataset.en;
+          } else {
+            display.style.display = 'inline-block';
+            display.setAttribute('data-en', `Application ID: ${applicationId}`);
+            display.setAttribute('data-es', `ID de solicitud: ${applicationId}`);
+            display.textContent = display.dataset[activeLang] || display.dataset.en;
+          }
         }
 
-        if (!applicationId) {
-          display.style.display = 'inline-block';
-          display.setAttribute('data-en', 'Application ID unavailable');
-          display.setAttribute('data-es', 'ID de solicitud no disponible');
-          display.textContent = display.dataset[activeLang] || display.dataset.en;
-        } else {
-          display.style.display = 'inline-block';
-          display.setAttribute('data-en', `Application ID: ${applicationId}`);
-          display.setAttribute('data-es', `ID de solicitud: ${applicationId}`);
-          display.textContent = display.dataset[activeLang] || display.dataset.en;
+        fillPaymentDetails(null);
+
+        if (accessToken && typeof window.loadApplicationRecord === 'function') {
+          window.loadApplicationRecord(accessToken)
+            .then(function (record) {
+              if (record) fillPaymentDetails(record);
+            })
+            .catch(function (error) {
+              console.error('[Payment] Supabase load failed', error);
+            });
+        }
+      })();
+
+      (function () {
+        const dropzone = document.getElementById('dropzone');
+        const fileInput = document.getElementById('fileInput');
+        const filePreview = document.getElementById('filePreview');
+        const previewThumb = document.getElementById('previewThumb');
+        const previewName = document.getElementById('previewName');
+        const previewSize = document.getElementById('previewSize');
+        const removeFile = document.getElementById('removeFile');
+        const submitBtn = document.getElementById('paymentConfirmationBtn');
+        const uploadStatus = document.getElementById('uploadStatus');
+        if (!dropzone || !fileInput || !submitBtn) return;
+
+        const MAX_UPLOAD_BYTES = 5 * 1024 * 1024;
+        const COMPRESS_IF_LARGER_THAN = 1.2 * 1024 * 1024;
+        const MAX_IMAGE_DIMENSION = 2400;
+        const ACCEPTED_EXT = ['.png', '.jpg', '.jpeg'];
+
+        const t = function (en, es) {
+          return (localStorage.getItem('lang') || 'en') === 'es' ? es : en;
+        };
+
+        let selectedFile = null;
+        let previewObjectUrl = null;
+        let isSubmitting = false;
+
+        function setStatus(message, state) {
+          if (!uploadStatus) return;
+          if (!message) {
+            uploadStatus.hidden = true;
+            uploadStatus.className = 'upload-status';
+            uploadStatus.textContent = '';
+            return;
+          }
+          uploadStatus.hidden = false;
+          uploadStatus.className = 'upload-status is-visible' + (state ? ' is-' + state : '');
+          uploadStatus.textContent = message;
         }
 
-        if (confirmBtn) {
-          const subject = encodeURIComponent(activeLang === 'es' ? 'Confirmación de pago de solicitud' : 'Application Payment Confirmation');
-          const body = encodeURIComponent(
-            (activeLang === 'es'
-              ? 'Hola, ya envié el pago de mi solicitud.\n\nID de solicitud: '
-              : 'Hello, I have sent my application payment.\n\nApplication ID: ') +
-              (applicationId || '[add your application ID]') +
-              (activeLang === 'es'
-                ? '\nCorreo de pago usado: '
-                : '\nPayment email used: ') +
-              (paymentEmail || '[payment email]') +
-              (activeLang === 'es'
-                ? '\n\nAdjunto mi captura de pantalla o confirmación del recibo.'
-                : '\n\nI have attached my screenshot or receipt confirmation.')
-          );
-          confirmBtn.href = `mailto:infoprivateproperty.holdings@gmail.com?subject=${subject}&body=${body}`;
+        function formatSize(bytes) {
+          if (bytes < 1024) return bytes + ' B';
+          if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+          return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
         }
+
+        function clearPreview() {
+          selectedFile = null;
+          fileInput.value = '';
+          dropzone.classList.remove('is-success');
+          if (previewObjectUrl) {
+            URL.revokeObjectURL(previewObjectUrl);
+            previewObjectUrl = null;
+          }
+          if (filePreview) {
+            filePreview.hidden = true;
+            filePreview.classList.remove('is-visible');
+          }
+          if (previewThumb) {
+            previewThumb.hidden = true;
+            previewThumb.removeAttribute('src');
+          }
+          setStatus('', null);
+        }
+
+        function setFile(file) {
+          const name = (file && file.name ? file.name : '').toLowerCase();
+          const okType = ACCEPTED_EXT.some(function (ext) { return name.endsWith(ext); }) ||
+            file.type === 'image/png' || file.type === 'image/jpeg';
+          if (!okType) {
+            setStatus(t('Please upload a PNG or JPG image only.', 'Cargue solo una imagen PNG o JPG.'), 'error');
+            return;
+          }
+          if (/heic|heif/i.test(name) || /heic|heif/i.test(file.type)) {
+            setStatus(t('HEIC photos are not supported. Please choose a PNG or JPG screenshot.', 'Las fotos HEIC no son compatibles. Elija una captura PNG o JPG.'), 'error');
+            return;
+          }
+
+          selectedFile = file;
+          dropzone.classList.add('is-success');
+          if (previewName) previewName.textContent = file.name;
+          if (previewSize) previewSize.textContent = formatSize(file.size);
+          if (filePreview) {
+            filePreview.hidden = false;
+            filePreview.classList.add('is-visible');
+          }
+          if (previewObjectUrl) URL.revokeObjectURL(previewObjectUrl);
+          previewObjectUrl = URL.createObjectURL(file);
+          if (previewThumb) {
+            previewThumb.src = previewObjectUrl;
+            previewThumb.hidden = false;
+          }
+          if (file.size > MAX_UPLOAD_BYTES) {
+            setStatus(t('Large image selected — it will be optimized before upload.', 'Imagen grande — se optimizará antes de cargar.'), 'success');
+          } else {
+            setStatus(t('Screenshot ready to upload.', 'Captura lista para cargar.'), 'success');
+          }
+        }
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(function (evt) {
+          dropzone.addEventListener(evt, function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            dropzone.classList.toggle('is-dragover', evt === 'dragenter' || evt === 'dragover');
+            if (evt === 'drop' && e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) {
+              setFile(e.dataTransfer.files[0]);
+            }
+          });
+        });
+
+        fileInput.addEventListener('change', function () {
+          if (fileInput.files && fileInput.files[0]) setFile(fileInput.files[0]);
+        });
+
+        if (removeFile) {
+          removeFile.addEventListener('click', function (e) {
+            e.preventDefault();
+            clearPreview();
+          });
+        }
+
+        function canvasToBlob(canvas, type, quality) {
+          return new Promise(function (resolve, reject) {
+            canvas.toBlob(function (blob) {
+              if (blob) resolve(blob);
+              else reject(new Error('compress'));
+            }, type, quality);
+          });
+        }
+
+        async function compressImage(file) {
+          const objectUrl = URL.createObjectURL(file);
+          try {
+            const img = await new Promise(function (resolve, reject) {
+              const image = new Image();
+              image.onload = function () { resolve(image); };
+              image.onerror = function () { reject(new Error('read')); };
+              image.src = objectUrl;
+            });
+            let width = img.naturalWidth || img.width;
+            let height = img.naturalHeight || img.height;
+            const largest = Math.max(width, height);
+            if (largest > MAX_IMAGE_DIMENSION) {
+              const scale = MAX_IMAGE_DIMENSION / largest;
+              width = Math.round(width * scale);
+              height = Math.round(height * scale);
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            let quality = 0.88;
+            let blob = await canvasToBlob(canvas, 'image/jpeg', quality);
+            while (blob.size > MAX_UPLOAD_BYTES && quality > 0.45) {
+              quality -= 0.08;
+              blob = await canvasToBlob(canvas, 'image/jpeg', quality);
+            }
+            const compressedName = (file.name || 'payment-screenshot').replace(/\.[^.]+$/i, '') + '.jpg';
+            return new File([blob], compressedName, { type: 'image/jpeg' });
+          } finally {
+            URL.revokeObjectURL(objectUrl);
+          }
+        }
+
+        async function prepareFile(file) {
+          if (file.size <= COMPRESS_IF_LARGER_THAN) {
+            if (file.size > MAX_UPLOAD_BYTES) {
+              throw new Error(t('Image must be 5 MB or smaller.', 'La imagen debe ser de 5 MB o menos.'));
+            }
+            return file;
+          }
+          setStatus(t('Processing upload...', 'Procesando carga...'), 'loading');
+          const compressed = await compressImage(file);
+          if (compressed.size > MAX_UPLOAD_BYTES) {
+            throw new Error(t('Image is still too large after optimization.', 'La imagen sigue siendo demasiado grande.'));
+          }
+          return compressed;
+        }
+
+        function uploadToCloudinary(file, applicationId) {
+          const cloudName = window.CLOUDINARY_CLOUD_NAME;
+          const preset = window.CLOUDINARY_UPLOAD_PRESET;
+          if (!cloudName || !preset) {
+            return Promise.reject(new Error(
+              t(
+                'Cloudinary is not configured yet. Please add your cloud name and unsigned upload preset.',
+                'Cloudinary aún no está configurado. Agregue el nombre de la nube y el preset de carga.'
+              )
+            ));
+          }
+
+          const formData = new FormData();
+          formData.append('file', file);
+          formData.append('upload_preset', preset);
+
+          return new Promise(function (resolve, reject) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload', true);
+            xhr.upload.addEventListener('progress', function (event) {
+              if (event.lengthComputable) {
+                const percent = Math.min(100, Math.round((event.loaded / event.total) * 100));
+                setStatus(t('Uploading payment screenshot...', 'Cargando captura de pago...') + ' ' + percent + '%', 'loading');
+              }
+            });
+            xhr.onload = function () {
+              let payload = {};
+              try { payload = JSON.parse(xhr.responseText || '{}'); } catch (e) {}
+              if (xhr.status >= 200 && xhr.status < 300 && payload.secure_url) {
+                resolve({
+                  url: payload.secure_url,
+                  publicId: payload.public_id || '',
+                });
+                return;
+              }
+              reject(new Error(payload.error && payload.error.message
+                ? payload.error.message
+                : t('Upload failed. Please try again.', 'La carga falló. Inténtelo de nuevo.')));
+            };
+            xhr.onerror = function () {
+              reject(new Error(t('Upload failed. Please try again.', 'La carga falló. Inténtelo de nuevo.')));
+            };
+            xhr.send(formData);
+          });
+        }
+
+        function notifyEmailJS(imageUrl, applicationId, paymentEmail, receiptNumber) {
+          const serviceId = window.EMAILJS_SERVICE_ID;
+          const templateId = window.EMAILJS_PAYMENT_TEMPLATE_ID;
+          const publicKey = window.EMAILJS_PUBLIC_KEY;
+          if (!window.emailjs || !serviceId || !templateId || !publicKey) {
+            return Promise.reject(new Error(
+              t(
+                'EmailJS payment template is not set yet. The screenshot was uploaded, but the notice email was not sent.',
+                'La plantilla de EmailJS aún no está configurada. La captura se cargó, pero no se envió el aviso.'
+              )
+            ));
+          }
+
+          emailjs.init({ publicKey: publicKey });
+          return emailjs.send(serviceId, templateId, {
+            application_id: applicationId || 'Not provided',
+            applicant_name: localStorage.getItem('applicantName') || '',
+            applicant_email: localStorage.getItem('applicantEmail') || '',
+            applicant_phone: localStorage.getItem('applicantPhone') || '',
+            payment_email: paymentEmail || '',
+            screenshot_url: imageUrl,
+            receipt_number: receiptNumber || '',
+          });
+        }
+
+        submitBtn.addEventListener('click', async function () {
+          if (isSubmitting) return;
+          if (!selectedFile) {
+            setStatus(t('Please upload your payment screenshot first.', 'Primero cargue su captura de pago.'), 'error');
+            return;
+          }
+
+          isSubmitting = true;
+          submitBtn.disabled = true;
+          setStatus(t('Uploading payment screenshot...', 'Cargando captura de pago...'), 'loading');
+
+          try {
+            const prepared = await prepareFile(selectedFile);
+            const applicationId = localStorage.getItem('applicationID') || new URLSearchParams(window.location.search).get('id') || '';
+            const paymentEmail = document.getElementById('chimePaymentEmail')
+              ? document.getElementById('chimePaymentEmail').textContent.trim()
+              : '';
+            const imageUpload = await uploadToCloudinary(prepared, applicationId);
+            const imageUrl = imageUpload.url;
+            const accessToken = localStorage.getItem('applicationAccessToken') ||
+              new URLSearchParams(window.location.search).get('token') || '';
+            let receiptNumber = '';
+            if (accessToken && typeof window.savePaymentProof === 'function') {
+              try {
+                const proof = await window.savePaymentProof({
+                  token: accessToken,
+                  screenshotUrl: imageUrl,
+                  publicId: imageUpload.publicId || '',
+                });
+                receiptNumber = proof && proof.receipt_number ? String(proof.receipt_number) : '';
+                if (receiptNumber) localStorage.setItem('receiptNumber', receiptNumber);
+              } catch (proofError) {
+                console.error('[Payment] Supabase proof save failed', proofError);
+              }
+            }
+            try {
+              await notifyEmailJS(imageUrl, applicationId, paymentEmail, receiptNumber);
+            } catch (notifyError) {
+              console.error('[Payment] EmailJS notify failed', notifyError);
+            }
+            setStatus(t('Payment screenshot uploaded. Thank you.', 'Captura de pago cargada. Gracias.'), 'success');
+            window.setTimeout(function () {
+              const params = new URLSearchParams();
+              if (applicationId) params.set('id', applicationId);
+              if (receiptNumber) params.set('receipt', receiptNumber);
+              const query = params.toString() ? '?' + params.toString() : '';
+              window.location.href = ((localStorage.getItem('lang') === 'es') ? 'es-thankyou.html' : 'thankyou.html') + query;
+            }, 700);
+          } catch (error) {
+            setStatus(error.message || t('Upload failed. Please try again.', 'La carga falló. Inténtelo de nuevo.'), 'error');
+            isSubmitting = false;
+            submitBtn.disabled = false;
+          }
+        });
       })();
     </script>
   </body>

@@ -1,0 +1,55 @@
+<!--
+  EmailJS template for payment screenshot notifications
+  Paste into EmailJS → Email Templates → new template → Content (HTML)
+
+  Dashboard settings:
+  - To Email: infoprivateproperty.holdings@gmail.com  (your inbox, not the applicant)
+  - Subject: Payment Screenshot Uploaded — {{application_id}}
+
+  Variables used (must match application-received.html payload):
+  - {{application_id}}
+  - {{applicant_name}}
+  - {{applicant_email}}
+  - {{applicant_phone}}
+  - {{payment_email}}
+  - {{screenshot_url}}
+-->
+<div style="margin:0;padding:0;background:#f4f6f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1a2332;font-size:16px;line-height:1.6;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f6f8;padding:24px 12px;">
+    <tr>
+      <td align="center">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e9ef;">
+          <tr>
+            <td align="center" style="padding:28px 24px 12px 24px;background:#ffffff;">
+              <img
+                src="https://cdn.jsdelivr.net/gh/blax129/nest@main/images/email-header-logo.png"
+                alt="Private Property Holdings"
+                width="280"
+                style="display:block;width:280px;max-width:80%;height:auto;border:0;outline:none;text-decoration:none;margin:0 auto;"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 28px 28px 28px;">
+              <p style="margin:0 0 16px 0;font-size:18px;font-weight:700;color:#0A1628;">New payment screenshot uploaded</p>
+              <p style="margin:0 0 16px 0;">An applicant uploaded a Chime payment confirmation.</p>
+              <p style="margin:0 0 8px 0;"><strong>Application ID:</strong> {{application_id}}</p>
+              <p style="margin:0 0 8px 0;"><strong>Applicant:</strong> {{applicant_name}}</p>
+              <p style="margin:0 0 8px 0;"><strong>Email:</strong> {{applicant_email}}</p>
+              <p style="margin:0 0 8px 0;"><strong>Phone:</strong> {{applicant_phone}}</p>
+              <p style="margin:0 0 16px 0;"><strong>Chime payment email used:</strong> {{payment_email}}</p>
+              <p style="margin:0 0 12px 0;"><strong>Screenshot:</strong></p>
+              <p style="margin:0 0 16px 0;">
+                <a href="{{screenshot_url}}" style="color:#2F4A6D;">Open screenshot</a>
+              </p>
+              <p style="margin:0 0 16px 0;">
+                <img src="{{screenshot_url}}" alt="Payment screenshot" width="520" style="display:block;max-width:100%;height:auto;border:1px solid #e5e9ef;border-radius:8px;" />
+              </p>
+              <p style="margin:0;color:#5A6B7D;font-size:13px;">Private Property Holdings</p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</div>

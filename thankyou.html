@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/images/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#2F4A6D" />
+    <meta
+      name="description"
+      content="Payment verification received — Private Property Holdings. Your confirmation is under review."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Private Property Holdings" />
+    <meta property="og:title" content="Verification Received | Private Property Holdings" />
+    <meta property="og:description" content="Your payment confirmation has been received and is under review." />
+    <meta property="og:image" content="/images/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Private Property Holdings logo" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Verification Received | Private Property Holdings" />
+    <meta name="twitter:description" content="Your payment confirmation has been received and is under review." />
+    <meta name="twitter:image" content="/images/og-image.png" />
+    <title>Verification Received | Private Property Holdings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0a1628;
+        --surface: rgba(255, 255, 255, 0.05);
+        --border: rgba(255, 255, 255, 0.12);
+        --text: #f8fafc;
+        --text-soft: rgba(248, 250, 252, 0.72);
+        --brand-light: #dce3ea;
+        --shadow: 0 22px 70px rgba(0, 0, 0, 0.38);
+      }
+
+      * { box-sizing: border-box; }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        overflow-x: clip;
+      }
+
+      html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+      }
+
+      body {
+        font-family: Manrope, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        background:
+          radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px),
+          radial-gradient(1200px 700px at 15% -10%, rgba(220, 227, 234, 0.12), transparent 55%),
+          radial-gradient(900px 520px at 90% 10%, rgba(16, 32, 51, 0.10), transparent 58%),
+          linear-gradient(180deg, #0a1628 0%, #102033 100%);
+        background-size: 3px 3px, auto, auto, auto;
+        color: var(--text);
+        line-height: 1.6;
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+      }
+
+      a { color: inherit; text-decoration: none; }
+
+      .page-shell {
+        width: min(560px, 100%);
+        margin: 0 auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px calc(28px + env(safe-area-inset-bottom));
+      }
+
+      .back-btn {
+        width: 56px;
+        height: 56px;
+        margin: 8px 0 24px;
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--brand-light);
+        font: inherit;
+        font-size: 26px;
+        line-height: 1;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      .success-card {
+        margin: auto 0;
+        padding: 36px 24px 28px;
+        border-radius: 22px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+        text-align: center;
+      }
+
+      .success-icon {
+        width: 72px;
+        height: 72px;
+        margin: 0 auto 18px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        border: 1px solid rgba(220, 227, 234, 0.32);
+        background: rgba(220, 227, 234, 0.12);
+        color: var(--brand-light);
+      }
+
+      .success-icon svg {
+        display: block;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(24px, 6vw, 32px);
+        font-weight: 800;
+        line-height: 1.2;
+        color: #fff;
+      }
+
+      .success-copy {
+        margin: 0 auto 28px;
+        max-width: 36em;
+        color: var(--text-soft);
+        font-size: clamp(15px, 3.8vw, 17px);
+        line-height: 1.65;
+      }
+
+      .home-btn {
+        width: 100%;
+        min-height: 58px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        background: #dce3ea;
+        color: #0a1628;
+        font-size: 16px;
+        font-weight: 800;
+        box-shadow: 0 10px 22px rgba(0, 0, 0, 0.28);
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+
+      @media (max-width: 420px) {
+        .page-shell {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+
+        .success-card {
+          padding: 28px 18px 22px;
+        }
+      }
+    </style>
+  </head>
+  <body data-en-title="Verification Received | Private Property Holdings" data-es-title="Verificación recibida | Administración Privada de Propiedades">
+    <main class="page-shell">
+      <button class="back-btn" id="backBtn" type="button" aria-label="Go back">←</button>
+      <section class="success-card">
+        <div class="success-icon" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 4 12 14.01 7 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h1 data-en="Verification Received" data-es="Verificación recibida">Verification Received</h1>
+        <p class="success-copy" data-en="Your confirmation has been received and is currently under review. It will be matched with your Application ID, and you will be contacted if any additional information is needed." data-es="Su confirmación ha sido recibida y está en revisión. Se vinculará con su ID de solicitud, y nos comunicaremos con usted si se necesita información adicional.">
+          Your confirmation has been received and is currently under review. It will be matched with your Application ID, and you will be contacted if any additional information is needed.
+        </p>
+        <p class="success-copy" id="receiptLine" hidden></p>
+        <a class="home-btn" id="returnHomeLink" href="index.html" data-en="Return Home" data-es="Volver al inicio">Return Home</a>
+      </section>
+    </main>
+    <script src="./script.js"></script>
+    <script>
+      (function () {
+        const isEs = (localStorage.getItem('lang') || localStorage.getItem('siteLanguage')) === 'es';
+        const homeHref = isEs ? 'es.html' : 'index.html';
+        const homeLink = document.getElementById('returnHomeLink');
+        if (homeLink) homeLink.href = homeHref;
+
+        const params = new URLSearchParams(window.location.search);
+        const receipt = params.get('receipt') || localStorage.getItem('receiptNumber') || '';
+        const receiptLine = document.getElementById('receiptLine');
+        if (receipt && receiptLine) {
+          receiptLine.hidden = false;
+          receiptLine.textContent = (isEs ? 'Número de recibo: ' : 'Receipt number: ') + receipt;
+        }
+        const back = document.getElementById('backBtn');
+        if (back) {
+          back.addEventListener('click', function () {
+            window.location.href = homeHref;
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

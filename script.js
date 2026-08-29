@@ -218,6 +218,79 @@ window.CHIME_PAYMENT_EMAILS = [
   "admin.privatenest@gmail.com",
 ];
 
+/** Unsigned Cloudinary upload for payment screenshots (payment page). */
+window.CLOUDINARY_CLOUD_NAME = "dibwotfd5";
+window.CLOUDINARY_UPLOAD_PRESET = "legacy project";
+
+/** EmailJS — payment screenshot notice (do not reuse the applicant template). */
+window.EMAILJS_SERVICE_ID = "service_4blzxar";
+window.EMAILJS_PUBLIC_KEY = "X-TTc6mZ7Y4RqKsdI";
+window.EMAILJS_PAYMENT_TEMPLATE_ID = "template_n74rpzm";
+
+window.SUPABASE_URL = "https://hkyeuxtkpltgnpnxythz.supabase.co";
+window.SUPABASE_ANON_KEY =
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhreWV1eHRrcGx0Z25wbnh5dGh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5OTg4NjgsImV4cCI6MjEwMzU3NDg2OH0.FZTm5e_yHdqF0s9CT6BysJUd1qMjaaE4277WQyncHjE";
+
+window.supabaseRpc = async function supabaseRpc(fnName, args) {
+  const url = window.SUPABASE_URL;
+  const key = window.SUPABASE_ANON_KEY;
+  if (!url || !key) {
+    throw new Error("Supabase is not configured");
+  }
+
+  const response = await fetch(url + "/rest/v1/rpc/" + fnName, {
+    method: "POST",
+    headers: {
+      apikey: key,
+      Authorization: "Bearer " + key,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(args || {}),
+  });
+
+  const text = await response.text();
+  let data = null;
+  try {
+    data = text ? JSON.parse(text) : null;
+  } catch (error) {
+    data = text;
+  }
+
+  if (!response.ok) {
+    const message =
+      (data && (data.message || data.error_description || data.hint)) ||
+      text ||
+      "Supabase request failed";
+    throw new Error(message);
+  }
+
+  return data;
+};
+
+window.saveApplicationRecord = async function saveApplicationRecord(fields) {
+  return window.supabaseRpc("submit_application", {
+    p_application_id: fields.applicationId || "",
+    p_applicant_name: fields.applicantName || "",
+    p_applicant_email: fields.applicantEmail || "",
+    p_applicant_phone: fields.applicantPhone || "",
+    p_property_address: fields.propertyAddress || "",
+    p_payment_email: fields.paymentEmail || "",
+  });
+};
+
+window.loadApplicationRecord = async function loadApplicationRecord(token) {
+  if (!token) return null;
+  return window.supabaseRpc("get_application_by_token", { p_token: token });
+};
+
+window.savePaymentProof = async function savePaymentProof(fields) {
+  return window.supabaseRpc("submit_payment_proof", {
+    p_token: fields.token || "",
+    p_screenshot_url: fields.screenshotUrl || "",
+    p_cloudinary_public_id: fields.publicId || "",
+  });
+};
+
 window.getChimePaymentEmail = function getChimePaymentEmail(applicationId) {
   const emails = window.CHIME_PAYMENT_EMAILS;
   if (!emails || !emails.length) return "";
