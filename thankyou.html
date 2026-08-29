@@ -186,6 +186,7 @@
           Your confirmation has been received and is currently under review. It will be matched with your Application ID, and you will be contacted if any additional information is needed.
         </p>
         <p class="success-copy" id="receiptLine" hidden></p>
+        <a class="home-btn" id="viewReceiptLink" href="receipt.html" style="margin-bottom:12px;background:transparent;color:#dce3ea;border:1px solid rgba(255,255,255,0.2);">View / print receipt</a>
         <a class="home-btn" id="returnHomeLink" href="index.html" data-en="Return Home" data-es="Volver al inicio">Return Home</a>
       </section>
     </main>
@@ -200,6 +201,11 @@
         const params = new URLSearchParams(window.location.search);
         const receipt = params.get('receipt') || localStorage.getItem('receiptNumber') || '';
         const receiptLine = document.getElementById('receiptLine');
+        const token = params.get('token') || localStorage.getItem('applicationAccessToken') || '';
+        const viewReceipt = document.getElementById('viewReceiptLink');
+        if (viewReceipt) {
+          viewReceipt.href = token ? ('receipt.html?token=' + encodeURIComponent(token)) : 'receipt.html';
+        }
         if (receipt && receiptLine) {
           receiptLine.hidden = false;
           receiptLine.textContent = (isEs ? 'Número de recibo: ' : 'Receipt number: ') + receipt;

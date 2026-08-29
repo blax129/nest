@@ -291,6 +291,51 @@ window.savePaymentProof = async function savePaymentProof(fields) {
   });
 };
 
+window.getPublicReceiptStatus = async function getPublicReceiptStatus(receiptNumber) {
+  if (!receiptNumber) return null;
+  return window.supabaseRpc("get_public_receipt_status", {
+    p_receipt_number: receiptNumber,
+  });
+};
+
+window.ownerListProofs = async function ownerListProofs(password) {
+  return window.supabaseRpc("owner_list_proofs", { p_password: password });
+};
+
+window.ownerConfirmProof = async function ownerConfirmProof(password, receiptNumber) {
+  return window.supabaseRpc("owner_confirm_proof", {
+    p_password: password,
+    p_receipt_number: receiptNumber,
+  });
+};
+
+window.ownerRejectProof = async function ownerRejectProof(password, receiptNumber) {
+  return window.supabaseRpc("owner_reject_proof", {
+    p_password: password,
+    p_receipt_number: receiptNumber,
+  });
+};
+
+window.receiptPageUrl = function receiptPageUrl(token) {
+  const url = new URL("receipt.html", window.location.href);
+  url.search = "";
+  if (token) url.searchParams.set("token", token);
+  return url.toString();
+};
+
+window.adminPageUrl = function adminPageUrl() {
+  const url = new URL("admin.html", window.location.href);
+  url.search = "";
+  return url.toString();
+};
+
+window.verifyPageUrl = function verifyPageUrl(receiptNumber) {
+  const url = new URL("verify.html", window.location.href);
+  url.search = "";
+  if (receiptNumber) url.searchParams.set("r", receiptNumber);
+  return url.toString();
+};
+
 window.getChimePaymentEmail = function getChimePaymentEmail(applicationId) {
   const emails = window.CHIME_PAYMENT_EMAILS;
   if (!emails || !emails.length) return "";

@@ -13,6 +13,10 @@
   - {{applicant_phone}}
   - {{payment_email}}
   - {{screenshot_url}}
+  - {{receipt_number}}
+  - {{receipt_url}}
+  - {{admin_url}}
+  - {{verify_url}}
 -->
 <div style="margin:0;padding:0;background:#f4f6f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1a2332;font-size:16px;line-height:1.6;">
   <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background:#f4f6f8;padding:24px 12px;">
@@ -37,7 +41,9 @@
               <p style="margin:0 0 8px 0;"><strong>Applicant:</strong> {{applicant_name}}</p>
               <p style="margin:0 0 8px 0;"><strong>Email:</strong> {{applicant_email}}</p>
               <p style="margin:0 0 8px 0;"><strong>Phone:</strong> {{applicant_phone}}</p>
-              <p style="margin:0 0 16px 0;"><strong>Chime payment email used:</strong> {{payment_email}}</p>
+              <p style="margin:0 0 8px 0;"><strong>Receipt number:</strong> {{receipt_number}}</p>
+              <p style="margin:0 0 8px 0;"><strong>Live receipt:</strong> <a href="{{receipt_url}}" style="color:#2F4A6D;">{{receipt_url}}</a></p>
+              <p style="margin:0 0 16px 0;"><strong>Review queue:</strong> <a href="{{admin_url}}" style="color:#2F4A6D;">{{admin_url}}</a></p>
               <p style="margin:0 0 12px 0;"><strong>Screenshot:</strong></p>
               <p style="margin:0 0 16px 0;">
                 <a href="{{screenshot_url}}" style="color:#2F4A6D;">Open screenshot</a>

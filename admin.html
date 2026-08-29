@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        font-family: Manrope, system-ui, sans-serif;
+        background: #0a1628;
+        color: #f8fafc;
+        line-height: 1.5;
+      }
+      .wrap { width: min(920px, 100%); margin: 0 auto; padding: 24px 16px 64px; }
+      h1 { margin: 0 0 8px; font-size: 28px; }
+      .sub { margin: 0 0 22px; color: rgba(248,250,252,0.7); }
+      .login, .card {
+        background: rgba(255,255,255,0.05);
+        border: 1px solid rgba(255,255,255,0.12);
+        border-radius: 18px;
+        padding: 20px;
+      }
+      label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+      input {
+        width: 100%;
+        min-height: 48px;
+        border-radius: 12px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(0,0,0,0.25);
+        color: #fff;
+        padding: 0 14px;
+        font: inherit;
+      }
+      button {
+        min-height: 48px;
+        border: 0;
+        border-radius: 12px;
+        padding: 0 16px;
+        font: inherit;
+        font-weight: 800;
+        cursor: pointer;
+      }
+      .primary { background: #dce3ea; color: #0a1628; margin-top: 12px; width: 100%; }
+      .confirm { background: #9ed4b6; color: #0a1628; }
+      .reject { background: #f0a8a8; color: #3b0d0d; }
+      .error { color: #f0a8a8; min-height: 1.4em; }
+      .list { display: grid; gap: 16px; }
+      .card h2 { margin: 0 0 10px; font-size: 18px; }
+      .meta { color: rgba(248,250,252,0.72); font-size: 14px; }
+      .shot { display: block; max-width: 100%; border-radius: 12px; margin: 12px 0; }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+      .hidden { display: none; }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <h1>Payment review</h1>
+      <p class="sub">Pending submissions appear first. Confirm only after you have verified the Chime screenshot.</p>
+
+      <form class="login" id="loginForm">
+        <label for="password">Owner password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" required />
+        <button class="primary" type="submit">Open queue</button>
+        <p class="error" id="loginError"></p>
+      </form>
+
+      <div id="queue" class="hidden">
+        <p class="error" id="queueError"></p>
+        <div class="list" id="list"></div>
+      </div>
+    </main>
+    <script src="./script.js"></script>
+    <script>
+      (function () {
+        const loginForm = document.getElementById('loginForm');
+        const passwordInput = document.getElementById('password');
+        const loginError = document.getElementById('loginError');
+        const queue = document.getElementById('queue');
+        const queueError = document.getElementById('queueError');
+        const list = document.getElementById('list');
+        const STORAGE_KEY = 'pphOwnerPassword';
+
+        function money(value) {
+          const n = Number(value);
+          return Number.isFinite(n) ? '$' + n.toFixed(2) : '$70.00';
+        }
+
+        async function loadQueue(password) {
+          queueError.textContent = '';
+          const rows = await window.ownerListProofs(password);
+          list.innerHTML = '';
+          if (!rows || !rows.length) {
+            list.innerHTML = '<p class="meta">No payment proofs yet.</p>';
+            return;
+          }
+          rows.forEach(function (row) {
+            const card = document.createElement('article');
+            card.className = 'card';
+            const canAct = row.status === 'pending';
+            const heading = document.createElement('h2');
+            heading.textContent = (row.applicant_name || 'Applicant') + ' · ' + (row.status || '');
+            const property = document.createElement('p');
+            property.className = 'meta';
+            property.textContent = row.property_address || '';
+            const meta = document.createElement('p');
+            meta.className = 'meta';
+            meta.textContent = 'Application ID: ' + (row.application_id || '') +
+              '\nReceipt: ' + (row.receipt_number || '') +
+              '\nFee: ' + money(row.application_fee);
+            meta.style.whiteSpace = 'pre-line';
+            card.appendChild(heading);
+            card.appendChild(property);
+            card.appendChild(meta);
+            if (row.screenshot_url) {
+              const shotLink = document.createElement('a');
+              shotLink.href = row.screenshot_url;
+              shotLink.target = '_blank';
+              shotLink.rel = 'noreferrer';
+              const img = document.createElement('img');
+              img.className = 'shot';
+              img.alt = 'Payment screenshot';
+              img.src = row.screenshot_url;
+              shotLink.appendChild(img);
+              card.appendChild(shotLink);
+            }
+            const actions = document.createElement('div');
+            actions.className = 'actions';
+            card.appendChild(actions);
+            if (canAct) {
+              const confirmBtn = document.createElement('button');
+              confirmBtn.className = 'confirm';
+              confirmBtn.type = 'button';
+              confirmBtn.textContent = 'Confirm payment';
+              confirmBtn.addEventListener('click', async function () {
+                confirmBtn.disabled = true;
+                try {
+                  await window.ownerConfirmProof(password, row.receipt_number);
+                  await loadQueue(password);
+                } catch (error) {
+                  queueError.textContent = error.message || 'Confirm failed';
+                  confirmBtn.disabled = false;
+                }
+              });
+              const rejectBtn = document.createElement('button');
+              rejectBtn.className = 'reject';
+              rejectBtn.type = 'button';
+              rejectBtn.textContent = 'Reject proof';
+              rejectBtn.addEventListener('click', async function () {
+                rejectBtn.disabled = true;
+                try {
+                  await window.ownerRejectProof(password, row.receipt_number);
+                  await loadQueue(password);
+                } catch (error) {
+                  queueError.textContent = error.message || 'Reject failed';
+                  rejectBtn.disabled = false;
+                }
+              });
+              actions.appendChild(confirmBtn);
+              actions.appendChild(rejectBtn);
+            }
+            list.appendChild(card);
+          });
+        }
+
+        loginForm.addEventListener('submit', async function (event) {
+          event.preventDefault();
+          loginError.textContent = '';
+          const password = passwordInput.value;
+          try {
+            await loadQueue(password);
+            sessionStorage.setItem(STORAGE_KEY, password);
+            loginForm.classList.add('hidden');
+            queue.classList.remove('hidden');
+          } catch (error) {
+            loginError.textContent = error.message || 'Could not open the queue';
+          }
+        });
+
+        const saved = sessionStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          loadQueue(saved).then(function () {
+            loginForm.classList.add('hidden');
+            queue.classList.remove('hidden');
+          }).catch(function () {
+            sessionStorage.removeItem(STORAGE_KEY);
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

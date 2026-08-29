@@ -1541,7 +1541,7 @@
           });
         }
 
-        function notifyEmailJS(imageUrl, applicationId, paymentEmail, receiptNumber) {
+        function notifyEmailJS(imageUrl, applicationId, paymentEmail, receiptNumber, accessToken) {
           const serviceId = window.EMAILJS_SERVICE_ID;
           const templateId = window.EMAILJS_PAYMENT_TEMPLATE_ID;
           const publicKey = window.EMAILJS_PUBLIC_KEY;
@@ -1563,6 +1563,13 @@
             payment_email: paymentEmail || '',
             screenshot_url: imageUrl,
             receipt_number: receiptNumber || '',
+            receipt_url: typeof window.receiptPageUrl === 'function'
+              ? window.receiptPageUrl(accessToken)
+              : '',
+            admin_url: typeof window.adminPageUrl === 'function' ? window.adminPageUrl() : '',
+            verify_url: typeof window.verifyPageUrl === 'function'
+              ? window.verifyPageUrl(receiptNumber)
+              : '',
           });
         }
 
@@ -1602,7 +1609,7 @@
               }
             }
             try {
-              await notifyEmailJS(imageUrl, applicationId, paymentEmail, receiptNumber);
+              await notifyEmailJS(imageUrl, applicationId, paymentEmail, receiptNumber, accessToken);
             } catch (notifyError) {
               console.error('[Payment] EmailJS notify failed', notifyError);
             }
@@ -1611,6 +1618,7 @@
               const params = new URLSearchParams();
               if (applicationId) params.set('id', applicationId);
               if (receiptNumber) params.set('receipt', receiptNumber);
+              if (accessToken) params.set('token', accessToken);
               const query = params.toString() ? '?' + params.toString() : '';
               window.location.href = ((localStorage.getItem('lang') === 'es') ? 'es-thankyou.html' : 'thankyou.html') + query;
             }, 700);

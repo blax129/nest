@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payment Receipt | Private Property Holdings</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Manrope, system-ui, sans-serif;
+        background: #e8edf3;
+        color: #0a1628;
+        line-height: 1.5;
+      }
+      .wrap { width: min(720px, 100%); margin: 0 auto; padding: 20px 12px 48px; }
+      .toolbar { display: flex; gap: 10px; margin-bottom: 16px; }
+      .toolbar a, .toolbar button {
+        min-height: 44px;
+        padding: 0 16px;
+        border-radius: 12px;
+        border: 1px solid #c5d0dc;
+        background: #fff;
+        color: #0a1628;
+        font: inherit;
+        font-weight: 700;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+      }
+      .doc {
+        position: relative;
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid #d5dee8;
+        border-radius: 16px;
+        padding: 36px 32px;
+        box-shadow: 0 18px 50px rgba(16, 32, 51, 0.12);
+      }
+      .watermark {
+        position: absolute;
+        inset: 18% 0 auto;
+        text-align: center;
+        font-size: clamp(28px, 6vw, 42px);
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        color: rgba(47, 74, 109, 0.14);
+        transform: rotate(-18deg);
+        pointer-events: none;
+        text-transform: uppercase;
+      }
+      .doc.is-paid .watermark,
+      .doc.is-rejected .watermark { display: none; }
+      .kicker { margin: 0 0 6px; color: #5a6b7d; font-size: 12px; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; }
+      h1 { margin: 0 0 8px; font-size: 28px; }
+      .notice {
+        margin: 0 0 22px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        background: #f4f6f8;
+        color: #3d4d5f;
+        font-size: 14px;
+      }
+      .doc.is-paid .badge { background: #e7f6ee; color: #146c3a; }
+      .doc.is-rejected .badge { background: #fde8e8; color: #9b1c1c; }
+      .badge {
+        display: inline-block;
+        margin: 0 0 18px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #eef2f6;
+        color: #2f4a6d;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .paid-marks { display: none; margin: 0 0 18px; }
+      .doc.is-paid .paid-marks { display: block; }
+      .paid-marks strong {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 8px 12px;
+        border: 2px solid #146c3a;
+        color: #146c3a;
+        letter-spacing: 0.08em;
+      }
+      dl { margin: 0; display: grid; gap: 12px; }
+      .row { display: grid; grid-template-columns: 160px 1fr; gap: 12px; border-bottom: 1px solid #eef2f6; padding-bottom: 10px; }
+      dt { color: #5a6b7d; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
+      dd { margin: 0; font-weight: 700; overflow-wrap: anywhere; }
+      .status { margin-top: 8px; }
+      .error { padding: 28px; }
+      @media (max-width: 560px) {
+        .doc { padding: 22px 16px; }
+        .row { grid-template-columns: 1fr; gap: 4px; }
+      }
+      @media print {
+        body { background: #fff; }
+        .toolbar { display: none; }
+        .wrap { padding: 0; width: auto; }
+        .doc { border: 0; box-shadow: none; border-radius: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="toolbar">
+        <a href="thankyou.html">Back</a>
+        <button type="button" id="printBtn">Print / Save as PDF</button>
+      </div>
+      <article class="doc" id="receiptDoc">
+        <div class="watermark" id="watermark">Pending verification</div>
+        <p class="kicker">Private Property Holdings</p>
+        <h1 id="title">Payment proof submitted</h1>
+        <p class="badge" id="badge">Pending verification</p>
+        <p class="paid-marks"><strong>PAYMENT RECEIVED</strong><strong>PAID</strong></p>
+        <p class="notice" id="notice">This document confirms submission of payment evidence and does not confirm cleared funds.</p>
+        <dl>
+          <div class="row"><dt>Applicant</dt><dd id="applicantName">—</dd></div>
+          <div class="row"><dt>Property</dt><dd id="propertyAddress">—</dd></div>
+          <div class="row"><dt>Application ID</dt><dd id="applicationId">—</dd></div>
+          <div class="row"><dt>Receipt number</dt><dd id="receiptNumber">—</dd></div>
+          <div class="row"><dt>Application fee</dt><dd id="fee">$70.00</dd></div>
+          <div class="row"><dt>Submitted</dt><dd id="submittedAt">—</dd></div>
+          <div class="row status"><dt>Status</dt><dd id="status">Pending verification</dd></div>
+        </dl>
+      </article>
+    </div>
+    <script src="./script.js"></script>
+    <script>
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token') || localStorage.getItem('applicationAccessToken') || '';
+        const printBtn = document.getElementById('printBtn');
+        if (printBtn) printBtn.addEventListener('click', function () { window.print(); });
+
+        function money(value) {
+          const n = Number(value);
+          return Number.isFinite(n) ? '$' + n.toFixed(2) : '$70.00';
+        }
+        function when(value) {
+          if (!value) return '—';
+          const d = new Date(value);
+          return Number.isNaN(d.getTime()) ? String(value) : d.toLocaleString();
+        }
+        function fill(id, text) {
+          const el = document.getElementById(id);
+          if (el) el.textContent = text || '—';
+        }
+
+        if (!token || typeof window.loadApplicationRecord !== 'function') {
+          document.getElementById('title').textContent = 'Receipt unavailable';
+          document.getElementById('notice').textContent = 'Open this page from your payment confirmation link.';
+          return;
+        }
+
+        window.loadApplicationRecord(token).then(function (record) {
+          if (!record) {
+            document.getElementById('title').textContent = 'Receipt unavailable';
+            return;
+          }
+          const status = record.proof_status || '';
+          const doc = document.getElementById('receiptDoc');
+          fill('applicantName', record.applicant_name);
+          fill('propertyAddress', record.property_address);
+          fill('applicationId', record.application_id);
+          fill('receiptNumber', record.receipt_number);
+          fill('fee', money(record.application_fee));
+          fill('submittedAt', when(record.submitted_at));
+          if (status === 'paid') {
+            doc.classList.add('is-paid');
+            fill('title', 'Payment received');
+            fill('badge', 'Paid');
+            fill('status', 'Payment confirmed');
+            fill('notice', 'This receipt confirms that the reported application fee has been marked paid by Private Property Holdings.');
+          } else if (status === 'rejected') {
+            doc.classList.add('is-rejected');
+            fill('title', 'Payment proof rejected');
+            fill('badge', 'Rejected');
+            fill('status', 'Payment proof rejected');
+            fill('notice', 'We could not verify the submitted payment evidence. Please confirm the payment details and upload a clearer or correct screenshot from your payment page.');
+          } else {
+            fill('status', 'Pending verification');
+          }
+        }).catch(function () {
+          document.getElementById('title').textContent = 'Receipt unavailable';
+        });
+      })();
+    </script>
+  </body>
+</html>
