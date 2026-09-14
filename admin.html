@@ -98,6 +98,9 @@
         margin-top: 4px;
       }
       .actions button { flex: 1 1 140px; }
+      .amount-field { margin: 12px 0 8px; }
+      .amount-field label { margin-bottom: 6px; }
+      .amount-field .hint { margin: 6px 0 0; color: rgba(248,250,252,0.55); font-size: 12px; }
       .hidden { display: none; }
       @media (max-width: 560px) {
         .wrap { padding-left: 12px; padding-right: 12px; }
@@ -110,7 +113,7 @@
   <body>
     <main class="wrap">
       <h1>Payment review</h1>
-      <p class="sub">Pending submissions appear first. Confirm only after you have verified the Chime screenshot.</p>
+      <p class="sub">Pending submissions appear first. Type the amount that actually arrived, then confirm. That amount is what prints on the receipt.</p>
 
       <form class="login" id="loginForm">
         <label for="password">Owner password</label>
@@ -162,7 +165,8 @@
             meta.className = 'meta';
             meta.textContent = 'Application ID: ' + (row.application_id || '') +
               '\nReceipt: ' + (row.receipt_number || '') +
-              '\nFee: ' + money(row.application_fee);
+              '\nExpected fee: ' + money(row.application_fee) +
+              (row.confirmed_amount != null ? '\nAmount received: ' + money(row.confirmed_amount) : '');
             meta.style.whiteSpace = 'pre-line';
             card.appendChild(heading);
             card.appendChild(property);
@@ -183,16 +187,43 @@
             actions.className = 'actions';
             card.appendChild(actions);
             if (canAct) {
+              const amountWrap = document.createElement('div');
+              amountWrap.className = 'amount-field';
+              const amountLabel = document.createElement('label');
+              amountLabel.textContent = 'Amount received';
+              const amountInput = document.createElement('input');
+              amountInput.type = 'number';
+              amountInput.inputMode = 'decimal';
+              amountInput.min = '0.01';
+              amountInput.step = '0.01';
+              amountInput.placeholder = '0.00';
+              amountInput.value = row.application_fee != null ? String(Number(row.application_fee)) : '70';
+              const amountHint = document.createElement('p');
+              amountHint.className = 'hint';
+              amountHint.textContent = 'Enter what actually arrived (can be more than $70). This amount prints on the receipt.';
+              amountWrap.appendChild(amountLabel);
+              amountWrap.appendChild(amountInput);
+              amountWrap.appendChild(amountHint);
+              card.insertBefore(amountWrap, actions);
+
               const confirmBtn = document.createElement('button');
               confirmBtn.className = 'confirm';
               confirmBtn.type = 'button';
               confirmBtn.textContent = 'Confirm payment';
               confirmBtn.addEventListener('click', async function () {
+                const amount = Number(amountInput.value);
+                if (!Number.isFinite(amount) || amount <= 0) {
+                  queueError.textContent = 'Enter the amount you received before confirming.';
+                  amountInput.focus();
+                  return;
+                }
                 confirmBtn.disabled = true;
+                rejectBtn.disabled = true;
                 try {
-                  const result = await window.ownerConfirmProof(password, row.receipt_number);
+                  const result = await window.ownerConfirmProof(password, row.receipt_number, amount);
                   if (!result || !result.replay) {
                     try {
+                      row.confirmed_amount = amount;
                       await window.sendPaidReceiptEmail(row);
                     } catch (emailError) {
                       console.error('[Admin] Paid receipt email failed', emailError);
@@ -203,6 +234,7 @@
                 } catch (error) {
                   queueError.textContent = error.message || 'Confirm failed';
                   confirmBtn.disabled = false;
+                  rejectBtn.disabled = false;
                 }
               });
               const rejectBtn = document.createElement('button');
@@ -210,12 +242,14 @@
               rejectBtn.type = 'button';
               rejectBtn.textContent = 'Reject proof';
               rejectBtn.addEventListener('click', async function () {
+                confirmBtn.disabled = true;
                 rejectBtn.disabled = true;
                 try {
                   await window.ownerRejectProof(password, row.receipt_number);
                   await loadQueue(password);
                 } catch (error) {
                   queueError.textContent = error.message || 'Reject failed';
+                  confirmBtn.disabled = false;
                   rejectBtn.disabled = false;
                 }
               });

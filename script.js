@@ -243,15 +243,28 @@ window.supabaseRpc = async function supabaseRpc(fnName, args) {
     throw new Error("Supabase is not configured");
   }
 
-  const response = await fetch(url + "/rest/v1/rpc/" + fnName, {
-    method: "POST",
-    headers: {
-      apikey: key,
-      Authorization: "Bearer " + key,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(args || {}),
-  });
+  let response;
+  try {
+    response = await fetch(url + "/rest/v1/rpc/" + fnName, {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        apikey: key,
+        Authorization: "Bearer " + key,
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(args || {}),
+    });
+  } catch (error) {
+    const raw = error && error.message ? String(error.message) : "";
+    if (/failed to fetch|load failed|networkerror|the internet connection appears to be offline/i.test(raw) || (error && error.name === "TypeError")) {
+      throw new Error(
+        "Could not reach the database. Open supabase.com → this project and click Restore if it is paused, then try again."
+      );
+    }
+    throw error;
+  }
 
   const text = await response.text();
   let data = null;
@@ -262,6 +275,11 @@ window.supabaseRpc = async function supabaseRpc(fnName, args) {
   }
 
   if (!response.ok) {
+    if (response.status === 500 || response.status === 520 || response.status === 540) {
+      throw new Error(
+        "The database is not responding. Open supabase.com → this project and Restore it if it is paused."
+      );
+    }
     const message =
       (data && (data.message || data.error_description || data.hint)) ||
       text ||
@@ -307,10 +325,11 @@ window.ownerListProofs = async function ownerListProofs(password) {
   return window.supabaseRpc("owner_list_proofs", { p_password: password });
 };
 
-window.ownerConfirmProof = async function ownerConfirmProof(password, receiptNumber) {
+window.ownerConfirmProof = async function ownerConfirmProof(password, receiptNumber, amount) {
   return window.supabaseRpc("owner_confirm_proof", {
     p_password: password,
     p_receipt_number: receiptNumber,
+    p_amount: amount,
   });
 };
 
@@ -364,6 +383,7 @@ window.sendPaidReceiptEmail = async function sendPaidReceiptEmail(row) {
     receipt_number: row.receipt_number || "",
     property_address: row.property_address || "",
     receipt_url: window.receiptPageUrl(row.access_token),
+    amount: row.confirmed_amount != null ? String(row.confirmed_amount) : "",
   });
 };
 

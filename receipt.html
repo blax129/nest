@@ -128,6 +128,7 @@
           <div class="row"><dt>Application ID</dt><dd id="applicationId">—</dd></div>
           <div class="row"><dt>Receipt number</dt><dd id="receiptNumber">—</dd></div>
           <div class="row"><dt>Application fee</dt><dd id="fee">$70.00</dd></div>
+          <div class="row"><dt>Amount received</dt><dd id="receivedAmount">Pending confirmation</dd></div>
           <div class="row"><dt>Submitted</dt><dd id="submittedAt">—</dd></div>
           <div class="row status"><dt>Status</dt><dd id="status">Pending verification</dd></div>
         </dl>
@@ -179,7 +180,8 @@
             fill('title', 'Payment received');
             fill('badge', 'Paid');
             fill('status', 'Payment confirmed');
-            fill('notice', 'This receipt confirms that the reported application fee has been marked paid by Private Property Holdings.');
+            fill('receivedAmount', money(record.confirmed_amount != null ? record.confirmed_amount : record.receipt_amount));
+            fill('notice', 'This receipt confirms the amount received as verified by Private Property Holdings.');
           } else if (status === 'rejected') {
             doc.classList.add('is-rejected');
             fill('title', 'Payment proof rejected');
