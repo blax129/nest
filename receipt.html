@@ -127,7 +127,7 @@
           <div class="row"><dt>Property</dt><dd id="propertyAddress">—</dd></div>
           <div class="row"><dt>Application ID</dt><dd id="applicationId">—</dd></div>
           <div class="row"><dt>Receipt number</dt><dd id="receiptNumber">—</dd></div>
-          <div class="row"><dt>Application fee</dt><dd id="fee">$70.00</dd></div>
+          <div class="row"><dt>Application fee</dt><dd id="fee">$70 per adult</dd></div>
           <div class="row"><dt>Amount received</dt><dd id="receivedAmount">Pending confirmation</dd></div>
           <div class="row"><dt>Submitted</dt><dd id="submittedAt">—</dd></div>
           <div class="row status"><dt>Status</dt><dd id="status">Pending verification</dd></div>
@@ -173,7 +173,8 @@
           fill('propertyAddress', record.property_address);
           fill('applicationId', record.application_id);
           fill('receiptNumber', record.receipt_number);
-          fill('fee', money(record.application_fee));
+          const fee = Number(record.application_fee);
+          fill('fee', (Number.isFinite(fee) ? '$' + fee.toFixed(0) : '$70') + ' per adult');
           fill('submittedAt', when(record.submitted_at));
           if (status === 'paid') {
             doc.classList.add('is-paid');
