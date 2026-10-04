@@ -42,10 +42,29 @@
         border-radius: 16px;
         padding: 36px 32px;
         box-shadow: 0 18px 50px rgba(16, 32, 51, 0.12);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .brand-head {
+        position: relative;
+        z-index: 2;
+        margin: -36px -32px 24px;
+        padding: 10px 16px 8px;
+        background: #000;
+        border-bottom: 3px solid #dce3ea;
+        text-align: center;
+      }
+      .brand-head img {
+        width: min(560px, 100%);
+        aspect-ratio: 2.45;
+        height: auto;
+        object-fit: cover;
+        object-position: center 40%;
+        display: inline-block;
       }
       .watermark {
         position: absolute;
-        inset: 18% 0 auto;
+        inset: 48% 0 auto;
         text-align: center;
         font-size: clamp(28px, 6vw, 42px);
         font-weight: 800;
@@ -99,6 +118,7 @@
       .error { padding: 28px; }
       @media (max-width: 560px) {
         .doc { padding: 22px 16px; }
+        .brand-head { margin: -22px -16px 18px; padding: 8px 8px 6px; }
         .row { grid-template-columns: 1fr; gap: 4px; }
       }
       @media print {
@@ -116,8 +136,11 @@
         <button type="button" id="printBtn">Print / Save as PDF</button>
       </div>
       <article class="doc" id="receiptDoc">
+        <header class="brand-head">
+          <img src="images/private-property-logo.png" alt="Private Property Holdings">
+        </header>
         <div class="watermark" id="watermark">Pending verification</div>
-        <p class="kicker">Private Property Holdings</p>
+        <p class="kicker">Official receipt</p>
         <h1 id="title">Payment proof submitted</h1>
         <p class="badge" id="badge">Pending verification</p>
         <p class="paid-marks"><strong>PAYMENT RECEIVED</strong><strong>PAID</strong></p>
