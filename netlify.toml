@@ -1,0 +1,13 @@
+[build]
+  command = ""
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/receipts"
+  to = "/.netlify/functions/receipts"
+  status = 200
+  force = true

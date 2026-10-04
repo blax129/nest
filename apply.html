@@ -1090,9 +1090,9 @@
               if (accessToken) {
                 localStorage.setItem('applicationAccessToken', accessToken);
               }
-              console.log('[RentalForm] Supabase save success');
-            } catch (supabaseError) {
-              console.error('[RentalForm] Supabase save failed (Formspree will still run):', supabaseError);
+              console.log('[RentalForm] Receipt record saved');
+            } catch (saveError) {
+              console.error('[RentalForm] Receipt record save failed (Formspree will still run):', saveError);
             }
           }
 

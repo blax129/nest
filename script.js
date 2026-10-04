@@ -232,36 +232,21 @@ window.EMAILJS_PAID_PUBLIC_KEY = "KCAHVFrJSzxYDLsKQ";
 window.EMAILJS_PAID_SERVICE_ID = "service_b7vipz6";
 window.EMAILJS_PAID_TEMPLATE_ID = "template_ulu44ue";
 
-window.SUPABASE_URL = "https://hkyeuxtkpltgnpnxythz.supabase.co";
-window.SUPABASE_ANON_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhreWV1eHRrcGx0Z25wbnh5dGh6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc5OTg4NjgsImV4cCI6MjEwMzU3NDg2OH0.FZTm5e_yHdqF0s9CT6BysJUd1qMjaaE4277WQyncHjE";
-
-window.supabaseRpc = async function supabaseRpc(fnName, args) {
-  const url = window.SUPABASE_URL;
-  const key = window.SUPABASE_ANON_KEY;
-  if (!url || !key) {
-    throw new Error("Supabase is not configured");
-  }
-
+window.receiptsRequest = async function receiptsRequest(action, fields) {
   let response;
   try {
-    response = await fetch(url + "/rest/v1/rpc/" + fnName, {
+    response = await fetch("/api/receipts", {
       method: "POST",
-      mode: "cors",
       headers: {
-        apikey: key,
-        Authorization: "Bearer " + key,
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(args || {}),
+      body: JSON.stringify(Object.assign({ action: action }, fields || {})),
     });
   } catch (error) {
     const raw = error && error.message ? String(error.message) : "";
     if (/failed to fetch|load failed|networkerror|the internet connection appears to be offline/i.test(raw) || (error && error.name === "TypeError")) {
-      throw new Error(
-        "Could not reach the database. Open supabase.com → this project and click Restore if it is paused, then try again."
-      );
+      throw new Error("Could not reach the receipt records. Check your connection and try again.");
     }
     throw error;
   }
@@ -271,19 +256,11 @@ window.supabaseRpc = async function supabaseRpc(fnName, args) {
   try {
     data = text ? JSON.parse(text) : null;
   } catch (error) {
-    data = text;
+    data = null;
   }
 
   if (!response.ok) {
-    if (response.status === 500 || response.status === 520 || response.status === 540) {
-      throw new Error(
-        "The database is not responding. Open supabase.com → this project and Restore it if it is paused."
-      );
-    }
-    const message =
-      (data && (data.message || data.error_description || data.hint)) ||
-      text ||
-      "Supabase request failed";
+    const message = (data && (data.error || data.message)) || "Receipt request failed";
     throw new Error(message);
   }
 
@@ -291,52 +268,39 @@ window.supabaseRpc = async function supabaseRpc(fnName, args) {
 };
 
 window.saveApplicationRecord = async function saveApplicationRecord(fields) {
-  return window.supabaseRpc("submit_application", {
-    p_application_id: fields.applicationId || "",
-    p_applicant_name: fields.applicantName || "",
-    p_applicant_email: fields.applicantEmail || "",
-    p_applicant_phone: fields.applicantPhone || "",
-    p_property_address: fields.propertyAddress || "",
-    p_payment_email: fields.paymentEmail || "",
-  });
+  return window.receiptsRequest("submit_application", fields || {});
 };
 
 window.loadApplicationRecord = async function loadApplicationRecord(token) {
   if (!token) return null;
-  return window.supabaseRpc("get_application_by_token", { p_token: token });
+  return window.receiptsRequest("get_application_by_token", { token: token });
 };
 
 window.savePaymentProof = async function savePaymentProof(fields) {
-  return window.supabaseRpc("submit_payment_proof", {
-    p_token: fields.token || "",
-    p_screenshot_url: fields.screenshotUrl || "",
-    p_cloudinary_public_id: fields.publicId || "",
-  });
+  return window.receiptsRequest("submit_payment_proof", fields || {});
 };
 
 window.getPublicReceiptStatus = async function getPublicReceiptStatus(receiptNumber) {
   if (!receiptNumber) return null;
-  return window.supabaseRpc("get_public_receipt_status", {
-    p_receipt_number: receiptNumber,
-  });
+  return window.receiptsRequest("get_public_receipt_status", { receiptNumber: receiptNumber });
 };
 
 window.ownerListProofs = async function ownerListProofs(password) {
-  return window.supabaseRpc("owner_list_proofs", { p_password: password });
+  return window.receiptsRequest("owner_list_proofs", { password: password });
 };
 
 window.ownerConfirmProof = async function ownerConfirmProof(password, receiptNumber, amount) {
-  return window.supabaseRpc("owner_confirm_proof", {
-    p_password: password,
-    p_receipt_number: receiptNumber,
-    p_amount: amount,
+  return window.receiptsRequest("owner_confirm_proof", {
+    password: password,
+    receiptNumber: receiptNumber,
+    amount: amount,
   });
 };
 
 window.ownerRejectProof = async function ownerRejectProof(password, receiptNumber) {
-  return window.supabaseRpc("owner_reject_proof", {
-    p_password: password,
-    p_receipt_number: receiptNumber,
+  return window.receiptsRequest("owner_reject_proof", {
+    password: password,
+    receiptNumber: receiptNumber,
   });
 };
 
