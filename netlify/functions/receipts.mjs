@@ -1,5 +1,5 @@
 import { getStore } from "@netlify/blobs";
-import { receiptActions } from "./receipts-lib.mjs";
+import { receiptActions } from "../receipts-lib.mjs";
 
 function json(body, status) {
   return new Response(body === undefined ? "null" : JSON.stringify(body), {

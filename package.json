@@ -5,7 +5,7 @@
   "main": "script.js",
   "private": true,
   "scripts": {
-    "test": "node --test netlify/functions/receipts.test.mjs"
+    "test": "node --test tests/receipts.test.mjs"
   },
   "repository": {
     "type": "git",

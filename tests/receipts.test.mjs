@@ -8,7 +8,7 @@ import {
   ownerRejectProof,
   submitApplication,
   submitPaymentProof,
-} from "./receipts-lib.mjs";
+} from "../netlify/receipts-lib.mjs";
 
 function memoryStore() {
   const data = new Map();
